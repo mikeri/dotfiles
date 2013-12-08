@@ -294,7 +294,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call <SID>X('PmenuSel', 'grey80', 'grey25')
     "Scrollbar
     "Tooltip
-    call <SID>X('MatchParen', 'dfffdf', 'grey30')
+    call <SID>X('MatchParen', 'white', 'goldenrod')
 
     " syntax highlighting groups
     call <SID>X('Comment', 'grey50')
