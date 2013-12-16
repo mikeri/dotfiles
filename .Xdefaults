@@ -1,0 +1,53 @@
+xrenoise.use_xcursors:	1
+xrenoise.display:	:0.0
+xrenoise.display_resource:	0x00,0x01,0x9B,0x85,0x68,0x08,0xD5,0x65
+xrenoise.executable_path:	/home/mikeri/Stuff/Renoise_2_8_1_Demo_x86_64/renoise
+URxvt*termName: rxvt-unicode-256color
+URxvt*saveLines: 10000
+URxvt*background:  #1b1d1e
+URxvt*foreground:  #a8a8a8
+URxvt*scrollBar_right:	true
+URxvt*scrollBar:	false
+URxvt*inheritPixmap:	false
+URxvt*geometry:		84x24
+URxvt*tint:		white
+URxvt*font: xft:gohufont:style=Regular:pixelsize=13
+URxvt*boldFont: xft:gohufont:style=Bold:pixelsize=13
+URxvt*color0:     #1b1d1e
+URxvt*color1:     #cc5555
+URxvt*color2:     #739f12
+URxvt*color3:     #ccc355
+URxvt*color4:     #4072bc
+URxvt*color5:     #6f38df
+URxvt*color6:     #42aec2
+URxvt*color7:     #b9b9b9
+URxvt*color8:     #505354
+URxvt*color9:     #ff8888
+URxvt*color10:    #c2e86f
+URxvt*color11:    #fffcbb
+URxvt*color12:    #99bbee
+URxvt*color13:    #bd9cff
+URxvt*color14:    #9dedfb
+URxvt*color15:    #ffffff
+URxvt*urgentOnBell:  true
+URxvt*visualBell:    true
+URxvt*fading:           20
+URxvt*fadeColor:        black
+URxvt*blurRadius:       5
+URxvt.matcher.rend.0: -Uline
+#URxvt*perl-lib:         /home/david/.urxvt
+URxvt*perl-ext: default,matcher
+#URxvt*perl-ext-common: default,matcher,digital-clock,monit
+URxvt*url-Launcher:firefox
+URxvt*jumpScroll: true
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyOutput: false
+URxvt*scrollTtyKeypress: true
+URxvt*cursorBlink: true
+ 
+URxvt.matcher.button: 1
+
+## xterm config
+xterm*termName: xterm
+xterm*background: #1b1d1e
+xterm*foreground: #A8A8A8
