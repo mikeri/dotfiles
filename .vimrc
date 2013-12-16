@@ -10,11 +10,11 @@ set ttimeoutlen=50
 " highlight LineNr guibg=#222
 call vundle#rc()
 colorscheme desert-warm-256
-let g:airline_theme='powerlineish'
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#buffer_nr_show=1
-let g:airline_section_warning = ''
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+ let g:airline_theme='powerlineish'
+ let g:airline#extensions#tabline#enabled=1
+ let g:airline#extensions#tabline#buffer_nr_show=1
+ let g:airline_section_warning = ''
+ let g:airline#extensions#tabline#formatter = 'unique_tail'
 " hi CursorLine cterm=none ctermbg=darkgrey
 set cursorline
 " let Vundle manage Vundle
@@ -29,13 +29,13 @@ Bundle 'taglist.vim'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'bling/vim-bufferline'
 Bundle 'bling/vim-airline'
+" Bundle 'itchyny/lightline.vim'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Indent-Guides'
+Bundle 'skammer/vim-css-color'
+" Bundle 'Indent-Guides'
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
+" Bundle 'FuzzyFinder'
 " non github repos
-Bundle 'git://git.wincent.com/command-t.git'
 " ...
 filetype plugin indent on     " required!
 "
