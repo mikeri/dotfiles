@@ -26,7 +26,7 @@ Bundle 'gmarik/vundle'
 "
 " original repos on github
 Bundle 'tpope/vim-fugitive'
-Bundle 'taglist.vim'
+" Bundle 'taglist.vim'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'bling/vim-bufferline'
 Bundle 'bling/vim-airline'
