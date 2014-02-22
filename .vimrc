@@ -11,7 +11,7 @@ set relativenumber
 " highlight LineNr guibg=#222
 call vundle#rc()
 colorscheme desert-warm-256
- let g:airline_theme='powerlineish'
+ let g:airline_theme='wombat'
  let g:airline#extensions#tabline#enabled=1
  let g:airline#extensions#tabline#buffer_nr_show=1
  let g:airline_section_warning = ''
@@ -62,3 +62,5 @@ let g:airline_left_alt_sep=''
 let g:airline_right_alt_sep=''
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+syntax on
+set laststatus=2
