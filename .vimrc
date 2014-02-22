@@ -7,6 +7,7 @@ set ts=2
 set sw=2
 set gfn=GohuFont\ 10
 set ttimeoutlen=50
+set relativenumber
 " highlight LineNr guibg=#222
 call vundle#rc()
 colorscheme desert-warm-256
@@ -31,7 +32,7 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'bling/vim-airline'
 " Bundle 'itchyny/lightline.vim'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'skammer/vim-css-color'
+" Bundle 'skammer/vim-css-color'
 " Bundle 'Indent-Guides'
 " vim-scripts repos
 " Bundle 'FuzzyFinder'
