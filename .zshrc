@@ -34,7 +34,7 @@ ZSH_THEME="scc"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ruby zsh-syntax-highlighting)
+plugins=(zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -58,3 +58,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;253m'    # begin underline
 #alias less="less -P $'\E[01;38;5;155;48;5;238m?f%f \E[00;38;5;145;48;5;238m-\E[00;38;5;145;48;5;238m .?lt\E[00;86;5;139;48;5;238mLine %lt ?Lof %L ?pt(%pt\\%)'"
 alias colortest="python -c \"print('\n'.join([(' '.join([('\033[38;5;' + str((i + j)) + 'm' + str((i + j)).ljust(5) +
    '\033[0m') if i + j < 256 else '' for j in range(10)])) for i in range(0, 256, 10)]))\"" 
+
+bindkey -v
+bindkey "^[[B" history-beginning-search-forward
+bindkey "^[[A" history-beginning-search-backward
