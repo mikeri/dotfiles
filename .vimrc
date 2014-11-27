@@ -3,15 +3,15 @@ set hlsearch
 set ic
 set rtp+=~/.vim/bundle/vundle/
 set nu
-set ts=2
-set sw=2
+set ts=4
+set sw=4
 set gfn=GohuFont\ 10
 set ttimeoutlen=50
 set relativenumber
 " highlight LineNr guibg=#222
 call vundle#rc()
 colorscheme desert-warm-256
- let g:airline_theme='wombat'
+ let g:airline_theme='powerlineish'
  let g:airline#extensions#tabline#enabled=1
  let g:airline#extensions#tabline#buffer_nr_show=1
  let g:airline_section_warning = ''
@@ -26,13 +26,15 @@ Bundle 'gmarik/vundle'
 "
 " original repos on github
 Bundle 'tpope/vim-fugitive'
-" Bundle 'taglist.vim'
+Bundle 'taglist.vim'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'bling/vim-bufferline'
 Bundle 'bling/vim-airline'
 " Bundle 'itchyny/lightline.vim'
 Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'skammer/vim-css-color'
+Bundle 'pyflakes.vim'
+" Bundle 'Yggdroot/indentLine'
+" Bundle 'ap/vim-css-color'
 " Bundle 'Indent-Guides'
 " vim-scripts repos
 " Bundle 'FuzzyFinder'
@@ -62,5 +64,3 @@ let g:airline_left_alt_sep=''
 let g:airline_right_alt_sep=''
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-syntax on
-set laststatus=2
