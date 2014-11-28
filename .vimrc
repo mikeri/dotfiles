@@ -5,12 +5,13 @@ set rtp+=~/.vim/bundle/vundle/
 set nu
 set ts=4
 set sw=4
+set sts=4
+set expandtab
 set gfn=GohuFont\ 10
 set ttimeoutlen=50
 set relativenumber
 " highlight LineNr guibg=#222
 call vundle#rc()
-colorscheme desert-warm-256
  let g:airline_theme='powerlineish'
  let g:airline#extensions#tabline#enabled=1
  let g:airline#extensions#tabline#buffer_nr_show=1
@@ -59,6 +60,8 @@ cnoreabbrev c64 !~/Development/c64/kickassend.sh %
 cnoreabbrev vice !~/Development/c64/kickassvice.sh %
 cnoreabbrev :W :w
 cnoreabbrev :Q :q
+colorscheme desert-warm-256
+hi SpellBad ctermfg=NONE ctermbg=88
 " Airline
 let g:airline_left_alt_sep=''
 let g:airline_right_alt_sep=''
