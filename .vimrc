@@ -58,10 +58,9 @@ set guioptions-=m
 set dir=~/.vim/swapfiles
 cnoreabbrev c64 !~/Development/c64/kickassend.sh %
 cnoreabbrev vice !~/Development/c64/kickassvice.sh %
-cnoreabbrev :W :w
-cnoreabbrev :Q :q
+cnoreabbrev W w
+cnoreabbrev Q q
 colorscheme desert-warm-256
-hi SpellBad ctermfg=NONE ctermbg=88
 " Airline
 let g:airline_left_alt_sep=''
 let g:airline_right_alt_sep=''
@@ -69,3 +68,4 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 syntax on
 set laststatus=2
+hi SpellBad ctermfg=NONE ctermbg=88
