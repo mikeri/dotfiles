@@ -34,6 +34,8 @@ Bundle 'bling/vim-airline'
 " Bundle 'itchyny/lightline.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'pyflakes.vim'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'supertab'
 " Bundle 'Yggdroot/indentLine'
 " Bundle 'ap/vim-css-color'
 " Bundle 'Indent-Guides'
@@ -53,6 +55,7 @@ filetype plugin indent on     " required!
 " NOTE: comments after Bundle command are not allowed..
 " nnoremap <C-Left> :tabprevious<CR>
 " nnoremap <C-Right> :tabnext<CR>
+autocmd FileType python setlocal completeopt-=preview
 set guioptions-=T
 set guioptions-=m
 set dir=~/.vim/swapfiles
