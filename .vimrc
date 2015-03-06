@@ -10,7 +10,7 @@ set expandtab
 set gfn=GohuFont\ 10
 set ttimeoutlen=50
 set relativenumber
-" highlight LineNr guibg=#222
+set wildmenu
 set cursorline
 call vundle#rc()
 " Vundle stuff:
