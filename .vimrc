@@ -1,4 +1,5 @@
 filetype off                   " required!
+set t_ut= 
 set hlsearch
 set ic
 set rtp+=~/.vim/bundle/vundle/
