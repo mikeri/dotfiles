@@ -13,6 +13,7 @@ set ttimeoutlen=50
 set relativenumber
 set wildmenu
 set cursorline
+set lazyredraw
 call vundle#rc()
 " Vundle stuff:
 Bundle 'gmarik/vundle'
