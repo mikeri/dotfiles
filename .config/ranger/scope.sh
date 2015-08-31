@@ -55,6 +55,11 @@ case "$extension" in
 		have lynx   && lynx   -dump "$path" | head -n $maxln | fmt -s -w $width && exit 4
 		have elinks && elinks -dump "$path" | head -n $maxln | fmt -s -w $width && exit 4
 		;; # fall back to highlight/cat if theres no lynx/elinks
+    d64)
+        c1541 -attach "$path" -list  | sed -e '1!b;s/.*/\x1B[47;30m&\x1B[40;36m/' 
+        echo
+        c1541 -attach "$path" -info
+		success && exit 0 || exit 1;;
 esac
 
 case "$mimetype" in
