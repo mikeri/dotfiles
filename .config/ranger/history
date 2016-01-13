@@ -1,50 +1,50 @@
-search Mus
-search Gro
-search mus
-open_with uade
-search vi
-?
+open_with file
+search stu
+search k2d
+open
 open_with j
-set colorscheme jungle
-set draw_borders = 1
-set colorscheme snow
-search jada
-search kar
-search pic
-h
-mkdir pages
+open_with feh
+open_with rawview
+rename shishfont3.raw
 
-dekete
-q
-de
-set draw_borders
-set draw_borders 1
-set draw_borders 0
-rename nd
-search fhm
-search Pic
-search pr
-search pr0
-open_w
-search donna
-help
-search Mac
-search mac
-search osx
-search hero
-search Vid
-shell 
-touch   
-search nuru
-rename ALLBEARS-SIDE1.d64
-rename ALLBEARS-SIDE2.d64
-cd Stuff/c64-stuff
-open_with 
-search final
-search fina
-versionj
-version
-delete
+search c64
+open_with ghex
+open_with petcat
+find dev
+find chared
+find n
+find ne7
+find c64-
+mkdir scc
+mkdir 
+find .goat
+find .goattracker
+cd .goattrk/
+open_with goattracker
+cd .config
+find rang
+open_with rn
+open_with python
+open_with vim
+search 
+find sa
 flat
-flat 1
 flat 0
+flat 1
+flat 3
+bulkrename
+find deblq
+find deb
+find h
+find hub
+find comm
+find python
+find pyth
+find ranger
+find mu
+open_with 
+help
+bulkrename 
+open_with gimp
+search blitz
+delete
