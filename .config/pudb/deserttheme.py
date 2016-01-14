@@ -52,7 +52,7 @@ palette.update({
             "focused selectable": ("h235", "h249"),
 
             "button": ("h252", "h235"),
-            "focused button": ("h245", "h249"),
+            "focused button": ("h255", "h37"),
 
             "background": ("h249", "h236"),
             "hotkey": (add_setting("h250", "underline"), "h236", "underline"),
@@ -75,7 +75,7 @@ palette.update({
             # {{{ source view
             "breakpoint marker": ("h160", "h235"),
 
-            "breakpoint source": ("h252", "h124"),
+            "breakpoint source": ("h227", "h124"),
             "breakpoint focused source": ("h192", "h124"),
             "current breakpoint source": ("h192", "h124"),
             "current breakpoint focused source": (add_setting("h192", "bold"), "h124"),
@@ -85,20 +85,20 @@ palette.update({
             "source": ("h255", "h235"),
             "focused source": ("h192", "h24"),
             "highlighted source": ("h252", "h22"),
-            "current source": (add_setting("h252", "bold"), "h23"),
+            "current source": (add_setting("h255", "bold"), "h23"),
             "current focused source": (add_setting("h192", "bold"), "h23"),
             "current highlighted source": ("h255", "h22"),
 
             "line number": ("h241", "h235"),
-            "keyword": ("h111", "h235"),
+            "keyword": (add_setting("h221", "bold"), "h235"),
 
             "literal": ("h173", "h235"),
-            "string": ("h113", "h235"),
+            "string": ("h74", "h235"),
             "doublestring": ("h113", "h235"),
             "singlestring": ("h113", "h235"),
             "docstring": ("h113", "h235"),
 
-            "name": ("h192", "h235"),
+            "name": ("h154", "h235"),
             "punctuation": ("h223", "h235"),
             "comment": ("h242", "h235"),
 
