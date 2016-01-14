@@ -1,5 +1,5 @@
 palette.update({
-                "header": ("h235", "h245", "standout"),
+                "header": ("h255", "h245", "standout"),
 
             # {{{ variables view
             "variables": ("h235", "h233"),
@@ -49,21 +49,21 @@ palette.update({
             # {{{ ui widgets
 
             "selectable": ("h252", "h235"),
-            "focused selectable": ("h255", "h24"),
+            "focused selectable": ("h235", "h249"),
 
             "button": ("h252", "h235"),
-            "focused button": ("h255", "h24"),
+            "focused button": ("h245", "h249"),
 
-            "background": ("h245", "h236"),
-            "hotkey": (add_setting("h235", "underline"), "h252", "underline"),
+            "background": ("h249", "h236"),
+            "hotkey": (add_setting("h250", "underline"), "h236", "underline"),
             "focused sidebar": ("h23", "h252", "standout"),
 
             "warning": (add_setting("h255", "bold"), "h124", "standout"),
 
-            "label": ("h235", "h252"),
-            "value": ("h255", "h17"),
-            "fixed value": ("h252", "h17"),
-            "group head": (add_setting("h25", "bold"), "h252"),
+            "label": ("h235", "h245"),
+            "value": ("h255", "h235"),
+            "fixed value": ("h252", "h235"),
+            "group head": (add_setting("h215", "bold"), "h236"),
 
             "search box": ("h255", "h235"),
             "search not found": ("h255", "h124"),
