@@ -19,15 +19,18 @@ set mouse=a
 call plug#begin('~/.config/nvim/bundle')
 " Plug 'gmarik/vundle'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'jaxbot/browserlink.vim'
 Plug 'taglist.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'bling/vim-airline'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'jplaut/vim-arduino-ino'
 " Plug 'pyflakes.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'supertab'
 Plug 'benekastah/neomake'
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 " Plug 'Yggdroot/indentLine'
 " Plug 'ap/vim-css-color'
 " Plug 'Indent-Guides'
@@ -67,7 +70,7 @@ hi WarningMsg ctermfg=NONE ctermbg=214
 hi SignColumn ctermbg=236
 let g:neomake_error_sign = { 'text': '>>', 'texthl': 'ErrorMsg' } 
 let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'WarningMsg' } 
-let g:neomake_python_enabled_makers = ['pyflakes']
+let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
 let g:neomake_verbose = 0
 
 " Compatible with ranger 1.4.2 through 1.7.*
