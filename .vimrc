@@ -22,6 +22,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'taglist.vim'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'pyflakes.vim'
 Bundle 'davidhalter/jedi-vim'
