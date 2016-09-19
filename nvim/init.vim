@@ -1,8 +1,9 @@
 filetype off                   " required!
-set t_ut= 
+set encoding=utf-8
+set fileencoding=utf-8
 set hlsearch
 set ic
-set rtp+=~/.vim/bundle/vundle/
+" set rtp+=~/.vim/bundle/vundle/
 set nu
 set ts=4
 set sw=4
@@ -15,25 +16,30 @@ set wildmenu
 set cursorline
 set lazyredraw
 set mouse=a
-call vundle#rc()
+" call vundle#rc()
 " Vundle stuff:
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'taglist.vim'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'bling/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'pyflakes.vim'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'supertab'
-Bundle 'syntastic'
-Bundle 'mattn/emmet-vim'
-" Bundle 'Yggdroot/indentLine'
-" Bundle 'ap/vim-css-color'
-" Bundle 'Indent-Guides'
-" Bundle 'FuzzyFinder'
+call plug#begin('~/.config/nvim/bundle')
+" Plug 'gmarik/vundle'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'jaxbot/browserlink.vim'
+Plug 'taglist.vim'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'bling/vim-airline'
+Plug 'Lokaltog/vim-easymotion'
+" Plug 'jplaut/vim-arduino-ino'
+" Plug 'pyflakes.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'supertab'
+Plug 'benekastah/neomake'
+" Plug 'DonnieWest/VimStudio'
+" Plug 'mattn/emmet-vim'
+" Plug 'Yggdroot/indentLine'
+" Plug 'ap/vim-css-color'
+" Plug 'Indent-Guides'
+" Plug 'FuzzyFinder'
 " Airline
+call plug#end()
 let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
@@ -44,10 +50,10 @@ let g:airline_right_alt_sep=''
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 filetype plugin indent on     " required!
-" autocmd FileType python setlocal completeopt-=preview
-let g:jedi#popup_on_dot=0
-let g:pymode_folding=0
-let g:jedi#show_call_signatures=0
+autocmd FileType python setlocal completeopt+=preview
+let g:jedi#popup_on_dot=1
+let g:pymode_folding=1
+let g:jedi#show_call_signatures=1
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 set guioptions-=T
 set guioptions-=m
@@ -58,9 +64,17 @@ cnoreabbrev W w
 cnoreabbrev Q q
 colorscheme desert-warm-256
 syntax on
+autocmd! BufWrite * Neomake
 set laststatus=2
 " Fix error highlight
-hi SpellBad ctermfg=NONE ctermbg=88
+hi SpellBad ctermfg=NONE ctermbg=100
+hi ErrorMsg ctermfg=NONE ctermbg=88
+hi WarningMsg ctermfg=NONE ctermbg=214
+hi SignColumn ctermbg=236
+let g:neomake_error_sign = { 'text': '>>', 'texthl': 'ErrorMsg' } 
+let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'WarningMsg' } 
+let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
+let g:neomake_verbose = 0
 
 " Compatible with ranger 1.4.2 through 1.7.*
 "
