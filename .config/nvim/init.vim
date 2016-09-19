@@ -28,6 +28,7 @@ Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'Shougo/unite.vim'
 " Plug 'jplaut/vim-arduino-ino'
 " Plug 'pyflakes.vim'
 " Plug 'davidhalter/jedi-vim'
@@ -64,6 +65,7 @@ cnoreabbrev c64 !~/Development/c64/kickassend.sh %
 cnoreabbrev vice !~/Development/c64/kickassvice.sh %
 cnoreabbrev W w
 cnoreabbrev Q q
+noremap \b :Unite buffer<CR>
 colorscheme desert-warm-256
 syntax on
 autocmd! BufWrite * Neomake
