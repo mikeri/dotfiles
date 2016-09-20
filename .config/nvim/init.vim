@@ -66,6 +66,7 @@ cnoreabbrev vice !~/Development/c64/kickassvice.sh %
 cnoreabbrev W w
 cnoreabbrev Q q
 noremap \b :Unite buffer<CR>
+noremap \f :Unite file<CR>
 colorscheme desert-warm-256
 syntax on
 autocmd! BufWrite * Neomake
