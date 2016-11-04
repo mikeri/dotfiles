@@ -1,17 +1,16 @@
 # Path to your oh-my-zsh configuration.
 ZSH=~/.oh-my-zsh/
 
+# Cute fortune to read while everything sets up. :) Fold long lines to terminal width.
+COLS=`tput cols`
+COLS=$((COLS-2))
+fortune | fold -s -w $COLS
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="nicoulaj"
 ZSH_THEME="scc"
-#ZSH_THEME="random"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -26,15 +25,15 @@ ZSH_THEME="scc"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(zsh-syntax-highlighting)
+plugins=(zsh-syntax-highlighting adb history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -45,6 +44,8 @@ export EDITOR=vim
 # perl -E ' print "\e[?1005h\e[?1002h" '
 
 PATH=$PATH:~/.gem/ruby/2.0.0/bin
+PATH=$PATH:~/.local/bin
+PATH=$PATH:~/Development/Android-SDKs/platform-tools
 export PATH
 # Colorful man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
@@ -58,7 +59,44 @@ export LESS_TERMCAP_us=$'\E[04;38;5;253m'    # begin underline
 #alias less="less -P $'\E[01;38;5;155;48;5;238m?f%f \E[00;38;5;145;48;5;238m-\E[00;38;5;145;48;5;238m .?lt\E[00;86;5;139;48;5;238mLine %lt ?Lof %L ?pt(%pt\\%)'"
 alias colortest="python -c \"print('\n'.join([(' '.join([('\033[38;5;' + str((i + j)) + 'm' + str((i + j)).ljust(5) +
    '\033[0m') if i + j < 256 else '' for j in range(10)])) for i in range(0, 256, 10)]))\"" 
-
+alias new="ls -lth|head -11|tail"
 bindkey -v
-bindkey "^[[B" history-beginning-search-forward
-bindkey "^[[A" history-beginning-search-backward
+
+# -- Keyboard handling, from zshwiki.org -------------
+# create a zkbd compatible hash;
+# to add other keys to this hash, see: man 5 terminfo
+typeset -A key
+
+key[Home]=${terminfo[khome]}
+key[End]=${terminfo[kend]}
+key[Insert]=${terminfo[kich1]}
+key[Delete]=${terminfo[kdch1]}
+key[Up]=${terminfo[kcuu1]}
+key[Down]=${terminfo[kcud1]}
+key[Left]=${terminfo[kcub1]}
+key[Right]=${terminfo[kcuf1]}
+key[PageUp]=${terminfo[kpp]}
+key[PageDown]=${terminfo[knp]}
+
+# setup key accordingly
+[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
+[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
+[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode
+[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
+[[ -n "${key[Up]}"      ]]  && bindkey  "${key[Up]}"      history-substring-search-up
+[[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"    history-substring-search-down
+[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
+[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
+
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+    function zle-line-init () {
+        echoti smkx
+    }
+    function zle-line-finish () {
+        echoti rmkx
+    }
+    zle -N zle-line-init
+    zle -N zle-line-finish
+fi
