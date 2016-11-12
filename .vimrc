@@ -62,3 +62,23 @@ syntax on
 set laststatus=2
 " Fix error highlight
 hi SpellBad ctermfg=NONE ctermbg=88
+
+" -- writing mode --
+function! Code()
+    setlocal nospell
+    set cursorline
+    set nolinebreak
+    unmap j
+    unmap k
+endfunction
+
+function! Text()
+    setlocal spell spelllang=en_us
+    set nocursorline
+    set linebreak
+    map j gj 
+    map k gk
+endfunction
+
+command Text call Text()
+command Code call Code()

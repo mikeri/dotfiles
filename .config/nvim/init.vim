@@ -6,7 +6,6 @@ set encoding=utf-8
 set fileencoding=utf-8
 set hlsearch
 set ic
-" set rtp+=~/.vim/bundle/vundle/
 set nu
 set ts=4
 set sw=4
@@ -19,11 +18,11 @@ set wildmenu
 set cursorline
 set lazyredraw
 set mouse=a
+set undofile
 
 " -- plugins, managed by vim-plug --
 call plug#begin('~/.config/nvim/bundle')
 
-" Plug 'gmarik/vundle'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 " Plug 'jaxbot/browserlink.vim'
@@ -34,12 +33,14 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Shougo/unite.vim'
 " Plug 'jplaut/vim-arduino-ino'
-"" Plug 'pyflakes.vim'
+" Plug 'pyflakes.vim'
 " Plug 'davidhalter/jedi-vim'
 Plug 'supertab'
 Plug 'benekastah/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
+" Plug 'Yggdroot/indentLine'
+Plug 'metakirby5/codi.vim'
 " Plug 'davidhalter/jedi-vim'
 " Plug 'DonnieWest/VimStudio'
 " Plug 'mattn/emmet-vim'
@@ -47,6 +48,7 @@ Plug 'zchee/deoplete-jedi'
 " Plug 'ap/vim-css-color'
 " Plug 'Indent-Guides'
 " Plug 'FuzzyFinder'
+"
 call plug#end()
 filetype plugin indent on     " required!
 
@@ -84,11 +86,14 @@ let g:airline_right_alt_sep=''
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 
-"autocmd FileType python setlocal completeopt+=preview
-"let g:jedi#popup_on_dot=1
-"let g:pymode_folding=1
-"let g:jedi#show_call_signatures=1
+" -- unite --
+noremap \b :Unite buffer<CR>
+noremap \f :Unite file<CR>
+
+" -- supertab --
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+" -- misc config --
 set guioptions-=T
 set guioptions-=m
 set dir=~/.vim/swapfiles
@@ -96,21 +101,40 @@ cnoreabbrev c64 !~/Development/c64/kickassend.sh %
 cnoreabbrev vice !~/Development/c64/kickassvice.sh %
 cnoreabbrev W w
 cnoreabbrev Q q
-noremap \b :Unite buffer<CR>
-noremap \f :Unite file<CR>
-colorscheme desert-warm-256
 syntax on
-autocmd! BufWrite * Neomake
 set laststatus=2
 
-" -- color theme tweaks --
+" -- writing mode --
+function! Code()
+    setlocal nospell
+    set cursorline
+    set nolinebreak
+    unmap j
+    unmap k
+endfunction
+
+function! Text()
+    setlocal spell spelllang=en_us
+    set nocursorline
+    set linebreak
+    map j gj 
+    map k gk
+endfunction
+
+command Text call Text()
+command Code call Code()
+
+" -- theme stuff --
+colorscheme desert-warm-256
 hi SpellBad ctermfg=NONE ctermbg=100
 hi ErrorMsg ctermfg=NONE ctermbg=88
 hi WarningMsg ctermfg=NONE ctermfg=242 ctermbg=238
 hi SignColumn ctermbg=236
+hi ColumnLine ctermbg=236
 
 " -- neomake --
 let g:neomake_error_sign = { 'text': '>>', 'texthl': 'ErrorMsg' } 
 let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'WarningMsg' } 
 let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
 let g:neomake_verbose = 0
+autocmd! BufWrite * Neomake
