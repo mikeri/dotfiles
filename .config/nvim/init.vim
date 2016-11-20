@@ -99,6 +99,7 @@ set guioptions-=m
 set dir=~/.vim/swapfiles
 cnoreabbrev c64 !~/Development/c64/kickassend.sh %
 cnoreabbrev vice !~/Development/c64/kickassvice.sh %
+cnoreabbrev sudow !sudo tee %
 cnoreabbrev W w
 cnoreabbrev Q q
 syntax on
