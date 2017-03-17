@@ -1,12 +1,3 @@
-open_with file
-search stu
-search k2d
-open
-open_with j
-open_with feh
-open_with rawview
-rename shishfont3.raw
-
 search c64
 open_with ghex
 open_with petcat
@@ -42,9 +33,18 @@ find python
 find pyth
 find ranger
 find mu
-open_with 
 help
-bulkrename 
 open_with gimp
 search blitz
+bulkrename 
+search hist
+set show_hidden
+set show_hidden true
+open_with hex
+vim
+edit
+Delete
+
 delete
+open_with 1
+open_with 
