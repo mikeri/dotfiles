@@ -5,6 +5,9 @@ ZSH=~/.oh-my-zsh/
 COLS=`tput cols`
 COLS=$((COLS-2))
 fortune | fold -s -w $COLS
+export ANDROID_HOME=${HOME}/Android/Sdk 
+export PATH=${PATH}:${ANDROID_HOME}/tools 
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -38,13 +41,13 @@ plugins=(zsh-syntax-highlighting adb history-substring-search)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export TERM=xterm-256color
+# export TERM=xterm-256color
 export EDITOR=vim
 # Workaround for mouse support in mosh:
 # perl -E ' print "\e[?1005h\e[?1002h" '
 
 PATH=$PATH:~/.gem/ruby/2.0.0/bin
-PATH=$PATH:~/.local/bin
+# PATH=~/.local/bin:$PATH
 PATH=$PATH:~/Development/Android-SDKs/platform-tools
 export PATH
 # Colorful man pages
