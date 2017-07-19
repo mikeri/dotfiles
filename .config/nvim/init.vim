@@ -39,6 +39,7 @@ Plug 'ervandew/supertab'
 Plug 'benekastah/neomake'
 " Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'KabbAmine/vCoolor.vim'
 Plug 'zchee/deoplete-jedi'
 " Plug 'Yggdroot/indentLine'
 Plug 'metakirby5/codi.vim'
@@ -91,6 +92,7 @@ let g:airline_right_sep=''
 " -- unite --
 noremap \b :Unite buffer<CR>
 noremap \f :Unite file<CR>
+noremap \t :Unite tab<CR>
 
 " -- supertab --
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
