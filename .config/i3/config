@@ -19,16 +19,19 @@ exec --no-startup-id xset +fp /usr/local/share/fonts/gohufont-2.0
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfsettingsd
 exec --no-startup-id glipper
+exec --no-startup-id ~/Stuff/inotify-daemon/inotify-daemon --host 192.168.0.6 --port 14141
+exec --no-startup-id classicmenu-indicator
 exec --no-startup-id xautolock -locker "i3lock -c 000000" -time 60
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id update-notifier
+exec --no-startup-id xbindkeys
 # exec --no-startup-id dropbox start
 exec --no-startup-id pasystray
-exec --no-startup-id ~/.config/menu.sh
+# exec --no-startup-id ~/.config/menu.sh
 # exec --no-startup-id ~/Stuff/Copy/x86_64/CopyAgent
 # exec --no-startup-id ~/Stuff/btsync/btsync
 exec --no-startup-id syncthing
-exec --no-startup-id compton --backend glx --vsync opengl-swc -c --shadow-exclude '!I3_FLOATING_WINDOW@:c'
+# exec --no-startup-id compton --backend glx --vsync opengl-swc -c --shadow-exclude '!I3_FLOATING_WINDOW@:c'
 exec --no-startup-id urxvtd
 
 # Stop Firefox from floating
@@ -39,11 +42,16 @@ for_window [window_role="pop-up"] floating enable
 for_window [title="Software Updater"] floating enable
 for_window [title="File Operation Progress"] floating enable
 for_window [title="MPlayer"] floating enable
-for_window [title=" - mpv"] floating enable
-for_window [title="NFOView - "] floating enable
-for_window [title="feh"] floating enable
-for_window [title="VICE"] floating enable
+for_window [title="KeePassX"] floating enable
+for_window [title="Blender User Preferences"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="feh"] floating enable
+for_window [class="Nfoview"] floating enable
+for_window [class="X64"] floating enable
+for_window [title="YAD"] floating enable
+for_window [title="vCoolor"] floating enable
 for_window [class="Viewnior"] floating enable
+for_window [title="SyncTERM"] floating enable
 for_window [title="Maniac Mansion Deluxe"] floating enable
 
 set $mod Mod4
@@ -58,6 +66,9 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec urxvtc
+# suspend - not working - use xbindkeys
+# bindsym Control+$mod+c:134 exec susp
+
 
 # Screenshots
 bindsym Print exec scrot -e 'mv $f ~/Pictures/screenshots'
@@ -203,6 +214,8 @@ bar {
         urgent_workspace   #111111 #904040 #ffffff 
 
     }
+# Change this according to driver
+# nouvea = DVI-I-1 NVidia = DVI-I-2
 tray_output DVI-I-2
 }
 new_window pixel 
