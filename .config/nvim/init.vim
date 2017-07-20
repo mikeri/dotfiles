@@ -147,5 +147,13 @@ hi ColumnLine ctermbg=236
 let g:neomake_error_sign = { 'text': '>>', 'texthl': 'ErrorMsg' } 
 let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'WarningMsg' } 
 let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
+let g:neomake_javascript_makers = ['eslint']
+let g:neomake_javascript_eslint_maker = {
+    \ 'exe': 'eslint',
+    \ 'args': ['-f', 'compact', '--no-eslintrc' ],
+    \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
+    \   '%W%f: line %l\, col %c\, Warning - %m,%-G,%-G%*\d problems%#'
+    \ }
+
 let g:neomake_verbose = 0
 autocmd! BufWrite * Neomake
