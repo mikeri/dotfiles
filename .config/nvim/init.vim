@@ -1,59 +1,59 @@
 " mikeris neovim config
 
-" -- core config options --
-filetype off
-set encoding=utf-8
+" -- basic config options --
 set fileencoding=utf-8
-set hlsearch
-set ic
-set nu
-set ts=4
-set sw=4
-set sts=4
-set expandtab
 set gfn=GohuFont\ 10
+set encoding=utf-8
 set ttimeoutlen=50
 set relativenumber
-set wildmenu
 set cursorline
 set lazyredraw
-set mouse=a
+set expandtab
+set hlsearch
+set wildmenu
 set undofile
+set mouse=a
+set sts=4
+set ts=4
+set sw=4
+set ic
+set nu
 
 " -- plugins, managed by vim-plug --
 call plug#begin('~/.config/nvim/bundle')
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
-" Plug 'jaxbot/browserlink.vim'
-Plug 'vim-scripts/taglist.vim'
+Plug 'majutsushi/tagbar'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Shougo/unite.vim'
-" Plug 'jplaut/vim-arduino-ino'
-" Plug 'pyflakes.vim'
-" Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 Plug 'benekastah/neomake'
-" Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'zchee/deoplete-jedi'
-" Plug 'Yggdroot/indentLine'
 Plug 'metakirby5/codi.vim'
+Plug 'ap/vim-css-color'
+Plug 'justinmk/vim-sneak'
+
+" Plug 'Indent-Guides'
+" Plug 'FuzzyFinder'
 " Plug 'davidhalter/jedi-vim'
 " Plug 'DonnieWest/VimStudio'
 " Plug 'mattn/emmet-vim'
 " Plug 'Yggdroot/indentLine'
-Plug 'ap/vim-css-color'
-Plug 'justinmk/vim-sneak'
-" Plug 'Indent-Guides'
-" Plug 'FuzzyFinder'
-"
+" Plug 'w0rp/ale'
+" Plug 'jplaut/vim-arduino-ino'
+" Plug 'pyflakes.vim'
+" Plug 'davidhalter/jedi-vim'
+" Plug 'jaxbot/browserlink.vim'
+" Plug 'Yggdroot/indentLine'
+" Plug 'vim-scripts/taglist.vim'
+
 call plug#end()
-filetype plugin indent on     " required!
 
 " -- deoplete --
 let g:deoplete#enable_at_startup = 1
@@ -89,6 +89,9 @@ let g:airline_right_alt_sep=''
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 
+" -- tagbar --
+let g:tagbar_left=1
+
 " -- unite --
 noremap \b :Unite buffer<CR>
 noremap \f :Unite file<CR>
@@ -106,7 +109,7 @@ cnoreabbrev vice !~/Development/c64/kickassvice.sh %
 cnoreabbrev sudow !sudo tee %
 cnoreabbrev W w
 cnoreabbrev Q q
-syntax on
+" syntax on
 set laststatus=2
 
 " -- tab/window navigation --
