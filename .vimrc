@@ -64,6 +64,17 @@ set laststatus=2
 " Fix error highlight
 hi SpellBad ctermfg=NONE ctermbg=88
 
+" -- tab/window navigation --
+" hack to make alt work in vim
+execute "set <A-k>=\ek"
+execute "set <A-j>=\ej"
+execute "set <A-h>=\eh"
+execute "set <A-l>=\el"
+noremap <A-k> <C-w>k 
+noremap <A-j> <C-w>j 
+noremap <A-h> gT
+noremap <A-l> gt
+
 " -- writing mode --
 function! Code()
     setlocal nospell

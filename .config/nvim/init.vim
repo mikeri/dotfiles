@@ -109,6 +109,12 @@ cnoreabbrev Q q
 syntax on
 set laststatus=2
 
+" -- tab/window navigation --
+noremap <A-k> <C-w>k 
+noremap <A-j> <C-w>j 
+noremap <A-h> gT
+noremap <A-l> gt
+
 " -- writing mode --
 function! Code()
     setlocal nospell
