@@ -92,6 +92,11 @@ let g:airline_right_sep=''
 " -- tagbar --
 let g:tagbar_left=1
 
+" -- sneak --
+autocmd ColorScheme * hi Sneak guifg=23 guibg=white ctermfg=23 ctermbg=white cterm=bold
+map , <Plug>Sneak_;
+map ; <Plug>Sneak_,
+
 " -- unite --
 noremap \b :Unite buffer<CR>
 noremap \f :Unite file<CR>
