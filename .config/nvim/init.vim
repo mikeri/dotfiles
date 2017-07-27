@@ -1,6 +1,7 @@
 " mikeris neovim config
 
 " -- basic config options --
+set guicursor=n-v-c-sm:block-blinkon175-blinkoff150,i-ci-ve:ver25-blinkon175-blinkoff150,r-cr-o:hor20
 set fileencoding=utf-8
 set gfn=GohuFont\ 10
 set encoding=utf-8
