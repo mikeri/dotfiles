@@ -98,7 +98,7 @@ autocmd ColorScheme * hi Sneak guifg=23 guibg=white ctermfg=23 ctermbg=white cte
 map , <Plug>Sneak_;
 map ; <Plug>Sneak_,
 
-" -- unite --
+" -- denite --
 noremap \b :Denite buffer<CR>
 noremap \f :Denite file<CR>
 noremap \t :Denite tab<CR>

@@ -1,4 +1,4 @@
-" mikeris neovim config
+" mikeris vim config
 
 " -- basic config options --
 set fileencoding=utf-8
@@ -29,7 +29,7 @@ Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'Shougo/unite.vim'
+Plug 'Shougo/denite.nvim'
 Plug 'ervandew/supertab'
 Plug 'benekastah/neomake'
 Plug 'KabbAmine/vCoolor.vim'
@@ -98,9 +98,9 @@ map , <Plug>Sneak_;
 map ; <Plug>Sneak_,
 
 " -- unite --
-noremap \b :Unite buffer<CR>
-noremap \f :Unite file<CR>
-noremap \t :Unite tab<CR>
+noremap \b :Denite buffer<CR>
+noremap \f :Denite file<CR>
+noremap \t :Denite tab<CR>
 
 " -- supertab --
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
