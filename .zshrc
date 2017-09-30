@@ -1,10 +1,14 @@
 # Path to your oh-my-zsh configuration.
 ZSH=~/.oh-my-zsh/
 
-# Cute fortune to read while everything sets up. :) Fold long lines to terminal width.
-COLS=`tput cols`
-COLS=$((COLS-2))
-fortune | fold -s -w $COLS
+# Cute fortune to read while everything sets up. Fold long lines to terminal width.
+if type "fortune" > /dev/null; then
+    COLS=`tput cols`
+    COLS=$((COLS-2))
+    fortune | fold -s -w $COLS
+fi
+
+# Android stuff
 export ANDROID_HOME=${HOME}/Android/Sdk 
 export PATH=${PATH}:${ANDROID_HOME}/tools 
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
