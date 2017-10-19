@@ -32,7 +32,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Shougo/denite.nvim'
 Plug 'ervandew/supertab'
-Plug 'benekastah/neomake'
+Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'zchee/deoplete-jedi'
@@ -98,7 +98,7 @@ autocmd ColorScheme * hi Sneak guifg=23 guibg=white ctermfg=23 ctermbg=white cte
 map , <Plug>Sneak_;
 map ; <Plug>Sneak_,
 
-" -- denite --
+" -- unite --
 noremap \b :Denite buffer<CR>
 noremap \f :Denite file<CR>
 noremap \t :Denite tab<CR>
@@ -155,7 +155,7 @@ hi ColumnLine ctermbg=236
 " -- neomake --
 let g:neomake_error_sign = { 'text': '>>', 'texthl': 'ErrorMsg' } 
 let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'WarningMsg' } 
-let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
+let g:neomake_python_enabled_makers = ['pylint']
 let g:neomake_javascript_makers = ['eslint']
 let g:neomake_javascript_eslint_maker = {
     \ 'exe': 'eslint',
@@ -165,4 +165,5 @@ let g:neomake_javascript_eslint_maker = {
     \ }
 
 let g:neomake_verbose = 0
-autocmd! BufWrite * Neomake
+call neomake#configure#automake('rnw', 1000)
+" autocmd! BufWrite * Neomake
