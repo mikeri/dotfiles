@@ -98,7 +98,7 @@ autocmd ColorScheme * hi Sneak guifg=23 guibg=white ctermfg=23 ctermbg=white cte
 map , <Plug>Sneak_;
 map ; <Plug>Sneak_,
 
-" -- unite --
+" -- denite --
 noremap \b :Denite buffer<CR>
 noremap \f :Denite file<CR>
 noremap \t :Denite tab<CR>
@@ -159,11 +159,12 @@ let g:neomake_python_enabled_makers = ['pylint']
 let g:neomake_javascript_makers = ['eslint']
 let g:neomake_javascript_eslint_maker = {
     \ 'exe': 'eslint',
-    \ 'args': ['-f', 'compact', '--no-eslintrc' ],
+    \ 'args': ['--no-ignore', '-f', 'compact', '--no-eslintrc' ],
     \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
     \   '%W%f: line %l\, col %c\, Warning - %m,%-G,%-G%*\d problems%#'
     \ }
 
 let g:neomake_verbose = 0
 call neomake#configure#automake('rnw', 1000)
+call neomake#signs#RedefineErrorSign()
 " autocmd! BufWrite * Neomake
