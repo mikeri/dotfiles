@@ -15,7 +15,7 @@ ZSH_THEME="scc"
 DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(zsh-syntax-highlighting adb history-substring-search)
+plugins=(zsh-syntax-highlighting history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
