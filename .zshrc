@@ -1,3 +1,5 @@
+# --- mikeri zshrc --------------------------------------------------
+
 # Fortune to read while everything sets up. Fold long lines to terminal width.
 if type "fortune" > /dev/null; then
     COLS=`tput cols`
@@ -42,16 +44,19 @@ export LESS_TERMCAP_so=$'\E[01;38;5;155m' # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;253m'    # begin underline
 
-# --- aliases -------------------------------------------------------
+# --- aliases and functions------------------------------------------
 #alias less="less -P $'\E[01;38;5;155;48;5;238m?f%f \E[00;38;5;145;48;5;238m-\E[00;38;5;145;48;5;238m .?lt\E[00;86;5;139;48;5;238mLine %lt ?Lof %L ?pt(%pt\\%)'"
 alias colortest="python -c \"print('\n'.join([(' '.join([('\033[38;5;' + str((i + j)) + 'm' + str((i + j)).ljust(5) +
    '\033[0m') if i + j < 256 else '' for j in range(10)])) for i in range(0, 256, 10)]))\"" 
 alias new="ls -lth|head -11|tail"
 alias upgr="sudo apt update && sudo apt full-upgrade"
-
-bindkey -v
+sid() {
+    cd ~/Music/C64Music
+    sidplayfp -t0 $(fzf)
+}
 
 # --- Keyboard handling, from zshwiki.org ---------------------------
+bindkey -v
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
 typeset -A key
