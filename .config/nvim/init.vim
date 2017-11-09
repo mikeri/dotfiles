@@ -32,7 +32,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Shougo/denite.nvim'
 Plug 'ervandew/supertab'
-Plug 'neomake/neomake'
+Plug 'benekastah/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'zchee/deoplete-jedi'
@@ -102,6 +102,19 @@ map ; <Plug>Sneak_,
 noremap \b :Denite buffer<CR>
 noremap \f :Denite file<CR>
 noremap \t :Denite tab<CR>
+call denite#custom#map(
+	      \ 'insert',
+	      \ '<C-k>',
+	      \ '<denite:move_to_previous_line>',
+	      \ 'noremap'
+	      \)
+call denite#custom#map(
+	      \ 'insert',
+	      \ '<C-j>',
+	      \ '<denite:move_to_next_line>',
+	      \ 'noremap'
+	      \)
+
 
 " -- supertab --
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
@@ -155,16 +168,14 @@ hi ColumnLine ctermbg=236
 " -- neomake --
 let g:neomake_error_sign = { 'text': '>>', 'texthl': 'ErrorMsg' } 
 let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'WarningMsg' } 
-let g:neomake_python_enabled_makers = ['pylint']
+let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
 let g:neomake_javascript_makers = ['eslint']
 let g:neomake_javascript_eslint_maker = {
     \ 'exe': 'eslint',
-    \ 'args': ['--no-ignore', '-f', 'compact', '--no-eslintrc' ],
+    \ 'args': ['-f', 'compact', '--no-eslintrc' ],
     \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
     \   '%W%f: line %l\, col %c\, Warning - %m,%-G,%-G%*\d problems%#'
     \ }
 
 let g:neomake_verbose = 0
-call neomake#configure#automake('rnw', 1000)
-call neomake#signs#RedefineErrorSign()
-" autocmd! BufWrite * Neomake
+autocmd! BufWrite * Neomake
