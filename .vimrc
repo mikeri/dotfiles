@@ -97,10 +97,22 @@ let g:tagbar_left=1
 map , <Plug>Sneak_;
 map ; <Plug>Sneak_,
 
-" -- unite --
+" -- denite --
 noremap \b :Denite buffer<CR>
 noremap \f :Denite file<CR>
 noremap \t :Denite tab<CR>
+call denite#custom#map(
+	      \ 'insert',
+	      \ '<C-k>',
+	      \ '<denite:move_to_previous_line>',
+	      \ 'noremap'
+	      \)
+call denite#custom#map(
+	      \ 'insert',
+	      \ '<C-j>',
+	      \ '<denite:move_to_next_line>',
+	      \ 'noremap'
+	      \)
 
 " -- supertab --
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
