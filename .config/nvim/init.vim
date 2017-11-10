@@ -100,7 +100,7 @@ map ; <Plug>Sneak_,
 
 " -- denite --
 noremap \b :Denite buffer<CR>
-noremap \f :Denite file<CR>
+noremap \f :Denite file_rec<CR>
 noremap \t :Denite tab<CR>
 call denite#custom#map(
 	      \ 'insert',
