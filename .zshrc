@@ -22,9 +22,10 @@ plugins=(zsh-syntax-highlighting history-substring-search)
 source $ZSH/oh-my-zsh.sh
 
 # --- Android stuff -------------------------------------------------
-export ANDROID_HOME=${HOME}/Android/Sdk 
-export PATH=${PATH}:${ANDROID_HOME}/tools 
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+ANDROID_HOME=/home/mikeri/Development/androidsdk 
+PATH=${PATH}:${ANDROID_HOME}/tools 
+PATH=${PATH}:${ANDROID_HOME}/platform-tools
+# PATH=$PATH:~/Development/Android-SDKs/platform-tools
 
 # --- misc customization ---------------------------------------------
 export EDITOR=vim
@@ -33,7 +34,6 @@ export EDITOR=vim
 
 PATH=$PATH:~/.gem/ruby/2.0.0/bin
 # PATH=~/.local/bin:$PATH
-PATH=$PATH:~/Development/Android-SDKs/platform-tools
 export PATH
 # Colorful man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
