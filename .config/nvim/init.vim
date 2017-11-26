@@ -172,10 +172,10 @@ let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
 let g:neomake_javascript_makers = ['eslint']
 let g:neomake_javascript_eslint_maker = {
     \ 'exe': 'eslint',
-    \ 'args': ['-f', 'compact', '--no-eslintrc' ],
+    \ 'args': ['-f', 'compact', '--no-ignore', '--no-eslintrc' ],
     \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
     \   '%W%f: line %l\, col %c\, Warning - %m,%-G,%-G%*\d problems%#'
     \ }
 
 let g:neomake_verbose = 0
-autocmd! BufWrite * Neomake
+call neomake#configure#automake('nw', 500)
