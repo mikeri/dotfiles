@@ -18,7 +18,8 @@ exec --no-startup-id feh --bg-center ~/Pictures/weyland-yutani.jpg
 exec --no-startup-id xset +fp /usr/local/share/fonts/gohufont-2.0
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfsettingsd
-exec --no-startup-id glipper
+# exec --no-startup-id glipper
+exec --no-startup-id copyq
 exec --no-startup-id python ~/Stuff/an2linuxserver/an2linuxserver.py
 exec --no-startup-id ~/Stuff/inotify-daemon/inotify-daemon --host 192.168.0.6 --port 14141
 exec --no-startup-id classicmenu-indicator
@@ -49,6 +50,7 @@ for_window [title="^Blender User Preferences$"] floating enable
 for_window [class="^mpv$"] floating enable
 for_window [class="^feh$"] floating enable
 for_window [title="^PCSX2"] floating enable
+for_window [title="CopyQ$"] floating enable
 for_window [title=" GSdx "] floating enable
 for_window [class="^Nfoview$"] floating enable
 for_window [class="^X64$"] floating enable
@@ -81,8 +83,11 @@ bindsym $mod+Return exec urxvtc
 bindsym Print exec scrot -e 'mv $f ~/Pictures/screenshots'
 bindsym Shift+Print exec scrot -s -e 'mv $f ~/Pictures/screenshots'
 
+# CopyQ clipboard manager
+bindsym Control+oslash exec copyq toggle
+
 # kill focused window
-bindsym $mod+Shift+Q kill
+bindsym mod+Shift+Q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run -i -nb "#444" -nf "#aaa" -sb "#47c" -fn gohufont
