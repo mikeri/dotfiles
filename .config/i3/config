@@ -87,7 +87,7 @@ bindsym Shift+Print exec scrot -s -e 'mv $f ~/Pictures/screenshots'
 bindsym Control+oslash exec copyq toggle
 
 # kill focused window
-bindsym mod+Shift+Q kill
+bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run -i -nb "#444" -nf "#aaa" -sb "#47c" -fn gohufont
