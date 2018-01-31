@@ -36,10 +36,10 @@ Plug 'benekastah/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'zchee/deoplete-jedi'
-Plug 'metakirby5/codi.vim'
 Plug 'ap/vim-css-color'
 Plug 'justinmk/vim-sneak'
 
+" Plug 'metakirby5/codi.vim'
 " Plug 'Indent-Guides'
 " Plug 'FuzzyFinder'
 " Plug 'davidhalter/jedi-vim'
