@@ -33,11 +33,11 @@ Plug 'Shougo/denite.nvim'
 Plug 'ervandew/supertab'
 Plug 'benekastah/neomake'
 Plug 'KabbAmine/vCoolor.vim'
-Plug 'metakirby5/codi.vim'
 Plug 'ap/vim-css-color'
 Plug 'justinmk/vim-sneak'
 
 " Plug 'Indent-Guides'
+" Plug 'metakirby5/codi.vim'
 " Plug 'zchee/deoplete-jedi'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'FuzzyFinder'
