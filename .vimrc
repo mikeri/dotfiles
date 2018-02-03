@@ -93,7 +93,7 @@ let g:airline_right_sep=''
 let g:tagbar_left=1
 
 " -- sneak --
-" autocmd ColorScheme * hi Sneak guifg=23 guibg=white ctermfg=23 ctermbg=white cterm=bold
+autocmd ColorScheme * hi Sneak ctermfg=23 ctermbg=white cterm=bold
 map , <Plug>Sneak_;
 map ; <Plug>Sneak_,
 
