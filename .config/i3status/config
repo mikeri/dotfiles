@@ -2,17 +2,29 @@ general {
 #font  -*-gohufont-medium-r-*-*-14-*-*-*-*-*-iso10646-1
         colors = true
         interval = 5
+        color_bad = "#aa3355"
+        color_degraded = "#aaaa33"
+        color_good = "#559955"
 }
 
 #order += "disk /"
 #order += "disk /home"
+order += "path_exists reboot"
+order += "apt_updates"
+order += "run_watch vpn"
 order += "cpu_usage"
 order += "load"
 order += "time"
 
 wireless wlan0 {
         format_up = "W: (%quality at %essid) %ip"
-        format_down = "W: down"
+        format_none = "W: down"
+}
+
+apt_updates{
+        format= "{apt} updates available"
+        format_one= "update available"
+        # format_none= "system up to date"
 }
 
 cpu_usage{
@@ -28,8 +40,19 @@ run_watch DHCP {
         pidfile = "/var/run/dhclient*.pid"
 }
 
-run_watch VPN {
-        pidfile = "/var/run/vpnc/pid"
+path_exists reboot {
+        path = "/var/run/reboot-required"
+        format_down = ""
+        color_good = "#aaaa33"
+        format = "reboot required"
+}
+
+run_watch vpn {
+        pidfile = "/var/run/ppp-dfvpn.pid"
+        # format_down = "vpn off"
+        format_down = ""
+        format = "vpn on"
+        color_bad = "#444444"
 }
 
 time {
