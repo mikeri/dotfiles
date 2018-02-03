@@ -17,8 +17,8 @@ encoding_list = UTF-8
 #max_uploads = 15
 
 # Global upload and download rate in KiB. "0" for unlimited.
-download_rate = 5000
-upload_rate = 1500
+# download_rate = 5000
+# upload_rate = 1500
 
 # Default directory to save the downloaded torrents.
 directory = ~/dl
@@ -105,24 +105,24 @@ dht = auto
 # decent hash checking rate.
 #hash_max_tries = 10
 
-ui.color.alarm.set = "red"
-ui.color.complete.set = "41"
-#ui.color.even.set = "on 234"
-ui.color.focus.set = "bold 255 on 255"
-ui.color.footer.set = "white on 238"
-ui.color.incomplete.set = "yellow"
-ui.color.info.set = "white"
-ui.color.label.set = "240"
-ui.color.leeching.set = "202"
-#ui.color.odd.set = "on 233"
-ui.color.progress0.set = "196"
-ui.color.progress100.set = "34"
-ui.color.progress120.set = "47"
-ui.color.progress20.set = "202"
-ui.color.progress40.set = "213"
-ui.color.progress60.set = "214"
-ui.color.progress80.set = "226"
-ui.color.queued.set = "magenta"
-ui.color.seeding.set = "46"
-ui.color.stopped.set = "33"
-ui.color.title.set = "white on 238"
+#   ui.color.alarm.set = "red"
+#   ui.color.complete.set = "41"
+#   #ui.color.even.set = "on 234"
+#   ui.color.focus.set = "bold 255 on 255"
+#   ui.color.footer.set = "white on 238"
+#   ui.color.incomplete.set = "yellow"
+#   ui.color.info.set = "white"
+#   ui.color.label.set = "240"
+#   ui.color.leeching.set = "202"
+#   #ui.color.odd.set = "on 233"
+#   ui.color.progress0.set = "196"
+#   ui.color.progress100.set = "34"
+#   ui.color.progress120.set = "47"
+#   ui.color.progress20.set = "202"
+#   ui.color.progress40.set = "213"
+#   ui.color.progress60.set = "214"
+#   ui.color.progress80.set = "226"
+#   ui.color.queued.set = "magenta"
+#   ui.color.seeding.set = "46"
+#   ui.color.stopped.set = "33"
+#   ui.color.title.set = "white on 238"

@@ -22,9 +22,9 @@ plugins=(zsh-syntax-highlighting history-substring-search)
 source $ZSH/oh-my-zsh.sh
 
 # --- Android stuff -------------------------------------------------
-ANDROID_HOME=/home/mikeri/Development/androidsdk 
-PATH=${PATH}:${ANDROID_HOME}/tools 
-PATH=${PATH}:${ANDROID_HOME}/platform-tools
+ANDROID_HOME=/home/mikeri/Development/Android/androidsdk 
+# PATH=${PATH}:${ANDROID_HOME}/tools 
+PATH=${PATH}:/home/mikeri/Development/Android/platform-tools 
 # PATH=$PATH:~/Development/Android-SDKs/platform-tools
 
 # --- misc customization ---------------------------------------------
@@ -49,7 +49,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;253m'    # begin underline
 alias colortest="python -c \"print('\n'.join([(' '.join([('\033[38;5;' + str((i + j)) + 'm' + str((i + j)).ljust(5) +
    '\033[0m') if i + j < 256 else '' for j in range(10)])) for i in range(0, 256, 10)]))\"" 
 alias new="ls -lth|head -11|tail"
-alias upgr="sudo apt update && sudo apt full-upgrade"
+alias upgr="sudo apt-get update && sudo apt-get -y full-upgrade"
 sid() {
     cd ~/Music/C64Music
     sidplayfp -t0 $(fzf)
