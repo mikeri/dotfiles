@@ -179,3 +179,6 @@ let g:neomake_javascript_eslint_maker = {
 
 let g:neomake_verbose = 0
 call neomake#configure#automake('nw', 500)
+"
+" -- commentary --
+setlocal commentstring=#\ %s

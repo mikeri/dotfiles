@@ -177,3 +177,6 @@ let g:neomake_javascript_eslint_maker = {
 
 let g:neomake_verbose = 0
 autocmd! BufWrite * Neomake
+
+" -- commentary --
+setlocal commentstring=#\ %s
