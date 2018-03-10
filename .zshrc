@@ -1,4 +1,4 @@
-# --- mikeri zshrc --------------------------------------------------
+# --- mikeris zshrc -------------------------------------------------
 
 # Fortune to read while everything sets up. Fold long lines to terminal width.
 if type "fortune" > /dev/null; then
@@ -20,6 +20,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(zsh-syntax-highlighting history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
+bindkey -v
 
 # --- Android stuff -------------------------------------------------
 ANDROID_HOME=/home/mikeri/Development/Android/androidsdk 
@@ -50,13 +51,28 @@ alias colortest="python -c \"print('\n'.join([(' '.join([('\033[38;5;' + str((i 
    '\033[0m') if i + j < 256 else '' for j in range(10)])) for i in range(0, 256, 10)]))\"" 
 alias new="ls -lth|head -11|tail"
 alias upgr="sudo apt-get update && sudo apt-get -y full-upgrade"
+
 sid() {
     cd ~/Music/C64Music
     sidplayfp -t0 $(fzf)
 }
 
+if type "fzf" > /dev/null; then
+    historyfzf() {
+        if [[ -z $BUFFER ]]; then
+            entry=$(cat .zsh_history|perl -pe 's/^(.+?);(.+)/\2/p'|fzf --prompt="Search history: ")
+        else
+            entry=$(cat .zsh_history|perl -pe 's/^(.+?);(.+)/\2/p'|fzf -q$BUFFER --prompt="Search history: ")
+        fi
+        BUFFER=$entry
+        zle end-of-line
+        # zle accept-line
+    }
+    zle -N historyfzfwidget historyfzf
+    bindkey '^r' historyfzfwidget
+fi
+
 # --- Keyboard handling, from zshwiki.org ---------------------------
-bindkey -v
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
 typeset -A key
