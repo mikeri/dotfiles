@@ -60,9 +60,9 @@ sid() {
 if type "fzf" > /dev/null; then
     historyfzf() {
         if [[ -z $BUFFER ]]; then
-            entry=$(cat .zsh_history|perl -pe 's/^(.+?);(.+)/\2/p'|fzf --prompt="Search history: ")
+            entry=$(cat ~/.zsh_history|perl -pe 's/^(.+?);(.+)/\2/p'|fzf --prompt="Search history: ")
         else
-            entry=$(cat .zsh_history|perl -pe 's/^(.+?);(.+)/\2/p'|fzf -q$BUFFER --prompt="Search history: ")
+            entry=$(cat ~/.zsh_history|perl -pe 's/^(.+?);(.+)/\2/p'|fzf -q$BUFFER --prompt="Search history: ")
         fi
         BUFFER=$entry
         zle end-of-line
