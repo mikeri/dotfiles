@@ -30,6 +30,9 @@ maxln=200    # Stop after $maxln lines.  Can be used like ls | head -n $maxln
 
 # Find out something about the file:
 mimetype=$(file --mime-type -Lb "$path")
+if [ "$mimetype" = "application/octet-stream" ]; then
+    mimetype=$(mimetype --output-format %m "$path")
+fi
 extension=$(/bin/echo "${path##*.}" | awk '{print tolower($0)}')
 
 # Functions:
@@ -122,7 +125,7 @@ case "$mimetype" in
         img2txt --gamma=0.6 --width="$width" "$path" && exit 4 || exit 1;;
     # Display information about media files:
     audio/x-mod)
-        try xmp -vC --load-only "$path" 2>&1 && { dump | trim; exit 5; } || exit 1;;
+        try xmp -vC --load-only "$path" 2>&1 | tail +8 | lolcat && { dump | trim; exit 5; } || exit 1;;
     video/* | audio/*)
         exiftool "$path" && exit 5
         # Use sed to remove spaces so the output fits into the narrow window
