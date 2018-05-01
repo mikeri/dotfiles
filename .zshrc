@@ -49,8 +49,13 @@ export LESS_TERMCAP_us=$'\E[04;38;5;253m'    # begin underline
 #alias less="less -P $'\E[01;38;5;155;48;5;238m?f%f \E[00;38;5;145;48;5;238m-\E[00;38;5;145;48;5;238m .?lt\E[00;86;5;139;48;5;238mLine %lt ?Lof %L ?pt(%pt\\%)'"
 alias colortest="python -c \"print('\n'.join([(' '.join([('\033[38;5;' + str((i + j)) + 'm' + str((i + j)).ljust(5) +
    '\033[0m') if i + j < 256 else '' for j in range(10)])) for i in range(0, 256, 10)]))\"" 
-alias new="ls -lth|head -11|tail"
 alias upgr="sudo apt-get update && sudo apt-get -y full-upgrade"
+
+new() {
+    ls -lth $@ | head -11 | tail
+}
+
+compdef _files new
 
 sid() {
     cd ~/Music/C64Music
