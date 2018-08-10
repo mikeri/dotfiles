@@ -29,7 +29,6 @@ Plug 'majutsushi/tagbar'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Lokaltog/vim-easymotion'
 Plug 'Shougo/denite.nvim'
 Plug 'ervandew/supertab'
 Plug 'benekastah/neomake'
@@ -38,7 +37,10 @@ Plug 'KabbAmine/vCoolor.vim'
 Plug 'zchee/deoplete-jedi'
 Plug 'ap/vim-css-color'
 Plug 'justinmk/vim-sneak'
+Plug 'jaxbot/browserlink.vim'
 
+" Plug 'Lokaltog/vim-easymotion'
+" Plug 'KabbAmine/zeavim.vim'
 " Plug 'metakirby5/codi.vim'
 " Plug 'Indent-Guides'
 " Plug 'FuzzyFinder'
@@ -92,6 +94,7 @@ let g:airline_right_sep=''
 
 " -- tagbar --
 let g:tagbar_left=1
+noremap \t :TagbarOpenAutoClose<CR>
 
 " -- sneak --
 autocmd ColorScheme * hi Sneak guifg=23 guibg=white ctermfg=23 ctermbg=white cterm=bold
@@ -101,7 +104,6 @@ map ; <Plug>Sneak_,
 " -- denite --
 noremap \b :Denite buffer<CR>
 noremap \f :Denite file_rec<CR>
-noremap \t :Denite tab<CR>
 call denite#custom#map(
 	      \ 'insert',
 	      \ '<C-k>',
@@ -160,6 +162,7 @@ command Code call Code()
 " -- theme stuff --
 colorscheme desert-warm-256
 hi SpellBad ctermfg=NONE ctermbg=100
+hi SpellCap ctermfg=NONE ctermbg=160
 hi ErrorMsg ctermfg=NONE ctermbg=88
 hi WarningMsg ctermfg=NONE ctermfg=242 ctermbg=238
 hi SignColumn ctermbg=236
@@ -168,7 +171,9 @@ hi ColumnLine ctermbg=236
 " -- neomake --
 let g:neomake_error_sign = { 'text': '>>', 'texthl': 'ErrorMsg' } 
 let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'WarningMsg' } 
-let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
+let g:neomake_highlight_columns = 0
+let g:neomake_python_enabled_makers = ['pylint']
+let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint().args + ['--extension-pkg-whitelist=wx']
 let g:neomake_javascript_makers = ['eslint']
 let g:neomake_javascript_eslint_maker = {
     \ 'exe': 'eslint',
