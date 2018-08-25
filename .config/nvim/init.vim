@@ -13,6 +13,7 @@ set expandtab
 set hlsearch
 set wildmenu
 set undofile
+set hidden
 set mouse=a
 set sts=4
 set ts=4
@@ -38,13 +39,14 @@ Plug 'zchee/deoplete-jedi'
 Plug 'ap/vim-css-color'
 Plug 'justinmk/vim-sneak'
 Plug 'jaxbot/browserlink.vim'
+Plug 'davidhalter/jedi-vim'
 
+" Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 " Plug 'Lokaltog/vim-easymotion'
 " Plug 'KabbAmine/zeavim.vim'
 " Plug 'metakirby5/codi.vim'
 " Plug 'Indent-Guides'
 " Plug 'FuzzyFinder'
-" Plug 'davidhalter/jedi-vim'
 " Plug 'DonnieWest/VimStudio'
 " Plug 'mattn/emmet-vim'
 " Plug 'Yggdroot/indentLine'
@@ -81,10 +83,13 @@ if exists('g:plugs["tern_for_vim"]')
   autocmd FileType javascript setlocal omnifunc=tern#Complete
 endif
 
+" -- deoplete-jedi --
+let g:deoplete#sources#jedi#show_docstring = 1
+
 " -- airline --
 let g:airline_theme='powerlineish'
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#buffer_nr_show=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_section_warning = ''
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_left_alt_sep=''
@@ -164,7 +169,7 @@ colorscheme desert-warm-256
 hi SpellBad ctermfg=NONE ctermbg=100
 hi SpellCap ctermfg=NONE ctermbg=160
 hi ErrorMsg ctermfg=NONE ctermbg=88
-hi WarningMsg ctermfg=NONE ctermfg=242 ctermbg=238
+hi WarningMsg ctermfg=226 ctermbg=236
 hi SignColumn ctermbg=236
 hi ColumnLine ctermbg=236
 
@@ -181,9 +186,16 @@ let g:neomake_javascript_eslint_maker = {
     \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
     \   '%W%f: line %l\, col %c\, Warning - %m,%-G,%-G%*\d problems%#'
     \ }
-
 let g:neomake_verbose = 0
 call neomake#configure#automake('nw', 500)
-"
+
+" " -- lsp client --
+" let g:LanguageClient_serverCommands = {
+"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+"     \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+"     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+"     \ 'python': ['~/.local/bin/pyls'],
+"     \ }
+
 " -- commentary --
 setlocal commentstring=#\ %s
