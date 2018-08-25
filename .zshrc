@@ -7,6 +7,10 @@ if type "fortune" > /dev/null; then
     fortune | fold -s -w $COLS
 fi
 
+# --- Flatpak --------------------------------------------------------
+PATH=$PATH:/var/lib/flatpak/exports/bin
+plugins=(flatpak)
+
 # --- base (oh-my-)zsh seutp ----------------------------------------
 ZSH=~/.oh-my-zsh/
 ZSH_THEME="scc"
@@ -17,23 +21,18 @@ ZSH_THEME="scc"
 DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(zsh-syntax-highlighting history-substring-search)
+plugins+=(zsh-syntax-highlighting history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 bindkey -v
 
-# --- android stuff -------------------------------------------------
+# --- Android stuff -------------------------------------------------
 ANDROID_HOME=/home/mikeri/Development/Android/androidsdk 
 # PATH=${PATH}:${ANDROID_HOME}/tools 
 PATH=${PATH}:/home/mikeri/Development/Android/platform-tools 
 # PATH=$PATH:~/Development/Android-SDKs/platform-tools
-
-# --- flatpak --------------------------------------------------------
-PATH=$PATH:/var/lib/flatpak/exports/bin
-plugins+=(flatpak)
-
 # --- misc customization ---------------------------------------------
-export EDITOR=nvim
+export EDITOR=vim
 # Workaround for mouse support in mosh:
 # perl -E ' print "\e[?1005h\e[?1002h" '
 
