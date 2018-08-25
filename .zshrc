@@ -22,14 +22,18 @@ plugins=(zsh-syntax-highlighting history-substring-search)
 source $ZSH/oh-my-zsh.sh
 bindkey -v
 
-# --- Android stuff -------------------------------------------------
+# --- android stuff -------------------------------------------------
 ANDROID_HOME=/home/mikeri/Development/Android/androidsdk 
 # PATH=${PATH}:${ANDROID_HOME}/tools 
 PATH=${PATH}:/home/mikeri/Development/Android/platform-tools 
 # PATH=$PATH:~/Development/Android-SDKs/platform-tools
 
+# --- flatpak --------------------------------------------------------
+PATH=$PATH:/var/lib/flatpak/exports/bin
+plugins+=(flatpak)
+
 # --- misc customization ---------------------------------------------
-export EDITOR=vim
+export EDITOR=nvim
 # Workaround for mouse support in mosh:
 # perl -E ' print "\e[?1005h\e[?1002h" '
 
