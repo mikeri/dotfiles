@@ -9,9 +9,11 @@ general {
 
 #order += "disk /"
 #order += "disk /home"
+# order += "spotify"
 order += "path_exists reboot"
 order += "apt_updates"
 order += "run_watch vpn"
+# order += "sysdata ram"
 order += "cpu_usage"
 order += "load"
 order += "time"
@@ -22,9 +24,7 @@ wireless wlan0 {
 }
 
 apt_updates{
-        format= "{apt} updates available"
-        format_one= "update available"
-        # format_none= "system up to date"
+        format = "[\?not zero update[\?if=apt>1 s] available]"
 }
 
 cpu_usage{
@@ -55,6 +55,11 @@ run_watch vpn {
         color_bad = "#444444"
 }
 
+sysdata ram {
+        format = "{mem_used}/{mem_total}{mem_unit}"
+        precision = 0
+        }
+
 time {
         format = "%Y-%m-%d %H:%M"
 }
@@ -68,4 +73,13 @@ disk "/" {
 }
 disk "/home" {
         format = "%free"
+}
+spotify {
+    color_paused = "#444444"
+    color_good = "#888888"
+    button_next = 4
+    button_play_pause = 1
+    button_previous = 5
+    format = "{artist} - {title}"
+    format_down = ""
 }

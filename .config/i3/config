@@ -13,7 +13,8 @@
 set $XDG_MENU_PREFIX i3-
 
 # Auto start
-exec --no-startup-id xrandr --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
+# exec --no-startup-id xrandr --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
+exec --no-startup-id sleep 1 && xrandr --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal
 exec --no-startup-id feh --bg-center ~/Pictures/weyland-yutani.jpg
 exec --no-startup-id xset +fp /usr/local/share/fonts/gohufont-2.0
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
@@ -43,12 +44,15 @@ for_window [title=".*Firefox"] floating disable
 for_window [window_role="pop-up"] floating enable
 for_window [title="Software Updater"] floating enable
 for_window [title="RPCS3"] floating enable
+for_window [title="^Deluge$"] floating enable
 for_window [title="^File Operation Progress$"] floating enable
 for_window [title="^MPlayer$"] floating enable
 for_window [title="^KeePassX$"] floating enable
 for_window [title="^Blender User Preferences$"] floating enable
 for_window [class="^mpv$"] floating enable
+for_window [title="^Android Emulator"] floating enable
 for_window [class="^feh$"] floating enable
+for_window [title="^LibreOffice$"] floating enable
 for_window [title="^PCSX2"] floating enable
 for_window [title="CopyQ$"] floating enable
 for_window [title=" GSdx "] floating enable
@@ -60,6 +64,7 @@ for_window [title="^vCoolor$"] floating enable
 for_window [class="^Viewnior$"] floating enable
 for_window [title="^SyncTERM$"] floating enable
 for_window [title="^Maniac Mansion Deluxe$"] floating enable
+for_window [title="^FS-UAE · "] floating enable
 
 # for_window [workspace="9"] floating enable
 
@@ -81,7 +86,7 @@ bindsym $mod+Return exec urxvtc
 
 # Screenshots
 bindsym Print exec scrot -e 'mv $f ~/Pictures/screenshots'
-bindsym Shift+Print exec scrot -s -e 'mv $f ~/Pictures/screenshots'
+bindsym shift+Print exec scrot -s -e 'mv $f ~/Pictures/screenshots'
 
 # CopyQ clipboard manager
 bindsym Control+oslash exec copyq toggle
@@ -96,6 +101,7 @@ bindsym $mod+Shift+Q kill
 # rofi program launcher (replaces dmenu)
 bindsym $mod+d exec rofi -show run
 bindsym $mod+shift+d exec rofi -show drun
+bindsym $mod+n exec i3-easyfocus -a 
 
 # change focus
 bindsym $mod+h focus left
@@ -176,7 +182,8 @@ bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+E exit
+# bindsym $mod+Shift+E exit
+bindsym $mod+Shift+E exec rofi-confirm "Really restart ligthdm? Please confirm" "systemctl restart lightdm"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -232,7 +239,8 @@ bar {
     }
 # Change this according to driver
 # nouvea = DVI-I-1 NVidia = DVI-I-2
-tray_output DVI-I-2
+# tray_output DVI-I-1-1
+tray_output xinerama-0
 }
 new_window pixel 
 client.focused          #4c7899 #287799 #ffffff 
