@@ -24,7 +24,7 @@ wireless wlan0 {
 }
 
 apt_updates{
-        format = "[\?not zero update[\?if=apt>1 s] available]"
+        format = "[\?not_zero {apt} update[\?if=apt>1 s] available]"
 }
 
 cpu_usage{
