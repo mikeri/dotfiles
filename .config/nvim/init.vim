@@ -32,16 +32,16 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Shougo/denite.nvim'
 Plug 'ervandew/supertab'
-Plug 'benekastah/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'KabbAmine/vCoolor.vim'
-Plug 'zchee/deoplete-jedi'
 Plug 'ap/vim-css-color'
 Plug 'justinmk/vim-sneak'
 Plug 'jaxbot/browserlink.vim'
-Plug 'davidhalter/jedi-vim'
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
-" Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+" Plug 'davidhalter/jedi-vim'
+" Plug 'zchee/deoplete-jedi'
+" Plug 'benekastah/neomake'
 " Plug 'Lokaltog/vim-easymotion'
 " Plug 'KabbAmine/zeavim.vim'
 " Plug 'metakirby5/codi.vim'
@@ -84,7 +84,7 @@ if exists('g:plugs["tern_for_vim"]')
 endif
 
 " -- deoplete-jedi --
-let g:deoplete#sources#jedi#show_docstring = 1
+" let g:deoplete#sources#jedi#show_docstring = 1
 
 " -- airline --
 let g:airline_theme='powerlineish'
@@ -99,7 +99,7 @@ let g:airline_right_sep=''
 
 " -- tagbar --
 let g:tagbar_left=1
-noremap \t :TagbarOpenAutoClose<CR>
+noremap <Leader>t :TagbarOpenAutoClose<CR>
 
 " -- sneak --
 autocmd ColorScheme * hi Sneak guifg=23 guibg=white ctermfg=23 ctermbg=white cterm=bold
@@ -174,28 +174,47 @@ hi SignColumn ctermbg=236
 hi ColumnLine ctermbg=236
 
 " -- neomake --
-let g:neomake_error_sign = { 'text': '>>', 'texthl': 'ErrorMsg' } 
-let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'WarningMsg' } 
-let g:neomake_highlight_columns = 0
-let g:neomake_python_enabled_makers = ['pylint']
-let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint().args + ['--extension-pkg-whitelist=wx']
-let g:neomake_javascript_makers = ['eslint']
-let g:neomake_javascript_eslint_maker = {
-    \ 'exe': 'eslint',
-    \ 'args': ['-f', 'compact', '--no-ignore', '--no-eslintrc' ],
-    \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
-    \   '%W%f: line %l\, col %c\, Warning - %m,%-G,%-G%*\d problems%#'
-    \ }
-let g:neomake_verbose = 0
-call neomake#configure#automake('nw', 500)
+" let g:neomake_error_sign = { 'text': '>>', 'texthl': 'ErrorMsg' } 
+" let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'WarningMsg' } 
+" let g:neomake_highlight_columns = 0
+" let g:neomake_python_enabled_makers = ['pylint']
+" let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint().args + ['--extension-pkg-whitelist=wx']
+" let g:neomake_javascript_makers = ['eslint']
+" let g:neomake_javascript_eslint_maker = {
+"     \ 'exe': 'eslint',
+"     \ 'args': ['-f', 'compact', '--no-ignore', '--no-eslintrc' ],
+"     \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
+"     \   '%W%f: line %l\, col %c\, Warning - %m,%-G,%-G%*\d problems%#'
+"     \ }
+" let g:neomake_verbose = 0
+" call neomake#configure#automake('nw', 500)
 
 " " -- lsp client --
-" let g:LanguageClient_serverCommands = {
-"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-"     \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-"     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-"     \ 'python': ['~/.local/bin/pyls'],
-"     \ }
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['~/.local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['~/.local/bin/pyls'],
+    \ 'sh': ['~/.local/bin/bash-language-server', 'start'],
+    \ 'c': ['clangd-7'],
+    \ 'json': ['~/.local/bin/json-languageserver'],
+    \ }
+let g:LanguageClient_diagnosticsDisplay = {
+    \ 1: {
+    \     "name": "Error",
+    \     "texthl": "ErrorMsg",
+    \     "signText": ">>",
+    \     "signTexthl": "ErrorMsg",
+    \ },
+    \ 2: {
+    \     "name": "Warning",
+    \     "texthl": "None",
+    \     "signText": ">>",
+    \     "signTexthl": "WarningMsg",
+    \ }}
+nnoremap <silent> <Leader>k :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <Leader>d :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <Leader>r :call LanguageClient#textDocument_rename()<CR>
 
 " -- commentary --
 setlocal commentstring=#\ %s
