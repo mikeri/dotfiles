@@ -35,7 +35,9 @@ Plug 'benekastah/neomake'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'ap/vim-css-color'
 Plug 'justinmk/vim-sneak'
+Plug 'davidhalter/jedi-vim'
 
+" Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " Plug 'Indent-Guides'
 " Plug 'metakirby5/codi.vim'
 " Plug 'zchee/deoplete-jedi'
