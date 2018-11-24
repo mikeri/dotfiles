@@ -14,7 +14,8 @@ set $XDG_MENU_PREFIX i3-
 
 # Auto start
 # exec --no-startup-id xrandr --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
-exec --no-startup-id sleep 1 && xrandr --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal
+# exec --no-startup-id sleep 1 && xrandr --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal
+exec --no-startup-id xrandr --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal
 exec --no-startup-id feh --bg-center ~/Pictures/weyland-yutani.jpg
 exec --no-startup-id xset +fp /usr/local/share/fonts/gohufont-2.0
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
@@ -48,6 +49,7 @@ for_window [title="^Deluge$"] floating enable
 for_window [title="^File Operation Progress$"] floating enable
 for_window [title="^MPlayer$"] floating enable
 for_window [title="^KeePassX$"] floating enable
+for_window [title=" - KeePassXC$"] floating enable
 for_window [title="^Blender User Preferences$"] floating enable
 for_window [class="^mpv$"] floating enable
 for_window [title="^Android Emulator"] floating enable
@@ -239,8 +241,8 @@ bar {
     }
 # Change this according to driver
 # nouvea = DVI-I-1 NVidia = DVI-I-2
-# tray_output DVI-I-1-1
-tray_output xinerama-0
+tray_output DVI-D-0
+# tray_output primary
 }
 new_window pixel 
 client.focused          #4c7899 #287799 #ffffff 

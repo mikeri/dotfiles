@@ -70,6 +70,7 @@ case "$extension" in
             { dump | trim | fmt -s -w $width; exit 0; } || exit 1;;
     # BitTorrent Files
     torrent)
+        try btshowmetainfo "$path" && { dump | trim; exit 0; }
         try transmission-show "$path" && { dump | trim; exit 5; } || exit 1;;
     # ODT Files
     odt|ods|odp|sxw)
@@ -125,7 +126,7 @@ case "$mimetype" in
         img2txt --gamma=0.6 --width="$width" "$path" && exit 4 || exit 1;;
     # Display information about media files:
     audio/x-mod)
-        try xmp -vC --load-only "$path" 2>&1 | tail +8 | lolcat && { dump | trim; exit 5; } || exit 1;;
+        try xmp -vC --load-only "$path" 2>&1 | tail +8 && { dump | trim; exit 5; } || exit 1;;
     video/* | audio/*)
         exiftool "$path" && exit 5
         # Use sed to remove spaces so the output fits into the narrow window

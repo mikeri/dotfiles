@@ -1,50 +1,50 @@
-mkdir scc
-mkdir 
-find .goat
-find .goattracker
-cd .goattrk/
-open_with goattracker
-cd .config
-find rang
-open_with rn
-open_with python
-search 
-find sa
-flat
-flat 0
-flat 1
-flat 3
-bulkrename
-find deblq
-find deb
-find h
-find hub
-find comm
-find python
-find pyth
-find ranger
-find mu
-help
-open_with gimp
-search blitz
-bulkrename 
-search hist
-set show_hidden
-set show_hidden true
-open_with hex
-vim
-edit
-Delete
-open_with 1
-open_with nvim
-open_with kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-open_with h
-open_with less
-open_with uae123
 open_with uade123
-
+search ranger
 version
-shell 
-open_with 
+open_with xmp
+cd .oh-my-zsh
+move
+mkdir Maxim
+open_with okular
+bulk
+tab
+feh
+open
+open_with pdfinfo
+search tmp
+search kernel
+search response
+search drag
+find grid.pyi
+scout -m drag
+scout -m html
+tag
+tag_add 
+scout -f 
+scout -f hjjjjjjjjjjjjjjj
+search wx
+grep Drop
+grep OnDrop
+grep TextDrop
+grep DropText
+grep OnDropText
+hex
+hexdump
+open_with hexdump
+open_with nvim
 open_with vim
+open_with feh
 delete
+open_with 
+open_with mpv
+rename 
+
+tabnew
+tab_new 
+man
+tab_close 
+set colorscheme zenburn
+tab_new
+select_all
+a
+bulkrename 

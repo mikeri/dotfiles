@@ -118,7 +118,7 @@
     startup_notification = false
 
     # dmenu path
-    dmenu = /usr/bin/dmenu -p dunst:
+    dmenu = /usr/bin/dmenu -nb "#444" -nf "#aaa" -sb "#47c" -fn gohufont -p dunst:
 
     # browser for opening urls in context menu
     browser = /usr/bin/firefox -new-tab
