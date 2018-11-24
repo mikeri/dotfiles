@@ -30,15 +30,16 @@ Plug 'majutsushi/tagbar'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Shougo/denite.nvim'
 Plug 'ervandew/supertab'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'ap/vim-css-color'
 Plug 'justinmk/vim-sneak'
-Plug 'jaxbot/browserlink.vim'
+Plug 'Shougo/denite.nvim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
+" Plug 'jaxbot/browserlink.vim'
+" Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " Plug 'davidhalter/jedi-vim'
 " Plug 'zchee/deoplete-jedi'
 " Plug 'benekastah/neomake'
@@ -121,7 +122,6 @@ call denite#custom#map(
 	      \ '<denite:move_to_next_line>',
 	      \ 'noremap'
 	      \)
-
 
 " -- supertab --
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
