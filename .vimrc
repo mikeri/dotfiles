@@ -122,7 +122,8 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " -- misc config --
 set guioptions-=T
 set guioptions-=m
-set dir=~/.vim/swapfiles
+set dir=~/.vim/swapfiles//
+set undodir=~/.vim/undo//
 cnoreabbrev c64 !~/Development/c64/kickassend.sh %
 cnoreabbrev vice !~/Development/c64/kickassvice.sh %
 cnoreabbrev sudow !sudo tee %
