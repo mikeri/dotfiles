@@ -27,6 +27,7 @@ call plug#begin('~/.config/nvim/bundle')
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'majutsushi/tagbar'
+Plug 'mbbill/undotree'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -106,6 +107,14 @@ noremap <Leader>t :TagbarOpenAutoClose<CR>
 autocmd ColorScheme * hi Sneak guifg=23 guibg=white ctermfg=23 ctermbg=white cterm=bold
 map , <Plug>Sneak_;
 map ; <Plug>Sneak_,
+
+" -- undoTree --
+function! UndoToggleAndFocus()
+    UndotreeToggle
+    UndotreeFocus
+endfunction
+command UndoToggleAndFocus call UndoToggleAndFocus()
+noremap U :UndoToggleAndFocus<CR>
 
 " -- denite --
 noremap \b :Denite buffer<CR>
