@@ -6,6 +6,7 @@ set fileencoding=utf-8
 set gfn=GohuFont\ 10
 set encoding=utf-8
 set ttimeoutlen=50
+set signcolumn=yes
 set relativenumber
 set cursorline
 set lazyredraw
@@ -180,7 +181,9 @@ colorscheme desert-warm-256
 hi SpellBad ctermfg=NONE ctermbg=100
 hi SpellCap ctermfg=NONE ctermbg=160
 hi ErrorMsg ctermfg=NONE ctermbg=88
+hi ErrorCol ctermfg=196 ctermbg=236 cterm=bold
 hi WarningMsg ctermfg=226 ctermbg=236
+hi WarningCol ctermfg=100 ctermbg=236
 hi SignColumn ctermbg=236
 hi ColumnLine ctermbg=236
 
@@ -215,17 +218,18 @@ let g:LanguageClient_diagnosticsDisplay = {
     \     "name": "Error",
     \     "texthl": "ErrorMsg",
     \     "signText": ">>",
-    \     "signTexthl": "ErrorMsg",
+    \     "signTexthl": "ErrorCol",
     \ },
     \ 2: {
     \     "name": "Warning",
     \     "texthl": "None",
     \     "signText": ">>",
-    \     "signTexthl": "WarningMsg",
+    \     "signTexthl": "WarningCol",
     \ }}
 nnoremap <silent> <Leader>k :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <Leader>d :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <Leader>r :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <Leader>j :call LanguageClient#textDocument_formatting()<CR>
 
 " -- commentary --
 setlocal commentstring=#\ %s
