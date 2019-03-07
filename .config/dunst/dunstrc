@@ -118,7 +118,7 @@
     startup_notification = false
 
     # dmenu path
-    dmenu = /usr/bin/dmenu -nb "#444" -nf "#aaa" -sb "#47c" -fn gohufont -p dunst:
+    dmenu = /usr/bin/dmenu -p dunst:
 
     # browser for opening urls in context menu
     browser = /usr/bin/firefox -new-tab
@@ -156,7 +156,7 @@
 [urgency_normal]
     background = "#444444"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 0
 
 [urgency_critical]
     background = "#900000"
@@ -191,7 +191,6 @@
 #    script = dunst_test.sh
 
 [volume]
-# This notification will not be displayed
     appname = "Volume Icon"
     format = "Volume: %p"
     urgency = low
