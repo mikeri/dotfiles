@@ -39,6 +39,7 @@ Plug 'ap/vim-css-color'
 Plug 'justinmk/vim-sneak'
 Plug 'Shougo/denite.nvim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 " Plug 'jaxbot/browserlink.vim'
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
@@ -213,6 +214,8 @@ let g:LanguageClient_serverCommands = {
     \ 'c': ['clangd-7'],
     \ 'json': ['~/.local/bin/json-languageserver'],
     \ }
+    "\ 'python': ['/home/mikeri/.config/nvim/bundle/LanguageClient-neovim/tests/wrapper-server.sh', 'dotnet', '/home/mikeri/Stuff/python-language-server/output/bin/Release/Microsoft.Python.LanguageServer.dll'],
+    " \ 'python': ['~/.local/bin/pyls'],
 let g:LanguageClient_diagnosticsDisplay = {
     \ 1: {
     \     "name": "Error",
@@ -233,3 +236,21 @@ nnoremap <silent> <Leader>j :call LanguageClient#textDocument_formatting()<CR>
 
 " -- commentary --
 setlocal commentstring=#\ %s
+
+" -- semshi --
+function SemshiHighlights()
+    hi semshiLocal           ctermfg=216 guifg=#ff875f
+    hi semshiGlobal          ctermfg=217 guifg=#ffaf40
+    hi semshiImported        ctermfg=218 guifg=#ffaf40 cterm=none
+    hi semshiParameter       ctermfg=117 guifg=#5fafff
+    hi semshiParameterUnused ctermfg=75  guifg=#87d7ff cterm=underline gui=underline
+    hi semshiFree            ctermfg=219 guifg=#ffafd7
+    hi semshiBuiltin         ctermfg=186 guifg=#ff7fff
+    hi semshiAttribute       ctermfg=86  guifg=#40cfaf
+    hi semshiSelf            ctermfg=249 guifg=#b2b2b2
+    hi semshiUnresolved      ctermfg=226 guifg=#ffff00 cterm=underline gui=underline
+    hi semshiSelected        ctermfg=231 guifg=#ffffff ctermbg=32 guibg=#47a0af
+endfunction
+call SemshiHighlights()
+autocmd FileType python call SemshiHighlights()
+let g:semshi#error_sign=v:false
