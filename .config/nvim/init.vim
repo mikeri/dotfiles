@@ -40,6 +40,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'Shougo/denite.nvim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'vim-python/python-syntax'
 
 " Plug 'jaxbot/browserlink.vim'
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
