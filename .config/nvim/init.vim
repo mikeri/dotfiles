@@ -179,12 +179,14 @@ command Code call Code()
 
 " -- theme stuff --
 colorscheme desert-warm-256
-hi SpellBad ctermfg=NONE ctermbg=100
-hi SpellCap ctermfg=NONE ctermbg=160
-hi ErrorMsg ctermfg=NONE ctermbg=88
-hi ErrorCol ctermfg=196 ctermbg=236 cterm=bold
-hi WarningMsg ctermfg=226 ctermbg=236
-hi WarningCol ctermfg=100 ctermbg=236
+hi SpellBad   ctermfg=NONE ctermbg=100
+hi SpellCap   ctermfg=NONE ctermbg=160
+hi ErrorMsg   ctermfg=NONE ctermbg=88
+hi ErrorCol   ctermfg=196  ctermbg=236 cterm=bold
+hi Error      ctermfg=210  ctermbg=88
+hi WarningMsg ctermfg=226  ctermbg=236
+hi WarningCol ctermfg=100  ctermbg=236
+hi Todo       ctermfg=226  ctermbg=94
 hi SignColumn ctermbg=236
 hi ColumnLine ctermbg=236
 
