@@ -241,11 +241,11 @@ setlocal commentstring=#\ %s
 function SemshiHighlights()
     hi semshiLocal           ctermfg=216 guifg=#ff875f
     hi semshiGlobal          ctermfg=217 guifg=#ffaf40
-    hi semshiImported        ctermfg=218 guifg=#ffaf40 cterm=none
+    hi semshiImported        ctermfg=159 guifg=#ffaf40 cterm=none
     hi semshiParameter       ctermfg=117 guifg=#5fafff
     hi semshiParameterUnused ctermfg=75  guifg=#87d7ff cterm=underline gui=underline
     hi semshiFree            ctermfg=219 guifg=#ffafd7
-    hi semshiBuiltin         ctermfg=186 guifg=#ff7fff
+    hi semshiBuiltin         ctermfg=223 guifg=#ff7fff
     hi semshiAttribute       ctermfg=86  guifg=#40cfaf
     hi semshiSelf            ctermfg=249 guifg=#b2b2b2
     hi semshiUnresolved      ctermfg=226 guifg=#ffff00 cterm=underline gui=underline
