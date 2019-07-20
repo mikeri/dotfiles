@@ -29,7 +29,8 @@ Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'Shougo/denite.nvim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'ervandew/supertab'
 Plug 'benekastah/neomake'
 Plug 'KabbAmine/vCoolor.vim'
@@ -37,6 +38,7 @@ Plug 'ap/vim-css-color'
 Plug 'justinmk/vim-sneak'
 Plug 'davidhalter/jedi-vim'
 
+" Plug 'Shougo/denite.nvim'
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " Plug 'Indent-Guides'
 " Plug 'metakirby5/codi.vim'
@@ -94,27 +96,31 @@ let g:airline_right_sep=''
 " -- tagbar --
 let g:tagbar_left=1
 
+" -- fzf --
+noremap \f :Files<CR>
+noremap \b :Buffers<CR>
+
 " -- sneak --
 autocmd ColorScheme * hi Sneak ctermfg=23 ctermbg=white cterm=bold
 map , <Plug>Sneak_;
 map ; <Plug>Sneak_,
 
 " -- denite --
-noremap \b :Denite buffer<CR>
-noremap \f :Denite file_rec<CR>
-noremap \t :Denite tab<CR>
-call denite#custom#map(
-	      \ 'insert',
-	      \ '<C-k>',
-	      \ '<denite:move_to_previous_line>',
-	      \ 'noremap'
-	      \)
-call denite#custom#map(
-	      \ 'insert',
-	      \ '<C-j>',
-	      \ '<denite:move_to_next_line>',
-	      \ 'noremap'
-	      \)
+" noremap \b :Denite buffer<CR>
+" noremap \f :Denite file_rec<CR>
+" noremap \t :Denite tab<CR>
+" call denite#custom#map(
+" 	      \ 'insert',
+" 	      \ '<C-k>',
+" 	      \ '<denite:move_to_previous_line>',
+" 	      \ 'noremap'
+" 	      \)
+" call denite#custom#map(
+" 	      \ 'insert',
+" 	      \ '<C-j>',
+" 	      \ '<denite:move_to_next_line>',
+" 	      \ 'noremap'
+" 	      \)
 
 " -- supertab --
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"

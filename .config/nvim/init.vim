@@ -34,14 +34,18 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ervandew/supertab'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'ap/vim-css-color'
 Plug 'justinmk/vim-sneak'
-Plug 'Shougo/denite.nvim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'vim-python/python-syntax'
+Plug 'chrisbra/csv.vim'
 
+" Plug 'Shougo/denite.nvim'
 " Plug 'jaxbot/browserlink.vim'
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " Plug 'davidhalter/jedi-vim'
@@ -119,22 +123,26 @@ endfunction
 command UndoToggleAndFocus call UndoToggleAndFocus()
 noremap U :UndoToggleAndFocus<CR>
 
+" -- fzf --
+noremap \f :Files<CR>
+noremap \b :Buffers<CR>
+
 " -- denite --
-noremap \b :Denite buffer<CR>
-noremap \f :Denite file_rec<CR>
-noremap \g :Denite register<CR>
-call denite#custom#map(
-	      \ 'insert',
-	      \ '<C-k>',
-	      \ '<denite:move_to_previous_line>',
-	      \ 'noremap'
-	      \)
-call denite#custom#map(
-	      \ 'insert',
-	      \ '<C-j>',
-	      \ '<denite:move_to_next_line>',
-	      \ 'noremap'
-	      \)
+" noremap \b :Denite buffer<CR>
+" noremap \f :Denite file_rec<CR>
+" noremap \g :Denite register<CR>
+" call denite#custom#map(
+" 	      \ 'insert',
+" 	      \ '<C-k>',
+" 	      \ '<denite:move_to_previous_line>',
+" 	      \ 'noremap'
+" 	      \)
+" call denite#custom#map(
+" 	      \ 'insert',
+" 	      \ '<C-j>',
+" 	      \ '<denite:move_to_next_line>',
+" 	      \ 'noremap'
+	      " \)
 
 " -- supertab --
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
@@ -243,7 +251,7 @@ setlocal commentstring=#\ %s
 " -- semshi --
 function SemshiHighlights()
     hi semshiLocal           ctermfg=216 guifg=#ff875f
-    hi semshiGlobal          ctermfg=217 guifg=#ffaf40
+    hi semshiGlobal          ctermfg=218 guifg=#ffaf40
     hi semshiImported        ctermfg=159 guifg=#ffaf40 cterm=none
     hi semshiParameter       ctermfg=117 guifg=#5fafff
     hi semshiParameterUnused ctermfg=75  guifg=#87d7ff cterm=underline gui=underline
