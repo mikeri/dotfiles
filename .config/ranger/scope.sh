@@ -65,6 +65,9 @@ case "$extension" in
         # avoid password prompt by providing empty password
         try 7z -p l "$path" && { dump | trim; exit 0; } || exit 1;;
     # PDF documents:
+    nfo|diz)
+        try iconv -f cp437 "$path" && \
+            { dump | trim | fmt -s -w $width; exit 0; } || exit 4;;
     pdf)
         try pdftotext -l 10 -nopgbrk -q "$path" - && \
             { dump | trim | fmt -s -w $width; exit 0; } || exit 1;;
@@ -82,6 +85,9 @@ case "$extension" in
         try elinks -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
         ;; # fall back to highlight/cat if the text browsers fail
     # C64 stuff
+    sid)
+        sidinfo "$path" | sed -e '1!b;s/.*/\x1B[47;30m&\x1B[40;36m/' 
+		exit 0;;
     d64)
         c1541 -attach "$path" -list | sed -e '1!b;s/.*/\x1B[47;30m&\x1B[40;36m/' 
         echo
