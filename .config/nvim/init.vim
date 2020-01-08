@@ -11,6 +11,7 @@ set relativenumber
 set cursorline
 set lazyredraw
 set expandtab
+set showmatch
 set hlsearch
 set wildmenu
 set undofile
@@ -32,19 +33,20 @@ Plug 'mbbill/undotree'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ervandew/supertab'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'ap/vim-css-color'
 Plug 'justinmk/vim-sneak'
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'vim-python/python-syntax'
-Plug 'chrisbra/csv.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Plug 'vim-python/python-syntax'
+" Plug 'chrisbra/csv.vim'
+" Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+" Plug 'ervandew/supertab'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/denite.nvim'
 " Plug 'jaxbot/browserlink.vim'
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
@@ -148,15 +150,15 @@ autocmd FileType fzf set signcolumn=no
 	      " \)
 
 " -- supertab --
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+" let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " -- misc config --
 set guioptions-=T
 set guioptions-=m
 set dir=~/.vim/swapfiles//
 set undodir=~/.vim/undo//
-cnoreabbrev c64 !~/Development/c64/kickassend.sh %
-cnoreabbrev vice !~/Development/c64/kickassvice.sh %
+cnoreabbrev c64 !~/Development/code/c64/kickassend.sh %
+cnoreabbrev vice !~/Development/code/c64/kickassvice.sh %
 cnoreabbrev sudow !sudo tee %
 cnoreabbrev W w
 cnoreabbrev Q q
@@ -219,34 +221,58 @@ hi ColumnLine ctermbg=236
 " call neomake#configure#automake('nw', 500)
 
 " " -- lsp client --
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'javascript': ['~/.local/bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'python': ['~/.local/bin/pyls'],
-    \ 'sh': ['~/.local/bin/bash-language-server', 'start'],
-    \ 'c': ['clangd-7'],
-    \ 'json': ['~/.local/bin/json-languageserver'],
-    \ }
-    "\ 'python': ['/home/mikeri/.config/nvim/bundle/LanguageClient-neovim/tests/wrapper-server.sh', 'dotnet', '/home/mikeri/Stuff/python-language-server/output/bin/Release/Microsoft.Python.LanguageServer.dll'],
-    " \ 'python': ['~/.local/bin/pyls'],
-let g:LanguageClient_diagnosticsDisplay = {
-    \ 1: {
-    \     "name": "Error",
-    \     "texthl": "ErrorMsg",
-    \     "signText": ">>",
-    \     "signTexthl": "ErrorCol",
-    \ },
-    \ 2: {
-    \     "name": "Warning",
-    \     "texthl": "None",
-    \     "signText": ">>",
-    \     "signTexthl": "WarningCol",
-    \ }}
-nnoremap <silent> <Leader>k :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <Leader>d :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <Leader>r :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <Leader>j :call LanguageClient#textDocument_formatting()<CR>
+" let g:LanguageClient_serverCommands = {
+"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+"     \ 'javascript': ['~/.local/bin/javascript-typescript-stdio'],
+"     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+"     \ 'python': ['~/.local/bin/pyls'],
+"     \ 'sh': ['~/.local/bin/bash-language-server', 'start'],
+"     \ 'c': ['clangd-7'],
+"     \ 'json': ['~/.local/bin/json-languageserver'],
+"     \ }
+" let g:LanguageClient_diagnosticsDisplay = {
+"     \ 1: {
+"     \     "name": "Error",
+"     \     "texthl": "ErrorMsg",
+"     \     "signText": ">>",
+"     \     "signTexthl": "ErrorCol",
+"     \ },
+"     \ 2: {
+"     \     "name": "Warning",
+"     \     "texthl": "None",
+"     \     "signText": ">>",
+"     \     "signTexthl": "WarningCol",
+"     \ }}
+" nnoremap <silent> <Leader>k :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> <Leader>d :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> <Leader>r :call LanguageClient#textDocument_rename()<CR>
+" nnoremap <silent> <Leader>j :call LanguageClient#textDocument_formatting()<CR>
+
+" -- coc --
+nmap <silent> <leader>d <Plug>(coc-definition)
+nmap <silent> <leader>y <Plug>(coc-type-definition)
+nmap <silent> <leader>i <Plug>(coc-implementation)
+nmap <silent> <leader>e <Plug>(coc-references)
+nmap <leader>r <Plug>(coc-rename)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+autocmd CursorHold * silent call CocActionAsync('highlight')
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
 
 " -- commentary --
 setlocal commentstring=#\ %s
