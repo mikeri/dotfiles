@@ -41,6 +41,7 @@ Plug 'ap/vim-css-color'
 Plug 'justinmk/vim-sneak'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'msrose/vim-perpetuloc'
 
 " Plug 'vim-python/python-syntax'
 " Plug 'chrisbra/csv.vim'
@@ -93,6 +94,10 @@ if exists('g:plugs["tern_for_vim"]')
   let g:tern_show_signature_in_pum = 1
   autocmd FileType javascript setlocal omnifunc=tern#Complete
 endif
+
+" -- vim-perpetuloc --
+nnoremap <C-k> :Lprevious<CR>
+nnoremap <C-j> :Lnext<CR>
 
 " -- deoplete-jedi --
 " let g:deoplete#sources#jedi#show_docstring = 1
@@ -274,6 +279,11 @@ inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+
+hi CocErrorFloat   ctermfg=NONE ctermbg=88
+hi CocErrorSign    ctermfg=196  ctermbg=236 cterm=bold
+hi CocWarningFloat ctermfg=226  ctermbg=236
+hi CocWarningSign  ctermfg=100  ctermbg=236
 
 " -- commentary --
 setlocal commentstring=#\ %s
