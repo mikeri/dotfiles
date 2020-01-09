@@ -42,6 +42,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'msrose/vim-perpetuloc'
+Plug 'psf/black'
 
 " Plug 'vim-python/python-syntax'
 " Plug 'chrisbra/csv.vim'
@@ -94,6 +95,9 @@ if exists('g:plugs["tern_for_vim"]')
   let g:tern_show_signature_in_pum = 1
   autocmd FileType javascript setlocal omnifunc=tern#Complete
 endif
+
+" -- black --
+nnoremap <leader>j :Black<CR>
 
 " -- vim-perpetuloc --
 nnoremap <C-k> :Lprevious<CR>
