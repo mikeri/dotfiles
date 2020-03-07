@@ -9,29 +9,40 @@ fi
 
 # --- Flatpak --------------------------------------------------------
 PATH=$PATH:/var/lib/flatpak/exports/bin
-plugins=(flatpak)
 
-# --- base (oh-my-)zsh seutp ----------------------------------------
-ZSH=~/.oh-my-zsh/
-ZSH_THEME="scc"
-# CASE_SENSITIVE="true"
-# DISABLE_AUTO_UPDATE="true"
-# export UPDATE_ZSH_DAYS=13
-# DISABLE_LS_COLORS="true"
-DISABLE_AUTO_TITLE="true"
-COMPLETION_WAITING_DOTS="true"
+# --- zplug ----------------------------------------------------------
+source ~/.zplug/init.zsh
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-history-substring-search", defer:2
+zplug "bilelmoussaoui/flatpak-zsh-completion"
+zplug 'endaaman/lxd-completion-zsh'
+zplug "mikeri/3c90c61ba41cc0b2c625bd0f6a908a7f", from:gist, as:theme
 
-plugins+=(nmap zsh-syntax-highlighting history-substring-search)
+# Install plugins if there are plugins that have not been installed
+if ! zplug check; then
+    printf "Uninstalled zsh plugins found! Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
-source $ZSH/oh-my-zsh.sh
-bindkey -v
+# Then, source plugins and add commands to $PATH
+zplug load
 
 # --- Android stuff -------------------------------------------------
 ANDROID_HOME=/home/mikeri/Development/Android/androidsdk 
 # PATH=${PATH}:${ANDROID_HOME}/tools 
 PATH=${PATH}:/home/mikeri/Development/Android/platform-tools 
 # PATH=$PATH:~/Development/Android-SDKs/platform-tools
-# --- misc customization ---------------------------------------------
+
+# --- misc config/customization -------------------------------------
+HISTFILE=~/.zsh_history
+DISABLE_AUTO_TITLE="true"
+COMPLETION_WAITING_DOTS="true"
+bindkey -v
+bindkey "^Q" push-line
+
+export LD_PRELOAD=""
 export EDITOR=nvim
 # Workaround for mouse support in mosh:
 # perl -E ' print "\e[?1005h\e[?1002h" '
@@ -53,6 +64,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;253m'    # begin underline
 alias colortest="python -c \"print('\n'.join([(' '.join([('\033[38;5;' + str((i + j)) + 'm' + str((i + j)).ljust(5) +
    '\033[0m') if i + j < 256 else '' for j in range(10)])) for i in range(0, 256, 10)]))\"" 
 alias upgr="sudo apt-get update && sudo apt-get -y full-upgrade && sudo apt-get autoremove"
+alias nfocat="iconv -f cp437"
 
 new() {
     ls -lth $@ | head -11 | tail
@@ -62,7 +74,7 @@ compdef _files new
 
 sid() {
     cd ~/Music/C64Music
-    sidplayfp -t0 $(fzf)
+    sidplayfp -v -t0 $(fzf)
 }
 
 if type "fzf" > /dev/null; then
