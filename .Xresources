@@ -5,7 +5,7 @@ xrenoise.display:	:0.0
 xrenoise.display_resource:	0x00,0x01,0x9B,0x85,0x68,0x08,0xD5,0x65
 xrenoise.executable_path:	/home/mikeri/Stuff/Renoise_2_8_1_Demo_x86_64/renoise
 URxvt*termName: rxvt-unicode-256color
-URxvt*saveLines: 10000
+URxvt*saveLines: 1000000
 URxvt*background:  #1b1d1e
 URxvt*foreground:  #a8a8a8
 URxvt*scrollBar_right:	true
