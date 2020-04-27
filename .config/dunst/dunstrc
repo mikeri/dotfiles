@@ -1,5 +1,9 @@
 [global]
     font = Gohufont 11
+    # icon_path = /home/mikeri/.icons/evolbuntu/16x16/status
+    # icon_path = /home/mikeri/.icons/black-white_2-Style/scalable/status/
+    icon_path = /home/mikeri/.icons/evolvere-dark/16x16/status/:/home/mikeri/.icons/evolvere-dark/16x16/devices/
+    icon_position = right
 
     # allow a small subset of html markup:
     # <b>bold</b>
