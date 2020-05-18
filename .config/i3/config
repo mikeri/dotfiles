@@ -12,6 +12,7 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 exec --no-startup-id xfsettingsd
 # exec --no-startup-id glipper
 exec --no-startup-id copyq
+exec --no-startup-id backupcheck
 exec --no-startup-id python ~/Stuff/an2linuxserver/an2linuxserver.py
 exec --no-startup-id ~/Stuff/inotify-daemon/inotify-daemon --host 192.168.0.6 --port 14141
 exec --no-startup-id classicmenu-indicator
