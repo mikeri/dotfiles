@@ -14,7 +14,6 @@ exec --no-startup-id xfsettingsd
 exec --no-startup-id copyq
 exec --no-startup-id backupcheck
 exec --no-startup-id python ~/Stuff/an2linuxserver/an2linuxserver.py
-exec --no-startup-id ~/Stuff/inotify-daemon/inotify-daemon --host 192.168.0.6 --port 14141
 exec --no-startup-id classicmenu-indicator
 exec --no-startup-id xautolock -locker "i3lock -c 000000" -time 60
 exec --no-startup-id xfce4-power-manager
@@ -23,7 +22,6 @@ exec --no-startup-id flameshot
 exec --no-startup-id pasystray
 # exec --no-startup-id syncthing
 exec --no-startup-id urxvtd
-exec --no-startup-id inotify-daemon
 # exec --no-startup-id compton --backend glx --vsync opengl-swc -c --shadow-exclude '!I3_FLOATING_WINDOW@:c'
 
 # Stop Firefox from floating
