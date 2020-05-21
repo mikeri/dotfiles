@@ -78,6 +78,9 @@ XTerm*cursorOnTime: 500
 XTerm*internalBorder: 2
 XTerm*borderWidth: 0
 XTerm*fade: 15
+XTerm*allowTitleOps: false
+XTerm*multiScroll: true
+XTerm*buffered: true
 XTerm*truetintingType: true
 XTerm*tinting: #ffffff
 
