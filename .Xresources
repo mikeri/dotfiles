@@ -13,8 +13,7 @@ URxvt*scrollBar:	false
 URxvt*inheritPixmap:	false
 URxvt*geometry:		84x24
 URxvt*tint:		white
-URxvt*font: xft:gohufont:style=Regular:pixelsize=13
-URxvt*boldFont: xft:gohufont:style=Bold:pixelsize=13
+URxvt*font: xft:gohufont:pixelsize=13, xft:Segoe UI Symbol
 URxvt*color0:     #1b1d1e
 URxvt*color1:     #cc5555
 URxvt*color2:     #739f12
