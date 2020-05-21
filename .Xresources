@@ -70,49 +70,16 @@ XTerm*color12:    #99bbee
 XTerm*color13:    #bd9cff
 XTerm*color14:    #9dedfb
 XTerm*color15:    #ffffff
-XTerm*faceName:   xft:gohufont:style=Regular:pixelsize=13
-XTerm*font: xft:gohufont:style=Regular:pixelsize=13
+/* XTerm*faceName:   xft:gohufont:style=Regular:pixelsize=13 */
+XTerm*font: xft:gohufont:pixelsize=13
 XTerm*cursorBlink: true
 XTerm*cursorOffTime: 500
 XTerm*cursorOnTime: 500
 XTerm*internalBorder: 2
 XTerm*borderWidth: 0
 XTerm*fade: 15
-XTerm*shading: 15
 XTerm*truetintingType: true
 XTerm*tinting: #ffffff
 
-## xterm config
-UXTerm*fastScroll: True
-UXTerm*termName:   xterm-256color
-UXTerm*background: #1b1d1e
-UXTerm*foreground: #A8A8A8
-UXTerm*color0:     #1b1d1e
-UXTerm*color1:     #cc5555
-UXTerm*color2:     #739f12
-UXTerm*color3:     #ccc355
-UXTerm*color4:     #4072bc
-UXTerm*color5:     #6f38df
-UXTerm*color6:     #42aec2
-UXTerm*color7:     #b9b9b9
-UXTerm*color8:     #505354
-UXTerm*color9:     #ff8888
-UXTerm*color10:    #c2e86f
-UXTerm*color11:    #fffcbb
-UXTerm*color12:    #99bbee
-UXTerm*color13:    #bd9cff
-UXTerm*color14:    #9dedfb
-UXTerm*color15:    #ffffff
-UXTerm*faceName:   xft:gohufont:style=Regular:pixelsize=13
-UXTerm*font: xft:gohufont:style=Regular:pixelsize=13
-UXTerm*cursorBlink: true
-UXTerm*cursorOffTime: 500
-UXTerm*cursorOnTime: 500
-UXTerm*internalBorder: 2
-UXTerm*borderWidth: 0
-UXTerm*fade: 15
-UXTerm*shading: 15
-UXTerm*truetintingType: true
-UXTerm*tinting: #ffffff
 
 Xcursor.theme: ComixCursors-Blue-Large
