@@ -37,7 +37,7 @@ URxvt*fadeColor:        black
 URxvt*blurRadius:       5
 URxvt.matcher.rend.0: -Uline
 ## URxvt*perl-lib:         /home/david/.urxvt
-URxvt*perl-ext: default,matcher,keyboard-select,-readline,-selection
+URxvt*perl-ext: default,matcher,keyboard-select,-readline,-selection,confirm-paste
 ## URxvt*perl-ext-common: default,matcher,digital-clock,monit
 URxvt*url-Launcher:firefox
 URxvt*jumpScroll: true
