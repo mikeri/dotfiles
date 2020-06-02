@@ -60,9 +60,6 @@ export EDITOR=nvim
 # Workaround for mouse support in mosh:
 # perl -E ' print "\e[?1005h\e[?1002h" '
 
-PATH=$PATH:~/.gem/ruby/2.0.0/bin
-PATH=~/.local/bin:$PATH
-export PATH
 # Colorful man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
