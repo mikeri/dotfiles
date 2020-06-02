@@ -14,6 +14,7 @@ PATH=$PATH:/var/lib/flatpak/exports/bin
 source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:3
+zplug "zsh-users/zsh-completions"
 zplug "bilelmoussaoui/flatpak-zsh-completion"
 zplug 'endaaman/lxd-completion-zsh'
 zplug "mikeri/3c90c61ba41cc0b2c625bd0f6a908a7f", from:gist, as:theme
