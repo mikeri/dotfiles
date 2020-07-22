@@ -14,6 +14,7 @@ exec --no-startup-id xfsettingsd
 exec --no-startup-id copyq
 exec --no-startup-id backupcheck
 exec --no-startup-id python ~/Stuff/an2linuxserver/an2linuxserver.py
+# exec --no-startup-id ~/Stuff/inotify-daemon/inotify-daemon --host 192.168.0.6 --port 14141
 exec --no-startup-id classicmenu-indicator
 exec --no-startup-id xautolock -locker "i3lock -c 000000" -time 60
 exec --no-startup-id xfce4-power-manager
@@ -22,6 +23,7 @@ exec --no-startup-id flameshot
 exec --no-startup-id pasystray
 # exec --no-startup-id syncthing
 # exec --no-startup-id urxvtd
+# exec --no-startup-id inotify-daemon
 # exec --no-startup-id compton --backend glx --vsync opengl-swc -c --shadow-exclude '!I3_FLOATING_WINDOW@:c'
 
 # Stop Firefox from floating
@@ -94,13 +96,13 @@ bindsym $mod+Shift+Q kill
 # rofi program launcher (replaces dmenu)
 bindsym $mod+d exec rofi -show run
 bindsym $mod+shift+d exec rofi -show drun
-bindsym $mod+n exec i3-easyfocus -a 
 
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+bindsym $mod+n exec i3-easyfocus -a 
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -133,6 +135,7 @@ bindsym $mod+f fullscreen
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout default
+# bindsym $mod+e workspace work; append_layout /tmp/tiss.json
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -143,7 +146,7 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# force normal border
+# apply normal border
 bindsym $mod+b border pixel 2
 
 # focus the child container
@@ -172,6 +175,9 @@ bindsym $mod+Shift+slash move container to workspace 7:seven
 bindsym $mod+Shift+parenleft move container to workspace 8:eight
 bindsym $mod+Shift+parenright move container to workspace 9:nine
 bindsym $mod+Shift+equal move container to workspace 10:ten
+
+# move focused workspace
+bindsym $mod+x move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
