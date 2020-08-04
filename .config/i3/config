@@ -58,6 +58,7 @@ for_window [class="^Viewnior$"] floating enable
 for_window [title="^SyncTERM$"] floating enable
 for_window [title="^Maniac Mansion Deluxe$"] floating enable
 for_window [title="^FS-UAE · "] floating enable
+for_window [class="^xpad$"] floating enable
 
 # for_window [workspace="9"] floating enable
 
