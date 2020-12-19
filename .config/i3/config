@@ -109,14 +109,14 @@ bindsym $mod+Shift+Q kill
 # rofi program launcher (replaces dmenu)
 bindsym $mod+d exec rofi -show run
 bindsym $mod+shift+d exec rofi -show drun
-bindsym $mod+n exec rofi -show window
+# bindsym $mod+n exec rofi -show window
 
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-# bindsym $mod+n exec i3-easyfocus -a 
+bindsym $mod+n exec i3-easyfocus -a 
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
