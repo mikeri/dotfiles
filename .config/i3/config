@@ -6,6 +6,8 @@ set $XDG_MENU_PREFIX i3-
 # exec --no-startup-id sleep 1 && xrandr --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal
 exec --no-startup-id xrandr --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal
 exec --no-startup-id feh --bg-center ~/Pictures/weyland-yutani.jpg
+exec --no-startup-id polybar left
+exec --no-startup-id polybar right
 exec --no-startup-id dunst
 exec --no-startup-id xset +fp /usr/local/share/fonts/gohufont-2.0
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
@@ -233,32 +235,6 @@ bindsym $mod+r mode "resize"
         bindsym XF86AudioLowerVolume exec "amixer set Master 5-"
         bindsym XF86AudioMute exec "amixer set Master toggle"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-  separator_symbol "•"
-  strip_workspace_numbers yes
-  # font  -*-gohufont-medium-r-*-*-12-*-*-*-*-*-iso10646-1
-  font pango:gohufont
-#  font  -*-aqoui-bold-r-*-*-15-*-*-*-*-*-iso10646-1
- status_command py3status
-  # status_command i3status
-#  status_command ~/.config/i3status/wrapper.sh
-  colors {
-        background #111111
-        statusline #888888
-        separator  #333333
-        focused_workspace  #111111 #285577 #ffffff 
-        active_workspace   #111111 #444444 #ffffff 
-        inactive_workspace #111111 #333333 #888888 
-        urgent_workspace   #111111 #904040 #ffffff 
-
-    }
-# Change this according to driver
-# nouvea = DVI-I-1 NVidia = DVI-I-2
-tray_output DVI-D-0
-# tray_output primary
-}
 new_window pixel 
 client.focused          #4c7899 #287799 #ffffff 
 client.unfocused        #333333 #111111 #888888 #111111 
