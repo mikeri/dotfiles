@@ -56,7 +56,7 @@ bottom = true
 
 modules-left = i3
 modules-center = cmus
-modules-right = reboot mail memory cpu temperature date time
+modules-right = reboot backup backup_interrupted apt ping manageengine mail memory cpu temperature date time
 
 ;tray-transparent = true
 ;tray-background = #0063ff
@@ -243,11 +243,11 @@ interval = 5
 ; date =
 ; date = " %Y-%m-%d"
 
-time = " %H:%M"
+time = "%H:%M"
 ; time = %H:%M
 ; time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ; format-underline = #0a6cf5
 
@@ -257,8 +257,8 @@ label = %time%
 type = internal/date
 interval = 5
 
-; date =
-date = " %Y-%m-%d"
+; date = " %Y-%m-%d"
+date = " %d.%m"
 
 ; time = " %H:%M:%S"
 ; time = %H:%M
@@ -328,7 +328,7 @@ label = %date%
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 70
+warn-temperature = 80
 hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
 
 format = <ramp> <label>
@@ -352,25 +352,15 @@ ramp-2 = 
 [module/cmus]
 type = custom/script
 
-; format-prefix = " "
-; format-prefix-foreground = ${colors.foreground-alt}
 exec = ~/.config/polybar/cmus.sh
 exec-if = pgrep -x cmus
 interval = 1
 
 click-left = cmus-remote --pause
-; click-right = cmus-remote --prev
-; click-middle = cmus-remote --pause
 scroll-down = cmus-remote --next
 scroll-up = cmus-remote --prev
-; scroll-up = cmus-remote --volume +5%
-; scroll-down = cmus-remote --volume -5%
 
-; label-font = 3
-format = <label>
-; format-underline = ${colors.foreground-alt}
-label = %output%
-label-maxlen = 50
+label-maxlen = 100
 
 [module/mail]
 type = custom/script
@@ -380,12 +370,44 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.good}
 
+[module/backup]
+type = custom/script
+exec-if = test -f "/home/mikeri/.local/share/backup/state"
+exec = echo Backup in progress
+interval = 5
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+label-foreground = #fff
+format-underline = ${colors.primary}
+
+[module/backup_interrupted]
+type = custom/script
+exec-if = test -f "/home/mikeri/.local/share/backup/interrupted"
+exec = echo Backup interrupted
+click-left = rm /home/mikeri/.local/share/backup/interrupted
+interval = 5
+format-prefix = " "
+format-foreground = ${colors.warn-foreground}
+format-background = ${colors.warn-background}
+format-underline = ${colors.warn-underline}
+
 [module/reboot]
 type = custom/script
-exec = ~/.config/polybar/rebootcheck.sh
+exec-if = test -f "/var/run/reboot-required"
+exec = echo Reboot required
 interval = 5
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
+label-foreground = ${colors.secondary}
+format-underline = ${colors.secondary}
+
+[module/ping]
+type = custom/script
+exec-if = ! ping -c 1 -w 1 1.1.1.1
+exec = echo WAN connection problems
+interval = 5
+format-prefix = " "
+format-prefix-foreground = ${colors.warn-foreground}
 label-foreground = ${colors.secondary}
 format-underline = ${colors.secondary}
 
@@ -396,6 +418,23 @@ interval = 600
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.good}
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/weather.py
+interval = 600 
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+
+[module/manageengine]
+type = custom/script
+exec = ~/.config/polybar/manageengine.py
+interval = 60 
+format-prefix = " "
+format-foreground = ${colors.warn-foreground}
+format-background = ${colors.warn-background}
+format-underline = ${colors.warn-underline}
+
 ; [module/powermenu]
 ; type = custom/menu
 
