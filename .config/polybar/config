@@ -40,11 +40,11 @@ line-color = ${colors.primary}
 border-size = 0
 border-color = #00000000
 
-padding-left = 0
+padding-left = 2
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin-left = 0
+module-margin-right = 1
 
 font-0 = gohufont:pixelsize=14;1
 ; font-1 = gohufont:pixelsize=14;1
@@ -54,9 +54,9 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 bottom = true
 
-modules-left = i3
+modules-left = menu i3
 modules-center = cmus
-modules-right = reboot backup backup_interrupted apt ping manageengine mail memory cpu temperature date time
+modules-right = reboot backup backup_interrupted apt ping manageengine mail space memory space cpu space temperature space date space time
 
 ;tray-transparent = true
 ;tray-background = #0063ff
@@ -113,14 +113,16 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+module-margin-left = 0
 
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 strip-wsnumbers = true
 
 label-mode-padding = 1
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-foreground = ${colors.warn-foreground}
+label-mode-underline = ${colors.secondary}
+label-mode-background = ${colors.warn-background}
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
@@ -189,6 +191,11 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ; format-underline = #f90000
 label = %percentage%%
+margin-right = 1
+
+[module/space]
+type = custom/text
+content = "  "
 
 [module/memory]
 type = internal/memory
@@ -410,6 +417,13 @@ format-prefix = " "
 format-prefix-foreground = ${colors.warn-foreground}
 label-foreground = ${colors.secondary}
 format-underline = ${colors.secondary}
+
+[module/menu]
+type = custom/text
+content = 
+content-padding = 0
+click-left = jgmenu_run
+label-foreground = ${colors.secondary}
 
 [module/apt]
 type = custom/script
