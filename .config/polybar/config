@@ -69,8 +69,8 @@ modules-right = reboot backup backup_interrupted apt ping manageengine mail memo
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
 
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+scroll-up = #i3.prev
+scroll-down = #i3.next
 ;
 [bar/left]
 inherit = bar/right
