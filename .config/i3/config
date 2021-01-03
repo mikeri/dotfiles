@@ -4,7 +4,7 @@ set $XDG_MENU_PREFIX i3-
 # Auto start
 # exec --no-startup-id xrandr --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
 # exec --no-startup-id sleep 1 && xrandr --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal
-exec --no-startup-id xrandr --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal
+exec --no-startup-id ~/.config/i3/dynamic-config.sh
 exec --no-startup-id feh --bg-center ~/Pictures/weyland-yutani.jpg
 exec --no-startup-id polybar left
 exec --no-startup-id polybar right
