@@ -17,7 +17,8 @@ exec --no-startup-id copyq
 exec --no-startup-id backupcheck
 exec --no-startup-id python ~/Stuff/an2linuxserver/an2linuxserver.py
 # exec --no-startup-id ~/Stuff/inotify-daemon/inotify-daemon --host 192.168.0.6 --port 14141
-exec --no-startup-id classicmenu-indicator
+# exec --no-startup-id classicmenu-indicator
+# exec --no-startup-id jgmenu
 exec --no-startup-id xautolock -locker "i3lock -c 000000" -time 60
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xbindkeys
