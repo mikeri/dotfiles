@@ -40,7 +40,7 @@ bottom = true
 
 modules-left = menu i3
 modules-center = cmus
-modules-right = reboot backup backup_interrupted apt ping manageengine mail memory cpu temperature date time
+modules-right = stocks reboot backup backup_interrupted apt ping manageengine mail memory cpu temperature date time
 
 scroll-up = #i3.prev
 scroll-down = #i3.next
@@ -234,6 +234,16 @@ format-suffix = " "
 format-foreground = ${colors.warn-foreground}
 format-background = ${colors.warn-background}
 format-underline = ${colors.warn-underline}
+
+[module/stocks]
+type = custom/script
+exec = ~/.config/polybar/stocks.py
+tail = true
+; format-prefix = " "
+; format-suffix = " "
+; format-foreground = ${colors.warn-foreground}
+; format-background = ${colors.warn-background}
+; format-underline = ${colors.warn-underline}
 
 [settings]
 screenchange-reload = true
