@@ -4,13 +4,15 @@ CPU	fieldscur=¥¨³´»½ÀÄ·º¹Å&')*+,-./012568<>?ABCFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdef
 	winflags=163636, sortindx=18, maxtasks=0, graph_cpus=1, graph_mems=1
 	summclr=6, msgsclr=1, headclr=3, taskclr=2
 Job	fieldscur=¥¦¹·º³´Ä»¼½§Å()*+,-./012568>?@ABCFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghij
-	winflags=196404, sortindx=0, maxtasks=0, graph_cpus=1, graph_mems=0
+	winflags=196148, sortindx=0, maxtasks=0, graph_cpus=2, graph_mems=0
 	summclr=6, msgsclr=6, headclr=4, taskclr=6
-Mem	fieldscur=¥º»¼½¾¿ÀÁÃÄ³´·Å&'()*+,-./0125689BFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghij
+Mem	fieldscur=¥º»¼½¾¿ÀÁÃÄ³´·ª)Å&'(+,-./0125689BFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghij
 	winflags=196404, sortindx=21, maxtasks=0, graph_cpus=0, graph_mems=0
 	summclr=5, msgsclr=5, headclr=2, taskclr=3
 Usr	fieldscur=¥¦§¨ª°¹·ºÄÅ)+,-./1234568;<=>?@ABCFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghij
-	winflags=196388, sortindx=3, maxtasks=0, graph_cpus=0, graph_mems=0
+	winflags=196384, sortindx=5, maxtasks=0, graph_cpus=0, graph_mems=0
 	summclr=4, msgsclr=3, headclr=6, taskclr=4
-Fixed_widest=0, Summ_mscale=0, Task_mscale=0, Zero_suppress=0
+Fixed_widest=0, Summ_mscale=2, Task_mscale=1, Zero_suppress=0
 
+pipe	Open files	lsof -P -p %d 2>&1
+pipe	Network connections	lsof -itcp -a -p %d
