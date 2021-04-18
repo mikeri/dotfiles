@@ -12,6 +12,7 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xbindkeys
 exec --no-startup-id flameshot
 exec --no-startup-id pasystray
+exec --no-startup-id udiskie
 
 # Put workspace 1 on left monitor
 workspace 1:one output DVI-D-0
