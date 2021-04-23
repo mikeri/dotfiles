@@ -49,6 +49,10 @@ setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 #add timestamp for each entry
 setopt EXTENDED_HISTORY 
+#directory completeion
+setopt AUTOCD
+#keep trailing slash when autocompleting dirs
+setopt NO_AUTO_REMOVESLASH
 
 HISTFILE=~/.zsh_history
 DISABLE_AUTO_TITLE="true"
