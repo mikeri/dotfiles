@@ -38,13 +38,17 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'ap/vim-css-color'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'msrose/vim-perpetuloc'
+Plug 'peterhoeg/vim-qml'
 Plug 'ggandor/lightspeed.nvim'
 Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+" Plug 'psf/black'
 
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " Plug 'justinmk/vim-sneak'
+" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " Plug 'vim-python/python-syntax'
 " Plug 'chrisbra/csv.vim'
 " Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
@@ -98,7 +102,7 @@ if exists('g:plugs["tern_for_vim"]')
 endif
 
 " -- black --
-nnoremap <leader>j :Black<CR>
+autocmd FileType python nnoremap <leader>j :Black<CR>
 
 " -- vim-perpetuloc --
 nnoremap <C-k> :Lprevious<CR>
@@ -166,8 +170,6 @@ autocmd FileType fzf set signcolumn=no
 " -- misc config --
 set guioptions-=T
 set guioptions-=m
-set dir=~/.vim/swapfiles//
-set undodir=~/.vim/undo//
 cnoreabbrev c64 !~/Development/code/c64/kickassend.sh %
 cnoreabbrev vice !~/Development/code/c64/kickassvice.sh %
 cnoreabbrev sudow !sudo tee %
@@ -289,6 +291,7 @@ hi CocErrorFloat   ctermfg=NONE ctermbg=88
 hi CocErrorSign    ctermfg=196  ctermbg=236 cterm=bold
 hi CocWarningFloat ctermfg=226  ctermbg=236
 hi CocWarningSign  ctermfg=100  ctermbg=236
+autocmd FileType javascript nnoremap <leader>j :call CocAction('runCommand', 'prettier.formatFile')<CR>
 
 " -- commentary --
 setlocal commentstring=#\ %s
