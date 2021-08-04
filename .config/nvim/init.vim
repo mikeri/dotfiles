@@ -38,12 +38,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'ap/vim-css-color'
-Plug 'justinmk/vim-sneak'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'msrose/vim-perpetuloc'
 Plug 'psf/black'
+Plug 'ggandor/lightspeed.nvim'
 
+" Plug 'justinmk/vim-sneak'
 " Plug 'vim-python/python-syntax'
 " Plug 'chrisbra/csv.vim'
 " Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
@@ -309,3 +310,11 @@ endfunction
 call SemshiHighlights()
 autocmd FileType python call SemshiHighlights()
 let g:semshi#error_sign=v:false
+
+" -- lightspeed --
+hi LightspeedShortcut           ctermbg=22 ctermfg=46
+hi LightspeedLabel              ctermbg=28
+hi LightspeedLabelDistant       ctermbg=22 ctermfg=46
+hi LightspeedMatchingChar       ctermbg=22 ctermfg=46
+hi LightspeedGreyWash           ctermfg=242
+lua require('lightspeed').opts['labels'] =  {"q", "w", "e", "r", "u", "i", "o", "p", "a", "s", "d", "f", "j", "k", "l", "ø", "z", "x", "c", "v", "m", ",", ".", "-"} 
