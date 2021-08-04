@@ -41,8 +41,8 @@ Plug 'ap/vim-css-color'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'msrose/vim-perpetuloc'
-Plug 'psf/black'
 Plug 'ggandor/lightspeed.nvim'
+Plug 'psf/black', { 'tag': '19.10b0' }
 
 " Plug 'justinmk/vim-sneak'
 " Plug 'vim-python/python-syntax'
