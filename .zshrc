@@ -45,6 +45,7 @@ export SAVEHIST=10000
 export HISTFILE=~/.zhistory
 #append into history file
 setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 #save only one command if 2 common are same and consistent
 setopt HIST_IGNORE_DUPS
 #add timestamp for each entry
@@ -55,7 +56,7 @@ setopt AUTOCD
 setopt NO_AUTO_REMOVESLASH
 
 HISTFILE=~/.zsh_history
-DISABLE_AUTO_TITLE="true"
+# DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 bindkey -v
 bindkey "^Q" push-line
