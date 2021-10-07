@@ -321,3 +321,7 @@ hi LightspeedLabelDistant       ctermbg=22 ctermfg=46
 hi LightspeedMatchingChar       ctermbg=22 ctermfg=46
 hi LightspeedGreyWash           ctermfg=242
 lua require('lightspeed').opts['labels'] =  {"q", "w", "e", "r", "u", "i", "o", "p", "a", "s", "d", "f", "j", "k", "l", "ø", "z", "x", "c", "v", "m", ",", ".", "-"} 
+unmap t
+unmap T
+unmap f
+unmap F
