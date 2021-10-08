@@ -62,7 +62,11 @@ bindkey -v
 bindkey "^Q" push-line
 
 export LD_PRELOAD=""
-export EDITOR=nvim
+if command -v nvim > /dev/null
+then
+    export EDITOR=nvim
+fi
+
 # Workaround for mouse support in mosh:
 # perl -E ' print "\e[?1005h\e[?1002h" '
 
