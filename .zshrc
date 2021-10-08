@@ -193,6 +193,11 @@ if type "fzf" > /dev/null; then
     bindkey '^r' historyfzfwidget
 fi
 
+terminfo-export() {
+    # Quickly export current terminfo to remote server
+    infocmp | ssh "$1" "tic -x /dev/stdin"
+}
+
 # --- Keyboard handling, from zshwiki.org ---------------------------
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
