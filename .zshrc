@@ -67,6 +67,12 @@ then
     export EDITOR=nvim
 fi
 
+# Set TERM on macOS because of problems with ssh
+if [[ `uname` == "Darwin" ]]
+then
+    export TERM=xterm-256color
+fi
+
 # Workaround for mouse support in mosh:
 # perl -E ' print "\e[?1005h\e[?1002h" '
 
