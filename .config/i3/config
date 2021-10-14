@@ -32,6 +32,14 @@ for_window [window_type="popup_menu"] floating enable
 for_window [window_type="tooltip"] floating enable
 for_window [window_role="^Popup$"] floating enable
 for_window [class="^Popup$"] floating enable
+for_window [class="^mpv$"] floating enable
+for_window [class="^feh$"] floating enable
+for_window [class="^Nfoview$"] floating enable
+for_window [class="^X64$"] floating enable
+for_window [class="^Viewnior$"] floating enable
+for_window [class="^xpad$"] floating enable
+for_window [class="^MuPDF$"] floating enable
+for_window [class="^TeamViewer$"] floating enable
 for_window [title="Software Updater"] floating enable
 for_window [title="^Microsoft Teams Notification$"] floating enable
 for_window [title="RPCS3"] floating enable
@@ -41,24 +49,18 @@ for_window [title="^MPlayer$"] floating enable
 for_window [title="^KeePassX$"] floating enable
 for_window [title=" - KeePassXC$"] floating enable
 for_window [title="^Blender Preferences$"] floating enable
-for_window [class="^mpv$"] floating enable
 for_window [title="^Android Emulator"] floating enable
-for_window [class="^feh$"] floating enable
 for_window [title="^LibreOffice$"] floating enable
 for_window [title="^PCSX2"] floating enable
 for_window [title="CopyQ$"] floating enable
 for_window [title=" GSdx "] floating enable
-for_window [class="^Nfoview$"] floating enable
-for_window [class="^X64$"] floating enable
 for_window [title="^YAD$"] floating enable
 for_window [title="^QEMU$"] floating enable
 for_window [title="^vCoolor$"] floating enable
-for_window [class="^Viewnior$"] floating enable
 for_window [title="^SyncTERM$"] floating enable
 for_window [title="^Maniac Mansion Deluxe$"] floating enable
 for_window [title="^FS-UAE · "] floating enable
-for_window [class="^xpad$"] floating enable
-for_window [class="^MuPDF$"] floating enable
+for_window [title="^About Mozilla Firefox$"] floating enable
 
 # for_window [workspace="9"] floating enable
 set $mod Mod4
@@ -71,7 +73,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # Screenshots
 # bindsym Print exec scrot -e 'mv $f ~/Pictures/screenshots'
@@ -180,14 +182,7 @@ bindsym $mod+Shift+R restart
 # bindsym $mod+Shift+E exit
 bindsym $mod+Shift+E exec rofi-confirm "Really restart ligthdm? Please confirm" "systemctl restart lightdm"
 
-# resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
@@ -199,15 +194,21 @@ mode "resize" {
         bindsym 111 resize shrink height 10 px or 10 ppt
         bindsym 114 resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
         bindsym Escape mode "default"
+        bindsym r mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
-# Volume control
+mode "workspace" {
+        bindsym j workspace next
+        bindsym k workspace prev
 
+        bindsym Escape mode "default"
+        bindsym m mode "default"
+}
+bindsym $mod+m mode "workspace"
+
+# Volume control
 bindsym XF86AudioRaiseVolume exec "amixer set Master 5+"
 bindsym XF86AudioLowerVolume exec "amixer set Master 5-"
 bindsym XF86AudioMute exec "amixer set Master toggle"
