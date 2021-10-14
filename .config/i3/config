@@ -40,6 +40,7 @@ for_window [class="^Viewnior$"] floating enable
 for_window [class="^xpad$"] floating enable
 for_window [class="^MuPDF$"] floating enable
 for_window [class="^TeamViewer$"] floating enable
+for_window [title="^i3pulsemixer$"] floating enable
 for_window [title="Software Updater"] floating enable
 for_window [title="^Microsoft Teams Notification$"] floating enable
 for_window [title="RPCS3"] floating enable
@@ -209,6 +210,7 @@ mode "workspace" {
 bindsym $mod+m mode "workspace"
 
 # Volume control
+bindsym $mod+p exec alacritty --title i3pulsemixer -e pulsemixer
 bindsym XF86AudioRaiseVolume exec "amixer set Master 5+"
 bindsym XF86AudioLowerVolume exec "amixer set Master 5-"
 bindsym XF86AudioMute exec "amixer set Master toggle"
