@@ -62,9 +62,9 @@ rofi.kb-remove-word-back:            Control+Alt+h,Control+BackSpace
 rofi.kb-remove-word-forward:         Control+Alt+d
 rofi.kb-remove-char-forward:         Delete,Control+d
 rofi.kb-remove-char-back:            BackSpace,Control+h
-rofi.kb-remove-to-eol:               Control+k
-rofi.kb-remove-to-sol:               Control+u
-rofi.kb-accept-entry:                Control+j,Control+m,Return,KP_Enter
+rofi.kb-remove-to-eol:               Control+p
+rofi.kb-remove-to-sol:               Control+n
+rofi.kb-accept-entry:                Control+m,Return,KP_Enter
 rofi.kb-accept-custom:               Control+Return
 rofi.kb-accept-alt:                  Shift+Return
 rofi.kb-delete-entry:                Shift+Delete
@@ -72,8 +72,8 @@ rofi.kb-mode-next:                   Shift+Right,Control+Tab
 rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab
 rofi.kb-row-left:                    Control+Page_Up
 rofi.kb-row-right:                   Control+Page_Down
-rofi.kb-row-up:                      Up,Control+p,Shift+Tab,Shift+ISO_Left_Tab
-rofi.kb-row-down:                    Down,Control+n
+rofi.kb-row-up:                      Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab
+rofi.kb-row-down:                    Down,Control+j
 rofi.kb-row-tab:                     Tab
 rofi.kb-page-prev:                   Page_Up
 rofi.kb-page-next:                   Page_Down
