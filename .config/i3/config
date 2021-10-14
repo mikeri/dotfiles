@@ -11,7 +11,6 @@ exec --no-startup-id xautolock -locker "i3lock -c 000000" -time 60
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xbindkeys
 exec --no-startup-id flameshot
-exec --no-startup-id pasystray
 exec --no-startup-id udiskie
 
 # Put workspace 1 on left monitor
