@@ -40,7 +40,7 @@ bottom = true
 
 modules-left = menu i3
 modules-center = cmus
-modules-right = stocks reboot backup backup_interrupted apt ping manageengine mail memory cpu temperature date time
+modules-right = reboot backup backup_interrupted apt ping manageengine mail memory cpu temperature volume date time
 
 scroll-up = #i3.prev
 scroll-down = #i3.next
@@ -234,6 +234,15 @@ format-suffix = " "
 format-foreground = ${colors.warn-foreground}
 format-background = ${colors.warn-background}
 format-underline = ${colors.warn-underline}
+
+[module/volume]
+inherit = module/sysinfo
+type = internal/pulseaudio
+format-volume-prefix = " "
+format-volume-prefix-foreground = ${colors.foreground-alt}
+format-muted = "mute"
+format-muted-foreground = ${colors.foreground-alt}
+label = %percentage%%
 
 [module/stocks]
 type = custom/script
