@@ -40,6 +40,7 @@ for_window [class="^xpad$"] floating enable
 for_window [class="^MuPDF$"] floating enable
 for_window [class="^TeamViewer$"] floating enable
 for_window [title="^i3pulsemixer$"] floating enable
+for_window [title="^i3float$"] floating enable
 for_window [title="Software Updater"] floating enable
 for_window [title="^Microsoft Teams Notification$"] floating enable
 for_window [title="RPCS3"] floating enable
@@ -74,6 +75,7 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec alacritty --title "i3float" --option window.dimensions.lines=50 --option window.dimensions.columns=150
 
 # Screenshots
 # bindsym Print exec scrot -e 'mv $f ~/Pictures/screenshots'
@@ -210,9 +212,11 @@ bindsym $mod+m mode "workspace"
 
 # Volume control
 bindsym $mod+p exec alacritty --title i3pulsemixer -e pulsemixer
-bindsym XF86AudioRaiseVolume exec "amixer set Master 5+"
-bindsym XF86AudioLowerVolume exec "amixer set Master 5-"
-bindsym XF86AudioMute exec "amixer set Master toggle"
+bindsym XF86Calculator exec alacritty --title i3pulsemixer -e wcalc
+bindsym XF86AudioRaiseVolume exec "pulsemixer --change-volume +5"
+bindsym XF86AudioLowerVolume exec "pulsemixer --change-volume -5"
+bindsym XF86AudioMute exec "pulsemixer --toggle-mute"
+bindsym Shift+XF86AudioMute exec alacritty --title i3pulsemixer -e pulsemixer
 
 new_window pixel 
 #                       border  backgr  text    indctr  child border
