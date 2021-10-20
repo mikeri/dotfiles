@@ -39,8 +39,7 @@ for_window [class="^Viewnior$"] floating enable
 for_window [class="^xpad$"] floating enable
 for_window [class="^MuPDF$"] floating enable
 for_window [class="^TeamViewer$"] floating enable
-for_window [title="^i3pulsemixer$"] floating enable
-for_window [title="^i3float$"] floating enable
+for_window [title="^i3float"] floating enable
 for_window [title="Software Updater"] floating enable
 for_window [title="^Microsoft Teams Notification$"] floating enable
 for_window [title="RPCS3"] floating enable
@@ -211,12 +210,12 @@ mode "workspace" {
 bindsym $mod+m mode "workspace"
 
 # Volume control
-bindsym $mod+p exec alacritty --title i3pulsemixer -e pulsemixer
-bindsym XF86Calculator exec alacritty --title i3pulsemixer -e wcalc
+bindsym $mod+p exec alacritty --title i3floatpulsemixer -e pulsemixer
+bindsym XF86Calculator exec alacritty --title i3floatwcalc -e wcalc
 bindsym XF86AudioRaiseVolume exec "pulsemixer --change-volume +5"
 bindsym XF86AudioLowerVolume exec "pulsemixer --change-volume -5"
 bindsym XF86AudioMute exec "pulsemixer --toggle-mute"
-bindsym Shift+XF86AudioMute exec alacritty --title i3pulsemixer -e pulsemixer
+bindsym Shift+XF86AudioMute exec alacritty --title i3floatpulsemixer -e pulsemixer
 
 new_window pixel 
 #                       border  backgr  text    indctr  child border
