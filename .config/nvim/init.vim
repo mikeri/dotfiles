@@ -10,6 +10,7 @@ set signcolumn=yes
 set relativenumber
 set cursorline
 set lazyredraw
+set noautoread
 set expandtab
 set showmatch
 set hlsearch
