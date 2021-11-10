@@ -39,21 +39,24 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'ap/vim-css-color'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'msrose/vim-perpetuloc'
 Plug 'peterhoeg/vim-qml'
 Plug 'ggandor/lightspeed.nvim'
 Plug 'psf/black', { 'tag': '19.10b0' }
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-" Plug 'psf/black'
+Plug 'neovim/nvim-lspconfig'
+Plug 'folke/lsp-colors.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'dominikduda/vim_current_word'
+Plug 'ervandew/supertab'
 
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+" Plug 'psf/black'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'justinmk/vim-sneak'
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " Plug 'vim-python/python-syntax'
 " Plug 'chrisbra/csv.vim'
 " Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-" Plug 'ervandew/supertab'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/denite.nvim'
 " Plug 'jaxbot/browserlink.vim'
@@ -109,9 +112,6 @@ autocmd FileType python nnoremap <leader>j :Black<CR>
 nnoremap <C-k> :Lprevious<CR>
 nnoremap <C-j> :Lnext<CR>
 
-" -- deoplete-jedi --
-" let g:deoplete#sources#jedi#show_docstring = 1
-
 " -- airline --
 let g:airline_theme='powerlineish'
 let g:airline#extensions#coc#enabled = 1
@@ -148,25 +148,8 @@ autocmd FileType fzf set norelativenumber
 autocmd FileType fzf set nonumber 
 autocmd FileType fzf set signcolumn=no 
 
-" -- denite --
-" noremap \b :Denite buffer<CR>
-" noremap \f :Denite file_rec<CR>
-" noremap \g :Denite register<CR>
-" call denite#custom#map(
-" 	      \ 'insert',
-" 	      \ '<C-k>',
-" 	      \ '<denite:move_to_previous_line>',
-" 	      \ 'noremap'
-" 	      \)
-" call denite#custom#map(
-" 	      \ 'insert',
-" 	      \ '<C-j>',
-" 	      \ '<denite:move_to_next_line>',
-" 	      \ 'noremap'
-	      " \)
-
 " -- supertab --
-" let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " -- misc config --
 set guioptions-=T
@@ -217,103 +200,13 @@ hi WarningCol ctermfg=100  ctermbg=236
 hi Todo       ctermfg=226  ctermbg=94
 hi SignColumn ctermbg=236
 hi ColumnLine ctermbg=236
-
-" -- neomake --
-" let g:neomake_error_sign = { 'text': '>>', 'texthl': 'ErrorMsg' } 
-" let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'WarningMsg' } 
-" let g:neomake_highlight_columns = 0
-" let g:neomake_python_enabled_makers = ['pylint']
-" let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint().args + ['--extension-pkg-whitelist=wx']
-" let g:neomake_javascript_makers = ['eslint']
-" let g:neomake_javascript_eslint_maker = {
-"     \ 'exe': 'eslint',
-"     \ 'args': ['-f', 'compact', '--no-ignore', '--no-eslintrc' ],
-"     \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
-"     \   '%W%f: line %l\, col %c\, Warning - %m,%-G,%-G%*\d problems%#'
-"     \ }
-" let g:neomake_verbose = 0
-" call neomake#configure#automake('nw', 500)
-
-" " -- lsp client --
-" let g:LanguageClient_serverCommands = {
-"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-"     \ 'javascript': ['~/.local/bin/javascript-typescript-stdio'],
-"     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-"     \ 'python': ['~/.local/bin/pyls'],
-"     \ 'sh': ['~/.local/bin/bash-language-server', 'start'],
-"     \ 'c': ['clangd-7'],
-"     \ 'json': ['~/.local/bin/json-languageserver'],
-"     \ }
-" let g:LanguageClient_diagnosticsDisplay = {
-"     \ 1: {
-"     \     "name": "Error",
-"     \     "texthl": "ErrorMsg",
-"     \     "signText": ">>",
-"     \     "signTexthl": "ErrorCol",
-"     \ },
-"     \ 2: {
-"     \     "name": "Warning",
-"     \     "texthl": "None",
-"     \     "signText": ">>",
-"     \     "signTexthl": "WarningCol",
-"     \ }}
-" nnoremap <silent> <Leader>k :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <silent> <Leader>d :call LanguageClient#textDocument_definition()<CR>
-" nnoremap <silent> <Leader>r :call LanguageClient#textDocument_rename()<CR>
-" nnoremap <silent> <Leader>j :call LanguageClient#textDocument_formatting()<CR>
-
-" -- coc --
-nmap <silent> <leader>d <Plug>(coc-definition)
-nmap <silent> <leader>y <Plug>(coc-type-definition)
-nmap <silent> <leader>i <Plug>(coc-implementation)
-nmap <silent> <leader>e <Plug>(coc-references)
-nmap <leader>r <Plug>(coc-rename)
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-autocmd CursorHold * silent call CocActionAsync('highlight')
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-hi CocErrorFloat   ctermfg=NONE ctermbg=88
-hi CocErrorSign    ctermfg=196  ctermbg=236 cterm=bold
-hi CocWarningFloat ctermfg=226  ctermbg=236
-hi CocWarningSign  ctermfg=100  ctermbg=236
-autocmd FileType javascript nnoremap <leader>j :call CocAction('runCommand', 'prettier.formatFile')<CR>
+highlight LspDiagnosticsDefaultError ctermfg=196
+highlight LspDiagnosticsDefaultWarning ctermfg=184
+highlight LspDiagnosticsDefaultInformation ctermfg=247
+highlight LspDiagnosticsDefaultHint ctermfg=156
 
 " -- commentary --
 setlocal commentstring=#\ %s
-
-" -- semshi --
-function SemshiHighlights()
-    hi semshiLocal           ctermfg=216 guifg=#ff875f
-    hi semshiGlobal          ctermfg=218 guifg=#ffaf40
-    hi semshiImported        ctermfg=159 guifg=#ffaf40 cterm=none
-    hi semshiParameter       ctermfg=117 guifg=#5fafff
-    hi semshiParameterUnused ctermfg=75  guifg=#87d7ff cterm=underline gui=underline
-    hi semshiFree            ctermfg=219 guifg=#ffafd7
-    hi semshiBuiltin         ctermfg=223 guifg=#ff7fff
-    hi semshiAttribute       ctermfg=86  guifg=#40cfaf
-    hi semshiSelf            ctermfg=249 guifg=#b2b2b2
-    hi semshiUnresolved      ctermfg=226 guifg=#ffff00 cterm=underline gui=underline
-    hi semshiSelected        ctermfg=231 guifg=#ffffff ctermbg=32 guibg=#47a0af
-endfunction
-call SemshiHighlights()
-autocmd FileType python call SemshiHighlights()
-let g:semshi#error_sign=v:false
 
 " -- lightspeed --
 hi LightspeedShortcut           ctermbg=22 ctermfg=46
@@ -326,3 +219,71 @@ unmap t
 unmap T
 unmap f
 unmap F
+
+" -- lspconfig --
+lua << EOF
+local nvim_lsp = require('lspconfig')
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  -- Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+--  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+--  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+--  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+--  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+--  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+--  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+--  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+--  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+--  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+--  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+--  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+--  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+end
+
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { 'pyright', 'html', 'cssls', 'eslint' }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
+EOF
+
+" -- treesitter --
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
+" -- Current Word --
+hi CurrentWordTwins ctermfg=255 ctermbg=32 cterm=bold
