@@ -41,14 +41,15 @@ Plug 'KabbAmine/vCoolor.vim'
 Plug 'ap/vim-css-color'
 Plug 'msrose/vim-perpetuloc'
 Plug 'peterhoeg/vim-qml'
-Plug 'ggandor/lightspeed.nvim'
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'folke/lsp-colors.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'dominikduda/vim_current_word'
 Plug 'ervandew/supertab'
+Plug 'phaazon/hop.nvim'
 
+" Plug 'ggandor/lightspeed.nvim'
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " Plug 'psf/black'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -208,18 +209,6 @@ highlight LspDiagnosticsDefaultHint ctermfg=156
 " -- commentary --
 setlocal commentstring=#\ %s
 
-" -- lightspeed --
-hi LightspeedShortcut           ctermbg=22 ctermfg=46
-hi LightspeedLabel              ctermbg=28
-hi LightspeedLabelDistant       ctermbg=22 ctermfg=46
-hi LightspeedMatchingChar       ctermbg=22 ctermfg=46
-hi LightspeedGreyWash           ctermfg=242
-lua require('lightspeed').opts['labels'] =  {"q", "w", "e", "r", "u", "i", "o", "p", "a", "s", "d", "f", "j", "k", "l", "ø", "z", "x", "c", "v", "m", ",", ".", "-"} 
-unmap t
-unmap T
-unmap f
-unmap F
-
 " -- lspconfig --
 lua << EOF
 local nvim_lsp = require('lspconfig')
@@ -287,3 +276,7 @@ EOF
 
 " -- Current Word --
 hi CurrentWordTwins ctermfg=255 ctermbg=32 cterm=bold
+
+" -- Hop --
+lua require'hop'.setup()
+nnoremap s :HopChar2<CR>
