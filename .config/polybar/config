@@ -40,7 +40,7 @@ bottom = true
 
 modules-left = menu i3
 modules-center = cmus
-modules-right = reboot backup backup_interrupted apt ping manageengine mail memory cpu temperature volume date time
+modules-right = xkeyboard reboot backup backup_interrupted apt ping manageengine mail memory cpu temperature volume date time
 
 scroll-up = #i3.prev
 scroll-down = #i3.next
@@ -261,4 +261,15 @@ screenchange-reload = true
 margin-top = 5
 margin-bottom = 5
 
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+format = <label-indicator>
+format-margin = 2
+interval = 5
+format-prefix-foreground = ${colors.foreground-alt}
+format-foreground = ${colors.warn-foreground}
+format-underline = ${colors.secondary}
+format-background = ${colors.warn-background}
 ; vim:ft=dosini
