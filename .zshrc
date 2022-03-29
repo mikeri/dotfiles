@@ -38,16 +38,17 @@ PATH=${PATH}:/home/mikeri/Development/Android/platform-tools
 
 # --- misc config/customization -------------------------------------
 #set history size
-export HISTSIZE=10000
+export HISTSIZE=100000
 #save history after logout
-export SAVEHIST=10000
+export SAVEHIST=100000
 #history file
 export HISTFILE=~/.zhistory
 #append into history file
 setopt INC_APPEND_HISTORY
+#share history accress sessions
 setopt SHARE_HISTORY
-#save only one command if 2 common are same and consistent
-setopt HIST_IGNORE_DUPS
+#save only one command if 2 are same
+setopt HIST_IGNORE_ALL_DUPS
 #add timestamp for each entry
 setopt EXTENDED_HISTORY 
 #directory completeion
