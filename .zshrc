@@ -54,6 +54,8 @@ setopt EXTENDED_HISTORY
 setopt AUTOCD
 #keep trailing slash when autocompleting dirs
 setopt NO_AUTO_REMOVESLASH
+#prevent commands prefixed with space to be stored in history
+setopt HIST_IGNORE_SPACE
 
 HISTFILE=~/.zsh_history
 # DISABLE_AUTO_TITLE="true"
