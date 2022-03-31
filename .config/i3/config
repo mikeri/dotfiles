@@ -100,7 +100,7 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+n exec i3-easyfocus -a 
+bindsym $mod+n exec "wmfocus --bgcolor \\#287799 --textcolor \\#fff --textcolorcurrent \\#aaa --bgcolorcurrent \\#444 -f Mono:25 --offset 5,5"
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
