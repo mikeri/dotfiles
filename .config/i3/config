@@ -40,6 +40,7 @@ for_window [class="^Viewnior$"] floating enable
 for_window [class="^xpad$"] floating enable
 for_window [class="^MuPDF$"] floating enable
 for_window [class="^TeamViewer$"] floating enable
+for_window [title="^sxiv$"] floating enable
 for_window [title="^i3float"] floating enable
 for_window [title="Software Updater"] floating enable
 for_window [title="^Microsoft Teams Notification$"] floating enable
