@@ -48,6 +48,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 Plug 'dominikduda/vim_current_word'
 Plug 'ervandew/supertab'
 Plug 'phaazon/hop.nvim'
+Plug 'folke/trouble.nvim'
 
 " Plug 'ggandor/lightspeed.nvim'
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -303,3 +304,24 @@ hi CurrentWordTwins ctermfg=255 ctermbg=32 cterm=bold
 " -- Hop --
 lua require'hop'.setup()
 nnoremap s :HopChar2<CR>
+
+" -- trouble --
+lua << EOF
+  require("trouble").setup {
+    icons=false,
+    fold_open = "v", -- icon used for open folds
+    fold_closed = ">", -- icon used for closed folds
+    indent_lines = false, -- add an indent guide below the fold icons
+    auto_preview = false,
+    mode = "document_diagnostics",
+    signs = {
+        -- icons / text used for a diagnostic
+        error = "E",
+        warning = "W",
+        hint = "H",
+        information = "I"
+    },
+    use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+  }
+EOF
+nnoremap T <cmd>TroubleToggle<cr>
