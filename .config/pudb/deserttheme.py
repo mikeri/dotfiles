@@ -93,12 +93,12 @@ palette.update({
             "keyword": (add_setting("h221", "bold"), "h235"),
 
             "literal": ("h173", "h235"),
-            "string": ("h74", "h235"),
-            "doublestring": ("h113", "h235"),
-            "singlestring": ("h113", "h235"),
+            "string": ("h223", "h235"),
+            "doublestring": ("h217", "h235"),
+            "singlestring": ("h155", "h235"),
             "docstring": ("h113", "h235"),
 
-            "name": ("h154", "h235"),
+            "name": ("h255", "h235"),
             "punctuation": ("h223", "h235"),
             "comment": ("h242", "h235"),
 
