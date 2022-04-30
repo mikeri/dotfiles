@@ -39,7 +39,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'ap/vim-css-color'
-Plug 'msrose/vim-perpetuloc'
 Plug 'peterhoeg/vim-qml'
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'neovim/nvim-lspconfig'
@@ -51,6 +50,7 @@ Plug 'phaazon/hop.nvim'
 Plug 'zah/nim.vim'
 Plug 'folke/trouble.nvim'
 
+" Plug 'msrose/vim-perpetuloc'
 " Plug 'ggandor/lightspeed.nvim'
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " Plug 'psf/black'
