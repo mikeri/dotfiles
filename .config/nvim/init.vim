@@ -48,6 +48,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 Plug 'dominikduda/vim_current_word'
 Plug 'ervandew/supertab'
 Plug 'phaazon/hop.nvim'
+Plug 'zah/nim.vim'
 Plug 'folke/trouble.nvim'
 
 " Plug 'ggandor/lightspeed.nvim'
