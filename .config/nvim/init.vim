@@ -126,8 +126,17 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 
 " -- tagbar --
+function! TagbarFocusToggleFn()
+    if tagbar#IsOpen()
+        TagbarClose
+    else
+        TagbarOpenAutoClose
+    endif
+endfunction
+
+command! TagbarFocusToggle call TagbarFocusToggleFn()
 let g:tagbar_left=1
-noremap <Leader>t :TagbarOpenAutoClose<CR>
+noremap <Leader>t :TagbarFocusToggle<CR>
 
 " -- sneak --
 autocmd ColorScheme * hi Sneak guifg=23 guibg=white ctermfg=23 ctermbg=white cterm=bold
