@@ -5,7 +5,7 @@ from ranger.gui.colorscheme import ColorScheme
 from ranger.gui.color import *
 
 class Default(ColorScheme):
-    progress_bar_color = blue
+    progress_bar_color = 238
 
     def use(self, context):
         fg, bg, attr = default_colors
@@ -18,21 +18,24 @@ class Default(ColorScheme):
                 attr = reverse
             else:
                 attr = normal
-            if context.empty or context.error:
+            if context.empty:
+                fg = 242
+            if context.error:
                 bg = red
+                fg = 227
             if context.border:
                 fg = 242
             if context.file:
                 fg = 252
             if context.media:
                 if context.image:
-                    fg = 228
+                    fg = 195
                 else:
-                    fg = 177
+                    fg = 219
             if context.document:
-                fg = 118
+                fg = 157
             if context.container:
-                fg = 203
+                fg = 217
             if context.directory:
                 attr |= bold
                 fg = blue
@@ -65,6 +68,7 @@ class Default(ColorScheme):
                 if context.marked:
                     attr |= bold
                     fg = yellow
+                    bg = 58
             if context.badinfo:
                 if attr & reverse:
                     bg = magenta
@@ -72,23 +76,34 @@ class Default(ColorScheme):
                     fg = magenta
 
         elif context.in_titlebar:
+            bg = 236
             # attr |= bold
             if context.hostname:
                 fg = context.bad and red or green
+                if context.bad:
+                    fg = red
+                else:
+                    fg = 43
             elif context.directory:
-                fg = blue
+                fg = 247
+            elif context.file:
+                fg = 251
             elif context.tab:
+                bg = 235
                 if context.good:
-                    bg = green
+                    bg = 242
+                    fg = 255
+                    attr = bold
             elif context.link:
                 fg = cyan
 
         elif context.in_statusbar:
+            bg = 236
             if context.permissions:
                 if context.good:
                     fg = cyan
                 elif context.bad:
-                    fg = magenta
+                    fg = 203
             if context.marked:
                 attr |= bold | reverse
                 fg = yellow
