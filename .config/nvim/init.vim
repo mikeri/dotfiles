@@ -156,6 +156,7 @@ noremap U :UndoToggleAndFocus<CR>
 " -- fzf --
 noremap \f :Files<CR>
 noremap \b :Buffers<CR>
+noremap \r :Rg<CR>
 autocmd FileType fzf set norelativenumber 
 autocmd FileType fzf set nonumber 
 autocmd FileType fzf set signcolumn=no 
