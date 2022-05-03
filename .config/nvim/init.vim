@@ -327,3 +327,6 @@ lua << EOF
   }
 EOF
 nnoremap T <cmd>TroubleToggle<cr>
+
+" -- vcoolor --
+let g:vcoolor_lowercase = 1
