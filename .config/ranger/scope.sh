@@ -343,6 +343,9 @@ handle_mime() {
             mediainfo "${FILE_PATH}" && exit 5
             exiftool "${FILE_PATH}" && exit 5
             exit 1;;
+
+        application/vnd.sqlite3)
+            sqlite3 "${FILE_PATH}" .tables && exit 5
     esac
 }
 
