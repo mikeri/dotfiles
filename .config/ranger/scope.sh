@@ -52,14 +52,17 @@ handle_extension() {
         ## Archive
         a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|\
         rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)
+            size_check 10000000
             atool --list -- "${FILE_PATH}" && exit 5
             bsdtar --list --file "${FILE_PATH}" && exit 5
             exit 1;;
         rar)
+            size_check 10000000
             ## Avoid password prompt by providing empty password
             unrar lt -p- -- "${FILE_PATH}" && exit 5
             exit 1;;
         7z)
+            size_check 10000000
             ## Avoid password prompt by providing empty password
             7z l -p -- "${FILE_PATH}" && exit 5
             exit 1;;
@@ -105,6 +108,7 @@ handle_extension() {
 
         ## JSON
         json)
+            size_check 1000000
             jq --color-output . "${FILE_PATH}" && exit 5
             python -m json.tool -- "${FILE_PATH}" && exit 5
             ;;
@@ -360,6 +364,14 @@ MIMETYPE="$( mimetype -Lb -- "${FILE_PATH}" )"
 if [[ "${PV_IMAGE_ENABLED}" == 'True' ]]; then
     handle_image "${MIMETYPE}"
 fi
+
+size_check() {
+    if (( $(stat -c%s "${FILE_PATH}") > $1 )); then
+        echo "Skipping preview, file larger than $1 bytes"
+        handle_fallback "${MIMETYPE}"
+    fi
+}
+
 handle_extension
 handle_mime "${MIMETYPE}"
 handle_fallback
