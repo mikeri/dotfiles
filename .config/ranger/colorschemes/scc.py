@@ -89,7 +89,6 @@ class Default(ColorScheme):
             elif context.file:
                 fg = 251
             elif context.tab:
-                bg = 235
                 if context.good:
                     bg = 242
                     fg = 255
