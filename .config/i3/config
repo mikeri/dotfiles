@@ -65,7 +65,6 @@ for_window [title="^Maniac Mansion Deluxe$"] floating enable
 for_window [title="^FS-UAE · "] floating enable
 for_window [title="^About Mozilla Firefox$"] floating enable
 
-# for_window [workspace="9"] floating enable
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
@@ -220,7 +219,6 @@ bindsym XF86AudioLowerVolume exec "pulsemixer --change-volume -5"
 bindsym XF86AudioMute exec "pulsemixer --toggle-mute"
 bindsym Shift+XF86AudioMute exec alacritty --title i3floatpulsemixer -e pulsemixer
 
-new_window pixel 
 #                       border  backgr  text    indctr  child border
 client.focused          #4c7899 #287799 #ffffff #a0d0d0 
 client.unfocused        #111111 #111111 #888888 #111111 
