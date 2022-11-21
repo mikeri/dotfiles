@@ -63,6 +63,10 @@ scrolling:
   # Scroll to the bottom when new text is written to the terminal.
   # auto_scroll: false
 
+
+
+
+
 # Spaces per Tab (changes require restart)
 #
 # This setting defines the width of a tab in cells.
@@ -179,6 +183,25 @@ colors:
     cyan:    '#9dedfb'
     white:   '#ffffff'
 
+  # Footer bar
+  #
+  # Color used for the footer bar on the bottom, used by search regex input,
+  # hyperlink URI preview, etc.
+  #
+  footer_bar:
+    background: '#333333'
+    foreground: '#cccc22'
+
+  search:
+    # Allowed values are CellForeground/CellBackground, which reference the
+    # affected cell, or hexadecimal colors like #ff00ff.
+    matches:
+      foreground: '#aaffff'
+      background: '#448888'
+    focused_match:
+      foreground: '#ffaaff'
+      background: '#884488'
+
   # Dim colors
   #
   # If the dim colors are not set, they will be calculated automatically based
@@ -287,6 +310,7 @@ dynamic_title: true
 
 cursor:
   blink_interval: 500
+  blink_timeout: 0
   style: 
       blinking: Always
 
