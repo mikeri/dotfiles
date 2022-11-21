@@ -1,5 +1,5 @@
 # Auto start
-exec --no-startup-id ~/.config/i3/dynamic-config.sh
+exec --no-startup-id ~/.config/i3/local-startup.sh
 exec --no-startup-id polybar left
 exec --no-startup-id polybar right
 exec --no-startup-id dunst
@@ -41,6 +41,7 @@ for_window [class="^xpad$"] floating enable
 for_window [class="^MuPDF$"] floating enable
 for_window [class="^TeamViewer$"] floating enable
 for_window [title="^sxiv$"] floating enable
+for_window [title="^nsxiv$"] floating enable
 for_window [title="^i3float"] floating enable
 for_window [title="Software Updater"] floating enable
 for_window [title="^Microsoft Teams Notification$"] floating enable
@@ -213,6 +214,21 @@ mode "workspace" {
         bindsym m mode "default"
 }
 bindsym $mod+m mode "workspace"
+
+mode "gaps" {
+        bindsym plus gaps inner current plus 5px
+        bindsym minus gaps inner current minus 5px
+        bindsym 0 gaps inner current set 0px
+        bindsym Shift+0 gaps inner all set 0px
+        bindsym l gaps horizontal current plus 15px
+        bindsym h gaps horizontal current minus 15px
+        bindsym k gaps vertical current plus 15px
+        bindsym j gaps vertical current minus 15px
+        bindsym Shift+plus gaps inner all plus 5px
+        bindsym Shift+minus gaps inner all minus 5px
+        bindsym Escape mode "default"
+}
+bindsym $mod+Shift+g mode "gaps"
 
 # Volume control
 bindsym $mod+p exec alacritty --title i3floatpulsemixer -e pulsemixer
