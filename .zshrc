@@ -213,6 +213,22 @@ terminfo-export() {
     infocmp | ssh "$1" "tic -x /dev/stdin"
 }
 
+function ranger {
+    local IFS=$'\t\n'
+    local tempfile="$(mktemp -t tmp.XXXXXX)"
+    local ranger_cmd=(
+        command
+        ranger
+        --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
+    )
+    
+    ${ranger_cmd[@]} "$@"
+    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
+        cd -- "$(cat "$tempfile")" || return
+    fi
+    command rm -f -- "$tempfile" 2>/dev/null
+}
+
 # --- Keyboard handling, from zshwiki.org ---------------------------
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
@@ -255,3 +271,4 @@ fi
 if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi
+
