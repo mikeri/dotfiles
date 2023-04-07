@@ -79,7 +79,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec alacritty  msg create-window || alacritty
 bindsym $mod+Shift+Return exec alacritty --title "i3float" --option window.dimensions.lines=50 --option window.dimensions.columns=150
 
 # Screenshots
