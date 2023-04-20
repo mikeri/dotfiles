@@ -161,6 +161,7 @@ noremap \r :Rg<CR>
 autocmd FileType fzf set norelativenumber 
 autocmd FileType fzf set nonumber 
 autocmd FileType fzf set signcolumn=no 
+let $FZF_DEFAULT_COMMAND = 'fdfind --type f --strip-cwd-prefix'
 
 " -- supertab --
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
