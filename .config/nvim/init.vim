@@ -2,7 +2,6 @@
 
 " -- basic config options --
 set guicursor=n-v-c-sm:block-blinkon175-blinkoff150,i-ci-ve:ver25-blinkon175-blinkoff150,r-cr-o:hor20
-set backupdir=~/.local/state/nvim/backup
 set fileencoding=utf-8
 set gfn=GohuFont\ 10
 set encoding=utf-8
@@ -35,8 +34,6 @@ Plug 'mbbill/undotree'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'ap/vim-css-color'
@@ -50,7 +47,12 @@ Plug 'ervandew/supertab'
 Plug 'phaazon/hop.nvim'
 Plug 'zah/nim.vim'
 Plug 'folke/trouble.nvim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
+" Plug 'junegunn/fzf'
+" Plug 'junegunn/fzf.vim'
 " Plug 'msrose/vim-perpetuloc'
 " Plug 'ggandor/lightspeed.nvim'
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -85,6 +87,40 @@ Plug 'folke/trouble.nvim'
 " Plug 'vim-scripts/taglist.vim'
 
 call plug#end()
+
+" -- telescope --
+lua << EOF
+local actions = require "telescope.actions"
+require('telescope').setup{
+  defaults = {
+    layout_strategy = "vertical", 
+    layout_config = {
+      horizontal = {
+        width = 0.95,
+        preview_cutoff = 60
+      },
+      vertical = {
+        width = 0.9,
+        preview_cutoff = 20
+      }
+    },
+    mappings = {
+      i = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous
+      }
+    }
+  },
+  pickers = {
+  },
+  extensions = {
+  }
+}
+EOF
+noremap \f :Telescope find_files<CR>
+noremap \b :Telescope buffers<CR>
+noremap \r :Telescope grep_string<CR>
+
 
 " -- deoplete --
 let g:deoplete#enable_at_startup = 1
@@ -154,15 +190,6 @@ endfunction
 command UndoToggleAndFocus call UndoToggleAndFocus()
 noremap U :UndoToggleAndFocus<CR>
 
-" -- fzf --
-noremap \f :Files<CR>
-noremap \b :Buffers<CR>
-noremap \r :Rg<CR>
-autocmd FileType fzf set norelativenumber 
-autocmd FileType fzf set nonumber 
-autocmd FileType fzf set signcolumn=no 
-let $FZF_DEFAULT_COMMAND = 'fdfind --type f --strip-cwd-prefix'
-
 " -- supertab --
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
@@ -220,6 +247,14 @@ highlight LspDiagnosticsDefaultWarning ctermfg=184
 highlight LspDiagnosticsDefaultInformation ctermfg=247
 highlight LspDiagnosticsDefaultHint ctermfg=156
 
+highlight TelescopeNormal ctermfg=250
+highlight TelescopeBorder ctermfg=244
+highlight TelescopePromptTitle ctermfg=255
+highlight TelescopeResultsTitle ctermfg=255
+highlight TelescopePreviewTitle ctermfg=255
+highlight TelescopeSelection ctermbg=240 ctermfg=226 cterm=bold
+highlight TelescopePreviewMessageFillchar ctermfg=240 
+
 " -- commentary --
 setlocal commentstring=#\ %s
 
@@ -249,7 +284,7 @@ local on_attach = function(client, bufnr)
 --  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
 --  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
 --  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
---  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 --  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 --  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 --  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
@@ -262,7 +297,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {'html', 'cssls', 'eslint', 'gdscript' }
+local servers = {'html', 'cssls', 'eslint', 'gdscript', 'jsonls', 'nimls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
