@@ -127,7 +127,7 @@ require('telescope').load_extension('fzf')
 EOF
 noremap \f :Telescope find_files<CR>
 noremap \b :Telescope buffers<CR>
-noremap \r :Telescope grep_string<CR>
+noremap \r :Telescope live_grep<CR>
 
 
 " -- deoplete --
