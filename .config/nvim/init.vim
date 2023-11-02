@@ -38,7 +38,6 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'ap/vim-css-color'
 Plug 'peterhoeg/vim-qml'
-Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'folke/lsp-colors.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
@@ -51,6 +50,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'sbdchd/neoformat'
 
 " Plug 'junegunn/fzf'
 " Plug 'junegunn/fzf.vim'
@@ -152,9 +152,6 @@ if exists('g:plugs["tern_for_vim"]')
   let g:tern_show_signature_in_pum = 1
   autocmd FileType javascript setlocal omnifunc=tern#Complete
 endif
-
-" -- black --
-autocmd FileType python nnoremap <leader>j :Black<CR>
 
 " -- vim-perpetuloc --
 nnoremap <C-k> :Lprevious<CR>
@@ -375,3 +372,8 @@ nnoremap T <cmd>TroubleToggle<cr>
 
 " -- vcoolor --
 let g:vcoolor_lowercase = 1
+
+" -- neoformat --
+let g:neoformat_enabled_python = ['black']
+let g:neoformat_enabled_javascript = ['prettier']
+nnoremap <leader>j :Neoformat<CR>
