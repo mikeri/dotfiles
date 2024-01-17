@@ -18,7 +18,7 @@ warn-foreground = #fca
 warn-underline = #f00
 
 [bar/right]
-monitor = ${env:MONITOR:HDMI-A-0}
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 27
 radius = 0.0
@@ -40,7 +40,7 @@ bottom = true
 
 modules-left = menu i3
 modules-center = cmus
-modules-right = xkeyboard reboot backup backup_interrupted apt ping manageengine mail memory cpu temperature volume date time
+modules-right = xkeyboard comfyui reboot backup backup_interrupted apt ping mail memory cpu temperature volume date time
 
 scroll-up = #i3.prev
 scroll-down = #i3.next
@@ -132,7 +132,7 @@ inherit = module/sysinfo
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 80
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input
 format = <ramp> <label>
 format-foreground = ${colors.foreground-alt}
 label-foreground = ${colors.foreground}
@@ -225,15 +225,23 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-suffix = " "
 format-underline = ${colors.good}
 
-[module/manageengine]
+[module/comfyui]
 type = custom/script
-exec = ~/.config/polybar/manageengine.py
+exec = ~/.config/polybar/comfyui-queue.py
 interval = 60 
-format-prefix = " "
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
 format-suffix = " "
-format-foreground = ${colors.warn-foreground}
-format-background = ${colors.warn-background}
-format-underline = ${colors.warn-underline}
+
+; [module/manageengine]
+; type = custom/script
+; exec = ~/.config/polybar/manageengine.py
+; interval = 60 
+; format-prefix = " "
+; format-suffix = " "
+; format-foreground = ${colors.warn-foreground}
+; format-background = ${colors.warn-background}
+; format-underline = ${colors.warn-underline}
 
 [module/volume]
 inherit = module/sysinfo
