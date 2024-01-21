@@ -34,8 +34,8 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 1
 font-0 = dejavusansmono:pixelsize=11;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-1 = Font Awesome 6 Free:pixelsize=10;1
+font-2 = Font Awesome 6 Free Solid:pixelsize=10;1
 bottom = true
 
 modules-left = menu i3
@@ -94,7 +94,7 @@ label-urgent-padding = 1
 inherit = module/sysinfo
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ; format-underline = #f90000
 label = %percentage%%
@@ -104,7 +104,7 @@ margin-right = 1
 inherit = module/sysinfo
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ; format-underline = #4bffdc
 label = %percentage_used%%
@@ -114,7 +114,7 @@ inherit = module/sysinfo
 type = internal/date
 interval = 5
 time = "%H:%M"
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 label = %time%
 
@@ -123,7 +123,7 @@ inherit = module/sysinfo
 type = internal/date
 interval = 5
 date = " %d.%m"
-format-prefix = 
+format-prefix =  
 format-prefix-foreground = ${colors.foreground-alt}
 label = %date% 
 
@@ -132,7 +132,7 @@ inherit = module/sysinfo
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 80
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input
 format = <ramp> <label>
 format-foreground = ${colors.foreground-alt}
 label-foreground = ${colors.foreground}
@@ -143,9 +143,9 @@ format-warn-background = ${colors.warn-background}
 label = %temperature-c%
 label-warn = %temperature-c%
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 
 [module/cmus]
 type = custom/script
@@ -161,7 +161,7 @@ label-maxlen = 100
 type = custom/script
 exec = ~/.config/polybar/inbox-imap-shellnetrc.sh
 interval = 60
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.good}
 
@@ -170,7 +170,7 @@ type = custom/script
 exec-if = test -f "/home/mikeri/.local/share/backup/state"
 exec = echo Backup in progress
 interval = 5
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 label-foreground = #fff
 format-underline = ${colors.primary}
@@ -181,7 +181,7 @@ exec-if = test -f "/home/mikeri/.local/share/backup/interrupted"
 exec = echo Backup interrupted
 click-left = rm /home/mikeri/.local/share/backup/interrupted
 interval = 5
-format-prefix = " "
+format-prefix = " "
 format-foreground = ${colors.warn-foreground}
 format-background = ${colors.warn-background}
 format-underline = ${colors.warn-underline}
@@ -192,7 +192,7 @@ exec-if = test -f "/var/run/reboot-required"
 exec = echo Reboot required
 format-margin = 2
 interval = 5
-format-prefix = " "
+format-prefix = " "
 format-suffix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 label-foreground = ${colors.secondary}
@@ -203,7 +203,7 @@ type = custom/script
 exec-if = ! ping -c 1 -w 1 1.1.1.1
 exec = echo WAN connection problems
 interval = 5
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.warn-foreground}
 format-suffix = " "
 label-foreground = ${colors.secondary}
@@ -211,7 +211,7 @@ format-underline = ${colors.secondary}
 
 [module/menu]
 type = custom/text
-content = 
+content = 
 content-padding = 0
 click-left = jgmenu_run
 label-foreground = ${colors.secondary}
@@ -220,7 +220,7 @@ label-foreground = ${colors.secondary}
 type = custom/script
 exec = ~/.config/polybar/apt-updates.sh
 interval = 600 
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-suffix = " "
 format-underline = ${colors.good}
@@ -229,7 +229,7 @@ format-underline = ${colors.good}
 type = custom/script
 exec = ~/.config/polybar/comfyui-queue.py
 interval = 60 
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-suffix = " "
 
@@ -246,9 +246,9 @@ format-suffix = " "
 [module/volume]
 inherit = module/sysinfo
 type = internal/pulseaudio
-format-volume-prefix = " "
+format-volume-prefix = " "
 format-volume-prefix-foreground = ${colors.foreground-alt}
-format-muted = "mute"
+format-muted = "mute"
 format-muted-foreground = ${colors.foreground-alt}
 label = %percentage%%
 
