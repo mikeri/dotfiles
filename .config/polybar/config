@@ -33,7 +33,7 @@ padding-left = 2
 padding-right = 0
 module-margin-left = 0
 module-margin-right = 1
-font-0 = gohufont:pixelsize=14;1
+font-0 = dejavusansmono:pixelsize=11;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 bottom = true
