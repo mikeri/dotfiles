@@ -64,6 +64,7 @@ for_window [title="^SyncTERM$"] floating enable
 for_window [title="^Maniac Mansion Deluxe$"] floating enable
 for_window [title="^FS-UAE · "] floating enable
 for_window [title="^About Mozilla Firefox$"] floating enable
+for_window [title="^Bitwarden$"] floating enable
 
 # Set border
 default_border pixel 2
@@ -72,7 +73,7 @@ for_window [class="^Alacritty$"] border pixel 2
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
-font pango: Gohufont 8 
+font pango: DejaVuSans 8 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
