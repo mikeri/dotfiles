@@ -39,8 +39,8 @@ font-2 = Font Awesome 6 Free Solid:pixelsize=10;1
 bottom = true
 
 modules-left = menu i3
-modules-center = cmus
-modules-right = xkeyboard comfyui reboot backup backup_interrupted apt ping mail memory cpu temperature volume date time
+modules-center = cmus ping
+modules-right = xkeyboard reboot backup backup_interrupted apt mail comfyui memory cpu temperature volume date time
 
 scroll-up = #i3.prev
 scroll-down = #i3.next
@@ -115,16 +115,14 @@ type = internal/date
 interval = 5
 time = "%H:%M"
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
 label = %time%
 
 [module/date]
 inherit = module/sysinfo
 type = internal/date
 interval = 5
-date = " %d.%m"
-format-prefix =  
-format-prefix-foreground = ${colors.foreground-alt}
+date = "%d.%m"
+format-prefix = " "
 label = %date% 
 
 [module/temperature]
@@ -201,7 +199,7 @@ format-underline = ${colors.secondary}
 [module/ping]
 type = custom/script
 exec-if = ! ping -c 1 -w 1 1.1.1.1
-exec = echo WAN connection problems
+exec = echo WAN connection problem
 interval = 5
 format-prefix = " "
 format-prefix-foreground = ${colors.warn-foreground}
@@ -228,7 +226,7 @@ format-underline = ${colors.good}
 [module/comfyui]
 type = custom/script
 exec = ~/.config/polybar/comfyui-queue.py
-interval = 60 
+interval = 10 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-suffix = " "
@@ -252,10 +250,10 @@ format-muted = "mute"
 format-muted-foreground = ${colors.foreground-alt}
 label = %percentage%%
 
-[module/stocks]
-type = custom/script
-exec = ~/.config/polybar/stocks.py
-tail = true
+; [module/stocks]
+; type = custom/script
+; exec = ~/.config/polybar/stocks.py
+; tail = true
 ; format-prefix = " "
 ; format-suffix = " "
 ; format-foreground = ${colors.warn-foreground}
