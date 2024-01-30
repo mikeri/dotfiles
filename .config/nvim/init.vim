@@ -51,6 +51,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'sbdchd/neoformat'
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'mfussenegger/nvim-dap-python'
 
 " Plug 'junegunn/fzf'
 " Plug 'junegunn/fzf.vim'
@@ -88,6 +91,74 @@ Plug 'sbdchd/neoformat'
 " Plug 'vim-scripts/taglist.vim'
 
 call plug#end()
+
+" -- nvim-dap --
+lua << EOF
+    vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
+    vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
+    vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
+    vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
+    vim.keymap.set('n', '<Leader>p', function() require('dap').toggle_breakpoint() end)
+    vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
+    vim.keymap.set('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+    vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
+    vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
+    vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
+      require('dap.ui.widgets').hover()
+    end)
+    vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
+      require('dap.ui.widgets').preview()
+    end)
+    vim.keymap.set('n', '<Leader>df', function()
+      local widgets = require('dap.ui.widgets')
+      widgets.centered_float(widgets.frames)
+    end)
+    vim.keymap.set('n', '<Leader>ds', function()
+      local widgets = require('dap.ui.widgets')
+      widgets.centered_float(widgets.scopes)
+    end)
+    require('dap-python').setup('~/.virtalenvs/debugpy/bin/python')
+    local dap, dapui =require("dap"),require("dapui")
+    dap.listeners.after.event_initialized["dapui_config"]=function()
+      dapui.open()
+    end
+    dap.listeners.before.event_terminated["dapui_config"]=function()
+      dapui.close()
+    end
+    dap.listeners.before.event_exited["dapui_config"]=function()
+      dapui.close()
+    end
+    require ("dapui").setup(
+    {layouts = { {
+        elements = { {
+            id = "scopes",
+            size = 0.25
+        } },
+        position = "bottom",
+        size = 8
+      } },
+    controls = {
+      icons = {
+        disconnect = "╳",
+        pause = "⏸",
+        play = "⏵",
+        run_last = "⏴",
+        step_back = "↩",
+        step_into = "↴",
+        step_out = "↱",
+        step_over = "↦",
+        terminate = "⏹"
+      }
+    },
+    icons = {
+      collapsed = "↓",
+      current_frame = "⏘",
+      expanded = "↳"
+    }
+    }
+    )
+EOF
+
 
 " -- telescope --
 lua << EOF
@@ -260,6 +331,39 @@ highlight TelescopePreviewTitle ctermfg=255
 highlight TelescopeSelection ctermbg=240 ctermfg=226 cterm=bold
 highlight TelescopePreviewMessageFillchar ctermfg=240 
 
+hi DapUIVariable ctermfg=120
+hi DapUIScope ctermfg=167 cterm=bold
+hi DapUIType ctermfg=222 cterm=bold
+hi link DapUIValue Normal
+hi DapUIModifiedValue ctermfg=51 gui=bold
+hi DapUIDecoration ctermfg=243
+hi DapUIThread ctermfg=155
+hi DapUIStoppedThread ctermfg=51
+hi link DapUIFrameName Normal
+hi DapUISource ctermfg=177
+hi DapUILineNumber ctermfg=51
+hi link DapUIFloatNormal NormalFloat
+hi DapUIFloatBorder ctermfg=51
+hi DapUIWatchesEmpty ctermfg=197
+hi DapUIWatchesValue ctermfg=155
+hi DapUIWatchesError ctermfg=197
+hi DapUIBreakpointsPath ctermfg=51
+hi DapUIBreakpointsInfo ctermfg=155
+hi DapUIBreakpointsCurrentLine ctermfg=155 gui=bold
+hi link DapUIBreakpointsLine DapUILineNumber
+hi DapUIBreakpointsDisabledLine ctermfg=59
+hi link DapUICurrentFrameName DapUIBreakpointsCurrentLine
+hi DapUIStepOver ctermfg=51
+hi DapUIStepInto ctermfg=51
+hi DapUIStepBack ctermfg=51
+hi DapUIStepOut ctermfg=51
+hi DapUIStop ctermfg=197
+hi DapUIPlayPause ctermfg=155
+hi DapUIRestart ctermfg=155
+hi DapUIUnavailable ctermfg=59
+hi DapUIWinSelect ctermfg=51 gui=bold
+hi link DapUIEndofBuffer EndofBuffer
+
 " -- commentary --
 setlocal commentstring=#\ %s
 
@@ -302,7 +406,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {'html', 'cssls', 'eslint', 'gdscript', 'jsonls', 'nimls' }
+local servers = {'html', 'cssls', 'eslint', 'gdscript', 'jsonls', 'nim_langserver' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
