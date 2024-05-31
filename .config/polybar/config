@@ -249,6 +249,7 @@ format-volume-prefix-foreground = ${colors.foreground-alt}
 format-muted = "mute"
 format-muted-foreground = ${colors.foreground-alt}
 label = %percentage%%
+click-right = alacritty --title i3floatpulsemixer -e pulsemixer
 
 ; [module/stocks]
 ; type = custom/script
