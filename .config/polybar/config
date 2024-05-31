@@ -40,7 +40,7 @@ bottom = true
 
 modules-left = menu i3
 modules-center = cmus ping
-modules-right = xkeyboard reboot backup backup_interrupted apt mail comfyui memory cpu temperature volume date time
+modules-right = xkeyboard reboot backup backup_interrupted apt dunst mail comfyui memory cpu temperature volume date time
 
 scroll-up = #i3.prev
 scroll-down = #i3.next
@@ -154,6 +154,15 @@ click-left = cmus-remote --pause
 scroll-down = cmus-remote --next
 scroll-up = cmus-remote --prev
 label-maxlen = 100
+
+[module/dunst]
+type = custom/script
+exec = ~/.config/polybar/dunst.sh
+interval = 5
+click-left = dunstctl set-paused false
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.warn-foreground}
 
 [module/mail]
 type = custom/script
