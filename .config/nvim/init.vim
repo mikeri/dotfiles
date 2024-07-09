@@ -4,6 +4,7 @@
 set guicursor=n-v-c-sm:block-blinkon175-blinkoff150,i-ci-ve:ver25-blinkon175-blinkoff150,r-cr-o:hor20
 set fileencoding=utf-8
 set gfn=GohuFont\ 10
+set notermguicolors
 set encoding=utf-8
 set ttimeoutlen=50
 set signcolumn=yes
@@ -51,6 +52,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'sbdchd/neoformat'
+Plug 'nvim-neotest/nvim-nio'
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'mfussenegger/nvim-dap-python'
@@ -117,7 +119,7 @@ lua << EOF
       local widgets = require('dap.ui.widgets')
       widgets.centered_float(widgets.scopes)
     end)
-    require('dap-python').setup('~/.virtalenvs/debugpy/bin/python')
+    require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
     local dap, dapui =require("dap"),require("dapui")
     dap.listeners.after.event_initialized["dapui_config"]=function()
       dapui.open()
@@ -406,7 +408,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {'html', 'cssls', 'eslint', 'gdscript', 'jsonls', 'nim_langserver' }
+local servers = {'html', 'cssls', 'eslint', 'gdscript', 'gopls', 'jsonls', 'nim_langserver' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
