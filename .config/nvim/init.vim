@@ -25,6 +25,9 @@ set sw=4
 set ic
 set nu
 
+nnoremap <SPACE> <Nop>
+let mapleader="\<Space>"
+
 " -- plugins, managed by vim-plug --
 call plug#begin('~/.config/nvim/bundle')
 
@@ -97,9 +100,9 @@ call plug#end()
 " -- nvim-dap --
 lua << EOF
     vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
-    vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
-    vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
-    vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
+    vim.keymap.set('n', '<F6>', function() require('dap').step_over() end)
+    vim.keymap.set('n', '<F7>', function() require('dap').step_into() end)
+    vim.keymap.set('n', '<F8>', function() require('dap').step_out() end)
     vim.keymap.set('n', '<Leader>p', function() require('dap').toggle_breakpoint() end)
     vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
     vim.keymap.set('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
@@ -159,6 +162,8 @@ lua << EOF
     }
     }
     )
+    vim.keymap.set('n', '<F10>', function() require('dapui').open() end)
+    vim.keymap.set('n', '<F11>', function() require('dapui').close() end)
 EOF
 
 
@@ -198,9 +203,9 @@ require('telescope').setup{
 }
 require('telescope').load_extension('fzf')
 EOF
-noremap \f :Telescope find_files<CR>
-noremap \b :Telescope buffers<CR>
-noremap \r :Telescope live_grep<CR>
+noremap <Leader>f :Telescope find_files<CR>
+noremap <Leader>b :Telescope buffers<CR>
+noremap <Leader>r :Telescope live_grep<CR>
 
 
 " -- deoplete --
