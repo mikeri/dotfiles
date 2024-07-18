@@ -177,6 +177,7 @@ alias colortest="python -c \"print('\n'.join([(' '.join([('\033[38;5;' + str((i 
    '\033[0m') if i + j < 256 else '' for j in range(10)])) for i in range(0, 256, 10)]))\"" 
 alias upgr="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get autoremove"
 alias nfocat="iconv -f cp437"
+alias ncdu="ncdu --color dark -x"
 alias ls='ls --color=tty'
 alias ll='ls -lh'
 
