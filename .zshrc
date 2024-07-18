@@ -178,8 +178,6 @@ alias colortest="python -c \"print('\n'.join([(' '.join([('\033[38;5;' + str((i 
 alias upgr="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get autoremove"
 alias nfocat="iconv -f cp437"
 alias ls='ls --color=tty'
-alias l='ls -lah'
-alias la='ls -lAh'
 alias ll='ls -lh'
 
 new() {
