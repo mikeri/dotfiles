@@ -40,6 +40,7 @@ for_window [class="^Viewnior$"] floating enable
 for_window [class="^xpad$"] floating enable
 for_window [class="^MuPDF$"] floating enable
 for_window [class="^TeamViewer$"] floating enable
+for_window [class="^flashplayer_32_sa.exe$"] floating enable
 for_window [title="^sxiv$"] floating enable
 for_window [title="^nsxiv$"] floating enable
 for_window [title="^i3float"] floating enable
@@ -65,6 +66,7 @@ for_window [title="^Maniac Mansion Deluxe$"] floating enable
 for_window [title="^FS-UAE · "] floating enable
 for_window [title="^About Mozilla Firefox$"] floating enable
 for_window [title="^Bitwarden$"] floating enable
+for_window [title="^Bitwarden$"] floating enable
 
 # Set border
 default_border pixel 2
@@ -80,7 +82,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty  msg create-window || alacritty
+bindsym $mod+Return exec alacritty msg create-window || alacritty
 bindsym $mod+Shift+Return exec alacritty --title "i3float" --option window.dimensions.lines=50 --option window.dimensions.columns=150
 
 # Screenshots
@@ -98,6 +100,7 @@ bindsym $mod+Shift+Q kill
 # rofi program launcher (replaces dmenu)
 bindsym $mod+d exec rofi -show run
 bindsym $mod+shift+d exec rofi -show drun
+bindsym $mod+s exec rofimoji -a copy
 # bindsym $mod+n exec rofi -show window
 
 # change focus
@@ -134,8 +137,7 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
-# change container layout (stacked, tabbed, default)
-bindsym $mod+s layout stacking
+# change container layout (tabbed, default)
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout default
 # bindsym $mod+e workspace work; append_layout /tmp/tiss.json
