@@ -488,3 +488,7 @@ let g:vcoolor_lowercase = 1
 let g:neoformat_enabled_python = ['black']
 let g:neoformat_enabled_javascript = ['prettier']
 nnoremap <leader>j :Neoformat<CR>
+
+" -- copilot --
+imap <M-j> <Plug>(copilot-next)
+imap <M-k> <Plug>(copilot-previous)
