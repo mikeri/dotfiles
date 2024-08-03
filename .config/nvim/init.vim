@@ -490,5 +490,5 @@ let g:neoformat_enabled_javascript = ['prettier']
 nnoremap <leader>j :Neoformat<CR>
 
 " -- copilot --
-imap <M-j> <Plug>(copilot-next)
-imap <M-k> <Plug>(copilot-previous)
+imap <C-j> <Plug>(copilot-next)
+imap <C-k> <Plug>(copilot-previous)
