@@ -67,6 +67,7 @@ for_window [title="^FS-UAE · "] floating enable
 for_window [title="^About Mozilla Firefox$"] floating enable
 for_window [title="^Bitwarden$"] floating enable
 for_window [title="^Bitwarden$"] floating enable
+for_window [title="^Transmission Remote$"] floating enable
 
 # Set border
 default_border pixel 2
