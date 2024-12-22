@@ -1,0 +1,13 @@
+# Volume control
+bindsym $mod+p exec alacritty --title i3floatpulsemixer -e pulsemixer
+bindsym XF86Calculator exec alacritty --title i3floatwcalc -e wcalc
+bindsym XF86AudioRaiseVolume exec "pulsemixer --change-volume +5"
+bindsym XF86AudioLowerVolume exec "pulsemixer --change-volume -5"
+bindsym XF86AudioMute exec "pulsemixer --toggle-mute"
+bindsym Shift+XF86AudioMute exec alacritty --title i3floatpulsemixer -e pulsemixer
+
+#                       border  backgr  text    indctr  child border
+client.focused          #4c7899 #287799 #ffffff #a0d0d0 
+client.unfocused        #111111 #111111 #888888 #111111 
+client.focused_inactive #444444 #111111 #999999 #111111
+client.placeholder      #444444 #111111 #999999 #111111
