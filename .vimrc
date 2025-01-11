@@ -19,6 +19,9 @@ set sw=4
 set ic
 set nu
 
+nnoremap <SPACE> <Nop>
+let mapleader="\<Space>"
+
 " -- plugins, managed by vim-plug --
 call plug#begin('~/.config/nvim/bundle')
 
@@ -33,8 +36,8 @@ Plug 'ap/vim-css-color'
 call plug#end()
 
 " -- fzf --
-noremap \f :Files<CR>
-noremap \b :Buffers<CR>
+noremap <leader>f :Files<CR>
+noremap <leader>b :Buffers<CR>
 
 " -- supertab --
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
@@ -86,3 +89,16 @@ hi ColumnLine ctermbg=236
 
 " -- commentary --
 setlocal commentstring=#\ %s
+
+" -- airline --
+let g:airline_theme='powerlineish'
+let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_section_warning = ''
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_left_alt_sep=''
+let g:airline_right_alt_sep=''
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
