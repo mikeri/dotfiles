@@ -10,25 +10,32 @@ fi
 # --- Flatpak --------------------------------------------------------
 PATH=$PATH:/var/lib/flatpak/exports/bin
 
-# --- zplug ----------------------------------------------------------
-source ~/.zplug/init.zsh
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search", defer:3
-zplug "zsh-users/zsh-completions"
-zplug "bilelmoussaoui/flatpak-zsh-completion"
-zplug 'endaaman/lxd-completion-zsh'
-zplug "mikeri/3c90c61ba41cc0b2c625bd0f6a908a7f", from:gist, as:theme
+# --- zinit ----------------------------------------------------------
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+zinit load "zsh-users/zsh-syntax-highlighting"
+zinit load "zsh-users/zsh-history-substring-search"
+zinit load "zsh-users/zsh-completions"
+zinit load "bilelmoussaoui/flatpak-zsh-completion"
+zinit load 'endaaman/lxd-completion-zsh'
 
-# Install plugins if there are plugins that have not been installed
-if ! zplug check; then
-    printf "Uninstalled zsh plugins found! Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+# --- prompt --------------------------------------------------------
+setopt prompt_subst
+autoload -Uz vcs_info
 
-# Then, source plugins and add commands to $PATH
-zplug load
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr ''        # No indicator for staged changes
+zstyle ':vcs_info:*' unstagedstr 'x'     # Indicator for unstaged changes
+zstyle ':vcs_info:*' formats '%F{240}(%F{246}%b%F{240})%F{red}%u%f '
+zstyle ':vcs_info:*' actionformats '%F{240}(%F{246}%b%F{240})%F{red}%u%f '
+
+precmd() { vcs_info 2>/dev/null }
+
+PROMPT='%F{240}%25<...<%F{cyan}%~%F{yellow}%B>%b%f '
+RPROMPT='${vcs_info_msg_0_}%F{yellow}%n%f%F{240}@%F{blue}%m%f%(?,,%F{red} [%?]%f)'
 
 # --- Android stuff -------------------------------------------------
 ANDROID_HOME=/home/mikeri/Development/Android/androidsdk 
@@ -170,6 +177,7 @@ if [[ $COMPLETION_WAITING_DOTS = true ]]; then
 fi
 
 # automatically load bash completion functions
+autoload -Uz compinit && compinit
 autoload -Uz bashcompinit && bashcompinit
 
 # --- aliases and functions------------------------------------------
