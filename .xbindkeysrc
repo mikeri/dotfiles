@@ -1,0 +1,18 @@
+"susp" 
+   Control + mod4 + c:134 
+
+"ocr-grab" 
+    m:0xc + c:32
+    Control+Alt + o
+
+"dunstctl close-all"
+    m:0xc + c:65
+    Control+Alt + space
+
+"dunstctl close"
+    m:0x4 + c:65
+    Control + space
+
+"dunstctl context"
+    m:0xc + c:60
+    Control+Alt + period
