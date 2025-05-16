@@ -155,13 +155,13 @@ mode = "Vi|~Search"
 
 [[keyboard.bindings]]
 action = "SearchFocusPrevious"
-key = "N"
-mods = "Shift|Control"
+key = "J"
+mods = "Control"
 mode = "Search"
 
 [[keyboard.bindings]]
 action = "SearchFocusNext"
-key = "N"
+key = "K"
 mods = "Control"
 mode = "Search"
 
