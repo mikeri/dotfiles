@@ -1,0 +1,211 @@
+# vim:ft=dircolors
+# based on https://github.com/joshjon/bliss-dircolors
+
+NORMAL 00  # no color
+RESET  0   # reset to "normal" color
+
+FILE 00                      # normal
+DIR  38;5;12;01             # pink bg, bold
+LINK 38;5;115                # green
+MULTIHARDLINK 04;38;5;115    # green
+
+FIFO 48;5;137     # bronze bg, white
+SOCK 48;5;137     # bronze bg, white
+DOOR 48;5;137     # bronze bg, white
+BLK  38;5;68             # core
+CHR  38;5;222;01  # bronze, bold
+
+OTHER_WRITABLE        0;38;5;155;48;5;22  # core
+STICKY                48;5;67      # blue bg, white
+STICKY_OTHER_WRITABLE 48;5;25      # teal bg, white
+
+ORPHAN                48;5;196;33;5;232;1 # core
+SETGID                48;5;3;38;5;0       # core
+SETUID                38;5;220;1;3;100;1  # core
+
+CAPABILITY 00  # white
+
+## Archive or compressed - lavender
+.tar   38;5;147
+.tgz   38;5;147
+.arj   38;5;147
+.taz   38;5;147
+.lzh   38;5;147
+.lzma  38;5;147
+.tlz   38;5;147
+.txz   38;5;147
+.zip   38;5;147
+.z     38;5;147
+.Z     38;5;147
+.dz    38;5;147
+.gz    38;5;147
+.lz    38;5;147
+.xz    38;5;147
+.bz2   38;5;147
+.bz    38;5;147
+.tbz   38;5;147
+.tbz2  38;5;147
+.tz    38;5;147
+.deb   38;5;147
+.rpm   38;5;147
+.jar   38;5;147
+.rar   38;5;147
+.ace   38;5;147
+.zoo   38;5;147
+.cpio  38;5;147
+.7z    38;5;147
+.rz    38;5;147
+.apk   38;5;147
+.gem   38;5;147
+
+.azw                  38;5;117            # Documents # binary
+.azw3                 38;5;117            # Documents # binary
+.cbr                  38;5;117            # Documents # binary
+.cbz                  38;5;117            # Documents # binary
+.chm                  38;5;117            # Documents # binary
+.djvu                 38;5;117            # Documents # binary
+.fb2                  38;5;117            # Documents # binary
+.pdf                  38;5;117            # Documents # binary
+.PDF                  38;5;117            # Documents # binary
+.mobi                 38;5;117            # Documents # binary
+.epub                 38;5;117            # Documents # binary
+
+# General file - normal
+.tex             00
+.rdf             00
+.owl             00
+.n3              00
+.ttl             00
+.nt              00
+.torrent         00
+.xml             00
+*Makefile        00
+*Rakefile        00
+*Dockerfile      00
+*build.xml       00
+*rc              00
+*1               00
+.nfo             00
+*README          00
+*README.txt      00
+*readme.txt      00
+.md              00
+*README.markdown 00
+.ini             00
+.yml             00
+.cfg             00
+.conf            00
+.h               00
+.hpp             00
+.c               00
+.cpp             00
+.cxx             00
+.cc              00
+.objc            00
+.sqlite          00
+.go              00
+.sql             00
+.csv             00
+
+# Image file - yellow
+.jpg   38;5;220
+.JPG   38;5;220
+.jpeg  38;5;220
+.gif   38;5;220
+.bmp   38;5;220
+.pbm   38;5;220
+.pgm   38;5;220
+.ppm   38;5;220
+.tga   38;5;220
+.xbm   38;5;220
+.xpm   38;5;220
+.tif   38;5;220
+.tiff  38;5;220
+.png   38;5;220
+.PNG   38;5;220
+.svg   38;5;220
+.svgz  38;5;220
+.mng   38;5;220
+.pcx   38;5;220
+.dl    38;5;220
+.xcf   38;5;220
+.xwd   38;5;220
+.yuv   38;5;220
+.cgm   38;5;220
+.emf   38;5;220
+.eps   38;5;220
+.CR2   38;5;220
+.ico   38;5;220
+
+# Audio file - lime-green
+.aac   38;5;193
+.au    38;5;193
+.flac  38;5;193
+.mid   38;5;193
+.midi  38;5;193
+.mka   38;5;193
+.mp3   38;5;193
+.mpc   38;5;193
+.ogg   38;5;193
+.opus  38;5;193
+.ra    38;5;193
+.wav   38;5;193
+.m4a   38;5;193
+.axa   38;5;193
+.oga   38;5;193
+.spx   38;5;193
+.xspf  38;5;193
+
+# Video file
+.mov   38;5;80
+.MOV   38;5;80
+.mpg   38;5;80
+.mpeg  38;5;80
+.m2v   38;5;80
+.mkv   38;5;80
+.ogm   38;5;80
+.mp4   38;5;80
+.m4v   38;5;80
+.mp4v  38;5;80
+.vob   38;5;80
+.qt    38;5;80
+.nuv   38;5;80
+.wmv   38;5;80
+.asf   38;5;80
+.rm    38;5;80
+.rmvb  38;5;80
+.flc   38;5;80
+.avi   38;5;80
+.fli   38;5;80
+.flv   38;5;80
+.gl    38;5;80
+.m2ts  38;5;80
+.divx  38;5;80
+.webm  38;5;80
+.axv   38;5;80
+.anx   38;5;80
+.ogv   38;5;80
+.ogx   38;5;80
+
+# 'unimportant' file e.g. logs and backups - grey
+.log         38;5;245
+.bak         38;5;245
+.aux         38;5;245
+.lof         38;5;245
+.lol         38;5;245
+.lot         38;5;245
+.out         38;5;245
+.toc         38;5;245
+.bbl         38;5;245
+.blg         38;5;245
+*~           38;5;245
+*#           38;5;245
+.part        38;5;245
+.incomplete  38;5;245
+.swp         38;5;245
+.tmp         38;5;245
+.temp        38;5;245
+.o           38;5;245
+.pyc         38;5;245
+.class       38;5;245
+.cache       38;5;245
