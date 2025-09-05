@@ -1,3 +1,5 @@
+# vim:ft=sh
+set ifs "\n"
 set previewer ~/.config/lf/scope-lf-wrapper.sh
 map i $LESSOPEN='| ~/.config/lf/scope-lf-wrapper.sh %s' less -R $f
 cmd open $set -f; rifle -p 0 $fx
@@ -40,3 +42,22 @@ cmd bulk-rename ${{
 }}
 
 map R bulk-rename
+
+cmd toggle-exec ${{
+    for f in $fx; do
+        if [ -x "$f" ]
+        then
+            chmod -x "$f"
+        else
+            chmod +x "$f"
+        fi
+    done
+    lf -remote "send $id reload"
+    (
+        sleep .1
+        touch /tmp/nisse
+        lf -remote "send $id reload"
+    ) &
+}}
+
+map x toggle-exec  reload
