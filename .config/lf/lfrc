@@ -1,6 +1,12 @@
 # vim:ft=sh
 set ifs "\n"
 set previewer ~/.config/lf/scope-lf-wrapper.sh
+
+set promptfmt "\033[0;38;5;159;48;5;236m%u\033[0;38;5;102;48;5;236m@\033[0;38;5;186;48;5;236m%h \033[0;38;5;246;48;5;236m%d\033[0;38;5;252;48;5;236m%f%S"
+set statfmt "\033[0;38;5;118;48;5;236m%p\033[0;38;5;250;48;5;236m| %c| %u| %g| %S| %t | -> %l |                                                                                                                                                   "
+set rulerfmt "\033[0;38;5;250;48;5;236m | %a | %p | %m | %c | %s | %f | %i/%t"
+set timefmt "2006-01-02 15:04"
+
 map i $LESSOPEN='| ~/.config/lf/scope-lf-wrapper.sh %s' less -R $f
 cmd open $set -f; rifle -p 0 $fx
 
