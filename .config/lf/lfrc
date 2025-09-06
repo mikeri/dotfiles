@@ -66,4 +66,18 @@ cmd toggle-exec ${{
     ) &
 }}
 
-map x toggle-exec  reload
+map x toggle-exec
+
+cmd on-cd ${{
+    TAGFILE="$HOME/.local/share/lf/tags"
+    cwd=$(pwd)
+    tag=$(awk -F: -v dir="$cwd" '$1 == dir { print $2 }' "$TAGFILE")
+
+    case "$tag" in
+        d)
+            lf -remote "send $id set sortby time"
+            lf -remote "send $id set reverse"
+            lf -remote "send $id top"
+            ;;
+    esac
+}}
