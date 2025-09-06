@@ -49,24 +49,33 @@ cmd bulk-rename ${{
 
 map R bulk-rename
 
-cmd toggle-exec ${{
-    for f in $fx; do
-        if [ -x "$f" ]
-        then
-            chmod -x "$f"
-        else
-            chmod +x "$f"
-        fi
-    done
-    lf -remote "send $id reload"
-    (
-        sleep .1
-        touch /tmp/nisse
-        lf -remote "send $id reload"
-    ) &
-}}
+map xox $chmod o+x $fx
+map xoX $chmod o-x $fx
+map xor $chmod o+r $fx
+map xoR $chmod o-r $fx
+map xow $chmod o+w $fx
+map xoW $chmod o-w $fx
 
-map x toggle-exec
+map xgx $chmod g+x $fx
+map xgX $chmod g-x $fx
+map xgr $chmod g+r $fx
+map xgR $chmod g-r $fx
+map xgw $chmod g+w $fx
+map xgW $chmod g-w $fx
+
+map xux $chmod u+x $fx
+map xuX $chmod u-x $fx
+map xur $chmod u+r $fx
+map xuR $chmod u-r $fx
+map xuw $chmod u+w $fx
+map xuW $chmod u-w $fx
+
+map xx $chmod +x $fx
+map xX $chmod -x $fx
+map xr $chmod +r $fx
+map xR $chmod -R $fx
+map xw $chmod +w $fx
+map xW $chmod -W $fx
 
 cmd on-cd ${{
     TAGFILE="$HOME/.local/share/lf/tags"
