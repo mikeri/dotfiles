@@ -90,3 +90,20 @@ cmd on-cd ${{
             ;;
     esac
 }}
+
+cmd compress %{{
+    name="$1"
+    if [ -z "$name" ]; then
+        name="$f".tar.gz
+    fi
+
+    set --
+    for path in $fx; do
+        rel=${path#"$PWD"/}
+        set -- "$@" "$rel"
+    done
+
+    apack -a "$name" -- "$@" && echo "Created $name"
+}}
+
+map C compress
