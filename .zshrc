@@ -279,6 +279,3 @@ fi
 if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi
-
-
-[ -f /home/mikeri/.shelloracle.zsh ] && source /home/mikeri/.shelloracle.zsh
