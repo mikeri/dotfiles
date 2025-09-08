@@ -109,7 +109,7 @@ handle_extension() {
         ## JSON
         json)
             size_check 1000000
-            jq --color-output . "${FILE_PATH}" | fmt -s -w ${PV_WIDTH} && exit 5
+            jq --color-output . "${FILE_PATH}" && exit 5
             python -m json.tool -- "${FILE_PATH}" && exit 5
             ;;
 
@@ -305,7 +305,7 @@ handle_mime() {
             exit 1;;
 
         ## Text
-        text/* | application/x-shellscript | application/sql)
+        text/* | application/x-shellscript)
             ## Syntax highlight
             if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
                 exit 2
@@ -325,14 +325,14 @@ handle_mime() {
             pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}"\
                 -- "${FILE_PATH}" && exit 5
             exit 2;;
-        ## XML
-        application/xml)
-            ## Syntax highlight
-            if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
-                exit 2
-            fi
-            env COLORTERM=8bit xmllint --format "${FILE_PATH}" | env COLORTERM=8bit bat --color=always --style="plain" && exit 5
-            exit 2;;
+         ## XML
+         application/xml)
+             ## Syntax highlight
+             if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
+                 exit 2
+             fi
+             env COLORTERM=8bit xmllint --format "${FILE_PATH}" | env COLORTERM=8bit bat --color=always --style="plain" && exit 5
+             exit 2;;
 
         ## DjVu
         image/vnd.djvu)
@@ -344,6 +344,12 @@ handle_mime() {
         ## Image
         image/*)
             ## Preview as text conversion
+            catimg -w $((PV_WIDTH * 2)) -- "${FILE_PATH}" && exit 4
+            cascii-image-converter --color --width "${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
+            img2txt.py --color --ansi --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
+            chafa -c 16 -s "${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
+            term-image --cli --no-align -w "${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
+            exiftool "${FILE_PATH}" && exit 5
             img2txt --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
             exiftool "${FILE_PATH}" && exit 5
             exit 1;;
