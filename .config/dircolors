@@ -9,14 +9,14 @@ DIR  38;5;12;01             # pink bg, bold
 LINK 38;5;115                # green
 MULTIHARDLINK 04;38;5;115    # green
 
-FIFO 48;5;137     # bronze bg, white
-SOCK 48;5;137     # bronze bg, white
-DOOR 48;5;137     # bronze bg, white
+FIFO 48;5;3;38;5;0            # bronze bg, white
+SOCK 48;5;3;38;5;0            # bronze bg, white
+DOOR 48;5;3;38;5;0            # bronze bg, white
 BLK  38;5;68             # core
 CHR  38;5;222;01  # bronze, bold
 
 OTHER_WRITABLE        0;38;5;155;48;5;22  # core
-STICKY                48;5;67      # blue bg, white
+STICKY                48;5;22     # blue bg, white
 STICKY_OTHER_WRITABLE 48;5;25      # teal bg, white
 
 ORPHAN                48;5;196;33;5;232;1 # core
