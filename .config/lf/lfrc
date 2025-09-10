@@ -80,7 +80,16 @@ map xW $chmod -W $fx
 cmd on-cd ${{
     TAGFILE="$HOME/.local/share/lf/tags"
     cwd=$(pwd)
-    tag=$(awk -F: -v dir="$cwd" '$1 == dir { print $2 }' "$TAGFILE")
+    tag=""
+
+    while IFS= read -r line; do
+        dir=${line%:*}
+        t=${line##*:}
+        if [ "$dir" = "$cwd" ]; then
+            tag=$t
+            break
+        fi
+    done <"$TAGFILE"
 
     case "$tag" in
         d)
