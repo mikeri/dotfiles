@@ -191,7 +191,7 @@ alias ls='ls --color=tty'
 alias ll='ls -lh'
 
 new() {
-    ls -lth $@ | head -11 | tail
+    ls --color=always -lth $@ | head -11 | tail
 }
 
 compdef _files new
