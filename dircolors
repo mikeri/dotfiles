@@ -1,0 +1,429 @@
+# vim:ft=dircolors
+# based on https://github.com/joshjon/bliss-dircolors
+# Pastel theme for dark backgrounds
+
+NORMAL 00
+RESET  0
+FILE 00
+DIR  38;5;111;1             # pastel cyan, bold
+LINK 1;38;5;45;48;5;21
+MULTIHARDLINK 04;38;5;115
+FIFO 48;5;3;38;5;0
+SOCK 48;5;3;38;5;0
+DOOR 48;5;3;38;5;0
+BLK  38;5;68
+CHR  38;5;222;01
+OTHER_WRITABLE        0;38;5;155;48;5;22
+STICKY                48;5;22
+STICKY_OTHER_WRITABLE 48;5;25
+ORPHAN                48;5;196;33;5;232;1
+SETGID                48;5;3;38;5;0
+SETUID                38;5;220;1;3;100;1
+CAPABILITY 00
+
+# === archives / compressed (packages) ===
+.7z    38;5;147
+.tar   38;5;147
+.tgz   38;5;147
+.arj   38;5;147
+.taz   38;5;147
+.lzh   38;5;147
+.lzma  38;5;147
+.tlz   38;5;147
+.txz   38;5;147
+.zip   38;5;147
+.z     38;5;147
+.Z     38;5;147
+.dz    38;5;147
+.gz    38;5;147
+.lz    38;5;147
+.xz    38;5;147
+.bz2   38;5;147
+.bz    38;5;147
+.tbz   38;5;147
+.tbz2  38;5;147
+.tz    38;5;147
+.deb   38;5;147
+.rpm   38;5;147
+.jar   38;5;147
+.rar   38;5;147
+.ace   38;5;147
+.zoo   38;5;147
+.cpio  38;5;147
+.rz    38;5;147
+.apk   38;5;147
+.gem   38;5;147
+.snap  38;5;147
+.war   38;5;147
+.cab   38;5;147
+.lha   38;5;147
+.egg   38;5;147
+.pack  38;5;147   # git packfile
+.rev   38;5;147   # rar recovery
+.tar_0 38;5;147   # multipart tar
+
+# === checksums / hashes ===
+.md5    38;5;109
+.sha1   38;5;109
+.sha224 38;5;109
+.sha256 38;5;109
+.sha384 38;5;109
+.sha512 38;5;109
+.shasum 38;5;109
+.sum    38;5;109
+.sig    38;5;109
+.asc    38;5;109
+.gpg    38;5;109
+.pgp    38;5;109
+.chk    38;5;109
+.ca     38;5;109
+.p12    38;5;109
+.p7b    38;5;109
+.pfx    38;5;109
+.pem    38;5;109
+.pub    38;5;109
+.CAP    38;5;109   # packet capture key dump
+
+# === disk images / virtual disks ===
+.iso   38;5;150
+.img   38;5;150
+.dmg   38;5;150
+.vhd   38;5;150
+.vhdx  38;5;150
+.vmdk  38;5;150
+.vdi   38;5;150
+.qcow  38;5;150
+.qcow2 38;5;150
+.d64   38;5;150
+.t64   38;5;150
+.d81   38;5;150
+.adf   38;5;150
+.ipf   38;5;150
+.st    38;5;150
+.msa   38;5;150
+.xdf   38;5;150
+.nrg   38;5;150
+.cue   38;5;150
+.cdi   38;5;150
+.mdf   38;5;150
+.mds   38;5;150
+.ova   38;5;150   # virtual appliance
+
+# === documents / ebooks ===
+.azw   38;5;117
+.azw3  38;5;117
+.cbr   38;5;117
+.cbz   38;5;117
+.chm   38;5;117
+.djvu  38;5;117
+.fb2   38;5;117
+.pdf   38;5;117
+.PDF   38;5;117
+.mobi  38;5;117
+.epub  38;5;117
+.odt   38;5;117
+.doc   38;5;117
+.docx  38;5;117
+.xls   38;5;117
+.xlsx  38;5;117
+.ppt   38;5;117
+.pptx  38;5;117
+.rtf   38;5;117
+.pages 38;5;117
+.numbers 38;5;117
+.key   38;5;117
+.odg   38;5;117
+.ods   38;5;117
+.mbp   38;5;117
+.blog  38;5;117
+.TXT   38;5;117
+
+# === downloads / network ===
+.torrent   38;5;218
+.magnet    38;5;218
+.aria2     38;5;218
+.flatpak   38;5;203
+.flatpakref 38;5;203
+
+# === builds / system config ===
+*Makefile        38;5;148
+*Rakefile        38;5;148
+*Dockerfile      38;5;148
+*build.xml       38;5;148
+.CMakeLists.txt  38;5;148
+.gradle          38;5;148
+.vcxproj         38;5;148
+.sln             38;5;148
+.cargo-lock      38;5;148
+
+# === plain text / markup ===
+.xml           38;5;183
+.html          38;5;183
+.htm           38;5;183
+.txt           38;5;183
+.tex           38;5;183
+.rdf           38;5;183
+*README        38;5;183
+*COPYING       38;5;183
+*INSTALL       38;5;183
+*NEWS          38;5;183
+*TODO          38;5;183
+.md            38;5;183
+.markdown      38;5;183
+.mdx           38;5;183
+.nfo           38;5;183
+.rst           38;5;183
+.adoc          38;5;183
+.org           38;5;183
+.log1          38;5;183
+.flow          38;5;183
+.har           38;5;183
+
+# === markup / configuration ===
+.yml             38;5;50
+.yaml            38;5;50
+.ini             38;5;50
+.cfg             38;5;50
+.conf            38;5;50
+.env             38;5;50
+*rc              38;5;50
+.toml            38;5;50
+.babelrc         38;5;50
+.editorconfig    38;5;50
+.eslintignore    38;5;50
+.eslintrc        38;5;50
+.jshintrc        38;5;50
+.npmignore       38;5;50
+.nvmrc           38;5;50
+.nycrc           38;5;50
+.gitattributes   38;5;50
+.gitignore       38;5;50
+.gitkeep         38;5;50
+.gitmodules      38;5;50
+.python-version  38;5;50
+.desktop         38;5;50
+.dircolors       38;5;50
+
+# === code / source ===
+.py     38;5;47
+.h      38;5;47
+.c      38;5;47
+.cpp    38;5;47
+.cxx    38;5;47
+.cc     38;5;47
+.m      38;5;47
+.mm     38;5;47
+.objc   38;5;47
+.go     38;5;47
+.sh     38;5;47
+.bash   38;5;47
+.zsh    38;5;47
+.js     38;5;47
+.ts     38;5;47
+.tsx    38;5;47
+.jsx    38;5;47
+.vue    38;5;47
+.php    38;5;47
+.rb     38;5;47
+.pl     38;5;47
+.pm     38;5;47
+.r      38;5;47
+.swift  38;5;47
+.kt     38;5;47
+.java   38;5;47
+.cs     38;5;47
+.scala  38;5;47
+.lisp   38;5;47
+.el     38;5;47
+.clj    38;5;47
+.ex     38;5;47
+.exs    38;5;47
+.dart   38;5;47
+.asm    38;5;47
+.awk    38;5;47
+.coffee 38;5;47
+.cjs    38;5;47
+.cts    38;5;47
+.mjs    38;5;47
+.jst    38;5;47
+.cutree 38;5;47
+.d      38;5;47
+.lua    38;5;47
+.nim    38;5;47
+.rs     38;5;47
+.rpyc   38;5;47
+.sed    38;5;47
+.spec   38;5;47
+.qml    38;5;47
+.vim    38;5;47
+.vbs    38;5;47
+
+# === data / structured ===
+.sqlite   38;5;225
+.sqlite3  38;5;225
+.json     38;5;225
+.jsonc    38;5;225
+.json5    38;5;225
+.sql      38;5;225
+.csv      38;5;225
+.tsv      38;5;225
+.parquet  38;5;225
+.feather  38;5;225
+.h5       38;5;225
+.hdf5     38;5;225
+.pkl      38;5;225
+.avro     38;5;225
+.b64      38;5;225
+.dat      38;5;225
+.db       38;5;225
+.mat      38;5;225
+.hdf      38;5;225
+.dlm      38;5;225
+.jwt      38;5;225
+.idx      38;5;225
+.map      38;5;225
+.vcf      38;5;225
+.vtt      38;5;225
+.psql     38;5;225
+.traineddata 38;5;225
+
+# === image ===
+.jpg   38;5;220
+.JPG   38;5;220
+.jpeg  38;5;220
+.gif   38;5;220
+.bmp   38;5;220
+.tga   38;5;220
+.tif   38;5;220
+.tiff  38;5;220
+.png   38;5;220
+.PNG   38;5;220
+.webp  38;5;220
+.heic  38;5;220
+.avif  38;5;220
+.avifs 38;5;220
+.svg   38;5;220
+.svgz  38;5;220
+.psd   38;5;220
+.ai    38;5;220
+.xcf   38;5;220
+.ico   38;5;220
+.icns  38;5;220
+.bdf   38;5;220
+.dfont 38;5;220
+.eot   38;5;220
+.eps   38;5;220
+.exr   38;5;220
+.fnt   38;5;220
+.kra   38;5;220
+
+# === audio ===
+.aac   38;5;193
+.mp3   38;5;193
+.flac  38;5;193
+.opus  38;5;193
+.ogg   38;5;193
+.wav   38;5;193
+.m4a   38;5;193
+.mka   38;5;193
+.mid   38;5;193
+.midi  38;5;193
+.oga   38;5;193
+.spx   38;5;193
+.aiff  38;5;193
+.alac  38;5;193
+.m3u   38;5;193
+.m3u8  38;5;193
+.sid   38;5;193   # Commodore SID audio
+
+# === AI / Machine Learning ===
+.pt          38;5;141
+.pth         38;5;141
+.safetensors 38;5;141
+.ckpt        38;5;141
+.joblib      38;5;141
+.dill        38;5;141
+.lora        38;5;141
+.onnx        38;5;141
+.tflite      38;5;141
+.mlmodel     38;5;141
+.mar         38;5;141
+
+# === video ===
+.mp4   38;5;80
+.mkv   38;5;80
+.mov   38;5;80
+.avi   38;5;80
+.wmv   38;5;80
+.flv   38;5;80
+.webm  38;5;80
+.mpg   38;5;80
+.mpeg  38;5;80
+.m4v   38;5;80
+.3gp   38;5;80
+.ogv   38;5;80
+.f4v   38;5;80
+.mts   38;5;80
+.ismv  38;5;80
+.obu   38;5;80
+.swf   38;5;80
+.vpx   38;5;80
+.vpp   38;5;80
+
+# === suppressed / temporary ===
+.log         38;5;244
+.bak         38;5;244
+.aux         38;5;244
+.lof         38;5;244
+.lol         38;5;244
+.lot         38;5;244
+.out         38;5;244
+.toc         38;5;244
+.bbl         38;5;244
+.blg         38;5;244
+*~           38;5;244
+*#           38;5;244
+.part        38;5;244
+.incomplete  38;5;244
+.swp         38;5;244
+.tmp         38;5;244
+.temp        38;5;244
+.o           38;5;244
+.pyc         38;5;244
+.class       38;5;244
+.cache       38;5;244
+.lock        38;5;244
+.old         38;5;244
+.nomedia     38;5;244
+.retry       38;5;244
+.mitm        38;5;244
+.sample      38;5;244
+.timestamp   38;5;244
+
+# === executables / binaries ===
+.exe      38;5;203
+.com      38;5;203
+.bat      38;5;203
+.cmd      38;5;203
+.msi      38;5;203
+.dll      38;5;203
+.sys      38;5;203
+.scr      38;5;203
+.ocx      38;5;203
+.app      38;5;203
+.elf      38;5;203
+.bin      38;5;203
+.so       38;5;203
+.a        38;5;203
+.prg      38;5;203
+.p00      38;5;203
+.crt      38;5;203
+.run      38;5;203
+.appimage 38;5;203
+.AppImage 38;5;203
+.click    38;5;203
+.whl      38;5;203
+.qpkg     38;5;203
+.xapk     38;5;203
+.xpi      38;5;203
+.pro      38;5;203
