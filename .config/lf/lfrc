@@ -25,6 +25,8 @@ map zp toggle-preview
 cmd yank-path $printf '%s' "$f" | xclip -i -selection clipboard
 map Y yank-path
 
+map <enter> &xdg-open $f
+
 cmd bulk-rename ${{
     old="$(mktemp)"
     new="$(mktemp)"
