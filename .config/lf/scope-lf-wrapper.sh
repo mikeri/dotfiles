@@ -1,2 +1,2 @@
 #!/bin/sh
-"$HOME/.config/ranger/scope.sh" "${1}" "${2}" "${3}" "" "" || true
+"$HOME/.config/lf/scope.sh" "${1}" "${2}" "${3}" "" "" || true

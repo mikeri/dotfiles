@@ -10,7 +10,7 @@ set timefmt "2006-01-02 15:04"
 set selectfmt "\033[0;39;48;5;86m"
 set statfmt  "\033[0;38;5;118;48;5;236m%p\033[0;38;5;250;48;5;236m| %c| %u| %g| %S| %t | \033[38;5;244m-> \033[38;5;254m%l\033[38;5;250m |                                                                                                                                                   "
 map i $LESSOPEN='| ~/.config/lf/scope-lf-wrapper.sh %s' less -R $f
-cmd open $set -f; rifle -p 0 $fx
+cmd open $set -f; ~/.config/lf/rifle.sh $fx
 
 cmd toggle-preview %{{
     if [ "$lf_preview" = true ]; then
