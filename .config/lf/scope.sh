@@ -310,6 +310,7 @@ handle_mime() {
             if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
                 exit 2
             fi
+            batcat --color=always --style="plain" -- "${FILE_PATH}" && exit 5
             if [[ "$( tput colors )" -ge 256 ]]; then
                 local pygmentize_format='terminal256'
                 local highlight_format='xterm256'
@@ -323,7 +324,7 @@ handle_mime() {
             env COLORTERM=8bit bat --color=always --style="plain" \
                 -- "${FILE_PATH}" && exit 5
             pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}"\
-                -- "${FILE_PATH}" && exit 5
+                -- "${FILE_PATH}" && exit 5 
             exit 2;;
          ## XML
          application/xml)
@@ -344,10 +345,10 @@ handle_mime() {
         ## Image
         image/*)
             ## Preview as text conversion
+            chafa -s "${PV_WIDTH}" --animate=off -- "${FILE_PATH}" && exit 4
             catimg -w $((PV_WIDTH * 2)) -- "${FILE_PATH}" && exit 4
             cascii-image-converter --color --width "${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
             img2txt.py --color --ansi --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
-            chafa -c 16 -s "${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
             term-image --cli --no-align -w "${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
             exiftool "${FILE_PATH}" && exit 5
             img2txt --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
@@ -368,26 +369,40 @@ handle_mime() {
 }
 
 handle_fallback() {
-    echo '----- File Type Classification -----' && file --dereference --brief -- "${FILE_PATH}" && exit 5
+    {
+    file --brief -- "${FILE_PATH}"
+    echo
+    printf "mimetype "
+    file --brief --mime-type -- "${FILE_PATH}"
+    printf "(file)"
+    echo
+    echo
+    printf "mimetype "
+    mimetype --brief -- "${FILE_PATH}"
+    printf "(mimetype)"
+} | fmt -w "${PV_WIDTH}"
     exit 1
 }
 
 
 # MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
 MIMETYPE="$( mimetype -Lb -- "${FILE_PATH}" )"
+MIMETYPE2="$( file --brief --mime-type -- "${FILE_PATH}" )"
 if [[ "${PV_IMAGE_ENABLED}" == 'True' ]]; then
     handle_image "${MIMETYPE}"
 fi
 
 size_check() {
     if (( $(stat -c%s "${FILE_PATH}") > $1 )); then
-        echo "Skipping preview, file larger than $1 bytes"
-        handle_fallback "${MIMETYPE}"
+        echo "Skipping preview, file larger than $1 bytes" | fmt -w "${PV_WIDTH}"
+        echo
+        handle_fallback
     fi
 }
 
 handle_extension
 handle_mime "${MIMETYPE}"
+handle_mime "${MIMETYPE2}"
 handle_fallback
 
 exit 1
