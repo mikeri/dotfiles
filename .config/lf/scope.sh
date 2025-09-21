@@ -3,6 +3,9 @@
 set -o noclobber -o noglob -o nounset -o pipefail
 IFS=$'\n'
 
+# Forward stderr to stdout so lf displays opener errors in the preview pane
+exec 2>&1
+
 ## If the option `use_preview_script` is set to `true`,
 ## then this script will be called and its output will be displayed in ranger.
 ## ANSI color codes are supported.
@@ -308,6 +311,7 @@ handle_mime() {
         text/* | application/x-shellscript)
             ## Syntax highlight
             if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
+                head -n ${PV_HEIGHT} -- "${FILE_PATH}" 
                 exit 2
             fi
             batcat --color=always --style="plain" -- "${FILE_PATH}" && exit 5
@@ -325,14 +329,17 @@ handle_mime() {
                 -- "${FILE_PATH}" && exit 5
             pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}"\
                 -- "${FILE_PATH}" && exit 5 
+            head -n ${PV_HEIGHT} -- "${FILE_PATH}" 
             exit 2;;
          ## XML
          application/xml)
              ## Syntax highlight
              if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
+                head -n ${PV_HEIGHT} -- "${FILE_PATH}" 
                  exit 2
              fi
              env COLORTERM=8bit xmllint --format "${FILE_PATH}" | env COLORTERM=8bit bat --color=always --style="plain" && exit 5
+                head -n ${PV_HEIGHT} -- "${FILE_PATH}" 
              exit 2;;
 
         ## DjVu
