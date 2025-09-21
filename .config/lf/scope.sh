@@ -366,8 +366,10 @@ handle_mime() {
         audio/x-mod)
             xmp -vC --load-only "${FILE_PATH}" 2>&1 | tail +8 && { dump | trim; exit 5; } || exit 1;;
         video/* | audio/*)
-            mediainfo "${FILE_PATH}" && exit 5
-            exiftool "${FILE_PATH}" && exit 5
+            mediainfo --output='Video;%Duration/String% - %Format% - %CodecID%' -- "${FILE_PATH}"
+            ffmpeg -loglevel quiet -i "${FILE_PATH}" -ss 00:00:01.000 -vframes 1 -f image2 -vcodec png - | chafa -s "${PV_WIDTH}" -
+            exit 5
+            # exiftool "${FILE_PATH}" && exit 5
             exit 1;;
 
         application/vnd.sqlite3)
