@@ -1,16 +1,21 @@
 # vim:ft=sh
+
+# -- basic settings --
 set ifs "\n"
 set period 1
-set previewer ~/.config/lf/scope-lf-wrapper.sh
 
+# -- appearance --
 set errorfmt "\033[1;38;5;226;48;5;52m"
 set promptfmt "\033[0;38;5;159;48;5;236m%u\033[38;5;102m@\033[38;5;186m%h \033[38;5;246m%d\033[38;5;252m%f%S"
 set rulerfmt "\033[0;38;5;250;48;5;236m | %a | %p | %m | %c | \033[1;38;5;48m%s\033[22;38;5;250m | %f | \033[38;5;245m%i\033[38;5;240m/\033[38;5;245m%t"
 set timefmt "2006-01-02 15:04"
 set selectfmt "\033[0;39;48;5;86m"
 set statfmt  "\033[0;38;5;118;48;5;236m%p\033[0;38;5;250;48;5;236m| %c| %u| %g| %S| %t | \033[38;5;244m-> \033[38;5;254m%l\033[38;5;250m |                                                                                                                                                   "
+# -- openers and preview --
+set previewer ~/.config/lf/scope-lf-wrapper.sh
 map i $LESSOPEN='| ~/.config/lf/scope-lf-wrapper.sh %s' less -R $f
 cmd open $set -f; ~/.config/lf/rifle.sh $fx
+map <enter> &xdg-open $f
 
 cmd toggle-preview %{{
     if [ "$lf_preview" = true ]; then
@@ -22,10 +27,9 @@ cmd toggle-preview %{{
 
 map zp toggle-preview
 
+# -- utils --
 cmd yank-path $printf '%s' "$f" | xclip -i -selection clipboard
 map Y yank-path
-
-map <enter> &xdg-open $f
 
 cmd bulk-rename ${{
     old="$(mktemp)"
@@ -81,6 +85,7 @@ map xR $chmod -R $fx
 map xw $chmod +w $fx
 map xW $chmod -W $fx
 
+# -- tag based settings --
 cmd on-cd ${{
     TAGFILE="$HOME/.local/share/lf/tags"
     cwd=$(pwd)
@@ -104,6 +109,7 @@ cmd on-cd ${{
     esac
 }}
 
+# -- archives --
 cmd compress %{{
     name="$1"
     if [ -z "$name" ]; then
@@ -121,6 +127,7 @@ cmd compress %{{
 
 map C compress
 
+# -- use reflink when available --
 cmd paste-cow &{{
     set -- $(cat ~/.local/share/lf/files)
     mode="$1"
@@ -162,3 +169,6 @@ cmd paste-cow &{{
 }}
 
 map p paste-cow
+
+# -- thumbnails --
+map T $nsxiv -ft $PWD
