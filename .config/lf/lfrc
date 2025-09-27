@@ -176,3 +176,6 @@ map p paste-cow
 
 # -- thumbnails --
 map T $nsxiv -ft $PWD
+
+# -- jump to first file --
+map gf :set dironly true; bottom; set dironly false; down
