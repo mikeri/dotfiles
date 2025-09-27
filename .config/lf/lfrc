@@ -104,10 +104,14 @@ cmd on-cd ${{
         d)
             lf -remote "send $id set sortby time"
             lf -remote "send $id set reverse"
+            lf -remote "send $id set dirfirst false"
             lf -remote "send $id top"
             ;;
     esac
 }}
+
+# -- set default options --
+map sd :{{ set sortby name; set reverse false; set dirfirst; }}
 
 # -- archives --
 cmd compress %{{
