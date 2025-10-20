@@ -34,8 +34,8 @@ zstyle ':vcs_info:*' actionformats '%F{240}(%F{246}%b%F{240})%F{red}%u%f '
 
 precmd() { vcs_info 2>/dev/null }
 
-PROMPT='%F{240}%25<...<%F{cyan}%~%F{yellow}%B>%b%f '
-RPROMPT='${vcs_info_msg_0_}%F{yellow}%n%f%F{240}@%F{blue}%m%f%(?,,%F{red} [%?]%f)'
+PROMPT='%F{240}%25<...<%F{cyan}%~%(!.%F{red}.%F{yellow}%B)>%b%f '
+RPROMPT='${vcs_info_msg_0_}%(!.%K{88}%B.)%F{yellow}%n%b%k%f%F{240}@%F{blue}%m%f%(?,,%F{red} [%?]%f)'
 
 # --- Android stuff -------------------------------------------------
 ANDROID_HOME=/home/mikeri/Development/Android/androidsdk 
