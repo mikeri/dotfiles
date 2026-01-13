@@ -40,7 +40,7 @@ bottom = true
 
 modules-left = menu i3
 modules-center = cmus ping
-modules-right = xkeyboard reboot backup backup_interrupted apt dunst mail comfyui memory cpu temperature volume date time
+modules-right = xkeyboard reboot backup backup_interrupted apt dunst mail comfyui wownero memory cpu temperature volume date time
 
 scroll-up = #i3.prev
 scroll-down = #i3.next
@@ -51,7 +51,7 @@ format-prefix-foreground = ${colors.foreground-alt}
 
 [bar/left]
 inherit = bar/right
-monitor = ${env:MONITOR:DVI-D-0}
+monitor = ${env:HDMI-1}
 tray-position = right
 tray-padding = 2
 
@@ -288,4 +288,10 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-foreground = ${colors.warn-foreground}
 format-underline = ${colors.secondary}
 format-background = ${colors.warn-background}
-; vim:ft=dosini
+
+[module/wownero]
+type = custom/script
+exec = ~/.config/polybar/wownero.sh
+interval = 60
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
