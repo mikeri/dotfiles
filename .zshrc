@@ -104,6 +104,26 @@ export LESS="-j 4 -i"
 eval $(dircolors ~/.config/dircolors)
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
+# --- incus / lxd cloud init --------------------------------------
+
+lxub() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: lxub <instance-name>"
+    return 1
+  fi
+
+  local cloud_init="$(curl -s 'https://mikeri.net/files/cloud-init.yml')"
+
+  if command -v incus &>/dev/null; then
+    incus launch images:ubuntu/24.04/cloud "$1" --config=cloud-init.user-data="$cloud_init"
+  elif command -v lxc &>/dev/null; then
+    lxc launch ubuntu:24.04 "$1" -c user.user-data="$cloud_init"
+  else
+    echo "Error: Neither incus nor lxc is installed"
+    return 1
+  fi
+}
+
 # --- completion, ripped from oh-my-zsh ---------------------------
 zmodload -i zsh/complist
 
