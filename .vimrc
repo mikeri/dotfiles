@@ -31,7 +31,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'ervandew/supertab'
-Plug 'ap/vim-css-color'
 
 call plug#end()
 
