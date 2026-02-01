@@ -18,8 +18,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit load "zsh-users/zsh-syntax-highlighting"
 zinit load "zsh-users/zsh-history-substring-search"
 zinit load "zsh-users/zsh-completions"
-zinit load "bilelmoussaoui/flatpak-zsh-completion"
-zinit load 'endaaman/lxd-completion-zsh'
 
 # --- prompt --------------------------------------------------------
 setopt prompt_subst
