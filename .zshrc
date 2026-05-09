@@ -254,6 +254,7 @@ function ranger {
     fi
     command rm -f -- "$tempfile" 2>/dev/null
 }
+alias svim='sudo TERM="$TERM" vim -u "$HOME/.vimrc"'
 
 # --- Keyboard handling, from zshwiki.org ---------------------------
 # create a zkbd compatible hash;
