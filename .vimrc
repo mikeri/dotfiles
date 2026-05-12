@@ -20,7 +20,7 @@ set sw=4
 
 nnoremap <SPACE> <Nop>
 let mapleader="\<Space>"
-
+syntax on
 
 " -- dirs --
 let s:vimdir = expand('~/.config/vim')
