@@ -81,20 +81,16 @@ then
     export TERM=xterm-256color
 fi
 
-# Workaround for mouse support in mosh:
-# perl -E ' print "\e[?1005h\e[?1002h" '
-
-# PATH=~/.local/bin:$PATH
-# export PATH
-#
 # Less colors
-export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\E[0m'           # end mode
-export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\E[01;38;5;155m' # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'           # end underline
-export LESS_TERMCAP_us=$'\E[04;38;5;253m'    # begin underline
+export MANROFFOPT="-c"
+export LESS_TERMCAP_mb=$'\E[01;31m'                # begin blinking
+export LESS_TERMCAP_md=$'\E[01;38;5;116m'          # begin bold
+export LESS_TERMCAP_me=$'\E[0m'                    # end mode
+export LESS_TERMCAP_so=$'\e''[38;5;228;48;5;237m'  # begin standout-mode - info box
+export LESS_TERMCAP_se=$'\E[0m'                    # end standout-mode
+export LESS_TERMCAP_ue=$'\E[0m'                    # end underline
+export LESS_TERMCAP_us=$'\E[04;38;5;253m'          # begin underline
+
 # Less options
 export LESS="-j 4 -i -R -F"
 
