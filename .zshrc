@@ -96,7 +96,7 @@ export LESS_TERMCAP_so=$'\E[01;38;5;155m' # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;253m'    # begin underline
 # Less options
-export LESS="-j 4 -i"
+export LESS="-j 4 -i -R -F"
 
 # --- dircolors ---------------------------------------------------
 eval $(dircolors ~/.config/dircolors)
