@@ -7,17 +7,11 @@ if type "fortune" > /dev/null; then
     fortune | fold -s -w $COLS
 fi
 
-# --- Flatpak --------------------------------------------------------
+# --- Flatpak -------------------------------------------------------
 PATH=$PATH:/var/lib/flatpak/exports/bin
 
-# --- zinit ----------------------------------------------------------
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-source "${ZINIT_HOME}/zinit.zsh"
-zinit load "zsh-users/zsh-syntax-highlighting"
-zinit load "zsh-users/zsh-history-substring-search"
-zinit load "zsh-users/zsh-completions"
+# --- plugins (no plugin manager) -----------------------------------
+source ~/.local/share/zsh/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
 
 # --- prompt --------------------------------------------------------
 setopt prompt_subst
@@ -34,12 +28,6 @@ precmd() { vcs_info 2>/dev/null }
 
 PROMPT='%F{240}%25<...<%F{cyan}%~%(!.%F{red}.%F{yellow}%B)>%b%f '
 RPROMPT='${vcs_info_msg_0_}%(!.%K{88}%B.)%F{yellow}%n%b%k%f%F{240}@%F{blue}%m%f%(?,,%F{red} [%?]%f)'
-
-# --- Android stuff -------------------------------------------------
-ANDROID_HOME=/home/mikeri/Development/Android/androidsdk 
-# PATH=${PATH}:${ANDROID_HOME}/tools 
-PATH=${PATH}:/home/mikeri/Development/Android/platform-tools 
-# PATH=$PATH:~/Development/Android-SDKs/platform-tools
 
 # --- misc config/customization -------------------------------------
 #set history size
@@ -279,3 +267,5 @@ fi
 if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi
+
+source ~/.local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
