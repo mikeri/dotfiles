@@ -1,0 +1,19 @@
+{{with .Message -}}
+{{. -}}
+{{else with .Stat -}}
+{{.Permissions | printf "\033[0;38;5;118;48;5;236m%s\033[0;38;5;250;48;5;236m" -}}
+{{with .LinkCount}} {{.}}{{end -}}
+{{with .User}} {{.}}{{end -}}
+{{with .Group}} {{.}}{{end -}}
+{{.Size | humanize | printf " %5s" -}}
+{{.ModTime | printf " %s" -}}
+{{with .Target}} {{printf "\033[38;5;244m-> \033[38;5;254m%s\033[38;5;250m" .}}{{end -}}
+{{end -}}
+{{.SPACER -}}
+{{with .Keys}} {{.}}{{end -}}
+{{with .Progress}} {{join . " "}}{{end -}}
+{{with .Cut}} {{len . | printf "%d"}}{{end -}}
+{{with .Copy}} {{len . | printf "%d"}}{{end -}}
+{{with .Select}} {{len . | printf "\033[1;38;5;48m%d\033[22;38;5;250m"}}{{end -}}
+{{with .Filter}} {{join . " "}}{{end -}}
+{{printf " \033[38;5;245m%d\033[38;5;240m/\033[38;5;245m%d" .Index .Total -}}
