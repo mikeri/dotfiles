@@ -1,19 +1,26 @@
+{{- define "fg" -}}{{printf "\033[38;5;%vm" .}}{{- end -}}
+{{- define "bg" -}}{{printf "\033[48;5;%vm" .}}{{- end -}}
+{{- define "reset" -}}{{"\033[0m"}}{{- end -}}
+{{- define "bold" -}}{{"\033[1m"}}{{- end -}}
+{{- define "nobold" -}}{{"\033[22m"}}{{- end -}}
 {{with .Message -}}
 {{. -}}
 {{else with .Stat -}}
-{{.Permissions | printf "\033[0;38;5;118;48;5;236m%s\033[0;38;5;250;48;5;236m" -}}
+{{template "reset"}}{{template "bg" 236 -}}
+{{template "fg" 118}}{{.Permissions}}{{template "fg" 250 -}}
 {{with .LinkCount}} {{.}}{{end -}}
-{{with .User}} {{.}}{{end -}}
-{{with .Group}} {{.}}{{end -}}
-{{.Size | humanize | printf " %5s" -}}
+{{with .User}} {{template "fg" 159}}{{.}}{{template "fg" 250}}{{end -}}
+{{with .Group}} {{template "fg" 159}}{{.}}{{template "fg" 250}}{{end -}}
+{{template "fg" 226}}{{.Size | humanize | printf "%5s"}}{{template "fg" 250 -}}
 {{.ModTime | printf " %s" -}}
-{{with .Target}} {{printf "\033[38;5;244m-> \033[38;5;254m%s\033[38;5;250m" .}}{{end -}}
+{{with .Target}} {{template "fg" 244}}-> {{template "fg" 254}}{{.}}{{template "fg" 250}}{{end -}}
 {{end -}}
 {{.SPACER -}}
 {{with .Keys}} {{.}}{{end -}}
 {{with .Progress}} {{join . " "}}{{end -}}
 {{with .Cut}} {{len . | printf "%d"}}{{end -}}
 {{with .Copy}} {{len . | printf "%d"}}{{end -}}
-{{with .Select}} {{len . | printf "\033[1;38;5;48m%d\033[22;38;5;250m"}}{{end -}}
+{{with .Select}} {{template "bold"}}{{template "fg" 48}}{{len .}}{{template "nobold"}}{{template "fg" 250}}{{end -}}
 {{with .Filter}} {{join . " "}}{{end -}}
-{{printf " \033[38;5;245m%d\033[38;5;240m/\033[38;5;245m%d" .Index .Total -}}
+{{" " -}}
+{{template "fg" 245}}{{.Index}}{{template "fg" 240}}/{{template "fg" 245}}{{.Total -}}
