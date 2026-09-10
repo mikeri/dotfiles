@@ -31,6 +31,7 @@ for_window [window_type="popup_menu"] floating enable
 for_window [window_type="tooltip"] floating enable
 for_window [window_type="tooltip"] border normal
 for_window [window_role="^Popup$"] floating enable
+for_window [class="^imv$"] floating enable
 for_window [class="^Popup$"] floating enable
 for_window [class="^mpv$"] floating enable
 for_window [class="^feh$"] floating enable
@@ -154,6 +155,9 @@ bindsym $mod+a focus parent
 
 # apply normal border
 bindsym $mod+b border pixel 2
+
+# remove border
+bindsym $mod+Shift+B border none
 
 # focus the child container
 #bindcode $mod+d focus child
