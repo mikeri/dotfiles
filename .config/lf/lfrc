@@ -86,8 +86,9 @@ map xw $chmod +w $fx
 map xW $chmod -W $fx
 
 # -- tag based settings --
-cmd on-cd ${{
+cmd on-cd &{{
     TAGFILE="$HOME/.local/share/lf/tags"
+    [ -r "$TAGFILE" ] || exit 0
     cwd=$(pwd)
     tag=""
 
