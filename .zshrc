@@ -106,6 +106,19 @@ lxub() {
   fi
 }
 
+# --- cd with lf --------------------------------------------------
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        if [ -d "$dir" ] && [ "$dir" != "$(pwd)" ]; then
+            cd "$dir"
+        fi
+    fi
+}
+
 # --- completion, ripped from oh-my-zsh ---------------------------
 zmodload -i zsh/complist
 
