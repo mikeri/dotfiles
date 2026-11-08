@@ -127,7 +127,7 @@ handle_extension() {
             iconv -f cp437 "${FILE_PATH}" && \
                 { dump | trim | fmt -s -w ${PV_WIDTH}; exit 0; } || exit 4;;
         sid)
-            sidinfo "${FILE_PATH}" | sed -e '1!b;s/.*/\x1B[47;30m&\x1B[40;36m/' 
+            sidinfo "${FILE_PATH}" | sed -E $'s/^([^:]*[^: ])( *): (.*)$/\033[36m\\1\\2\033[90m:\033[33m \\3\033[0m/'
             exit 0;;
         d64)
             c1541 -attach "${FILE_PATH}" -list | sed -e '1!b;s/.*/\x1B[47;30m&\x1B[40;36m/' 
