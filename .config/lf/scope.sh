@@ -309,6 +309,12 @@ handle_mime() {
             exit 1;;
 
         ## Text
+        text/markdown)
+            if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
+                head -n ${PV_HEIGHT} -- "${FILE_PATH}" 
+                exit 2
+            fi
+            glow -s ~/.config/glow/dark-nopadding.json -- "${FILE_PATH}" && exit 5;;
         text/* | application/x-shellscript)
             ## Syntax highlight
             if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
